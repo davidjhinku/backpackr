@@ -1,0 +1,16 @@
+Trips 
+    - has_many itinerary items 
+    - has_many "travelers" / users 
+    `trips = { destination: ,trip_name: , travelers: [{ ObjectID } ,  ], comments, itinerary_items: { } } `
+
+{ 
+    id: ,
+    destination: ,
+    trip_name: ,
+    travelers: [ `ObjectIds` ],
+    comments: [ `ObjectIds` ], 
+    itinerary_items" [ `ObjectIds` ]
+}
+
+Itinerary Item
+    - 
