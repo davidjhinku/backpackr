@@ -1,4 +1,5 @@
-Trips 
+Trips
+    - has_one final_itinerary
     - has_many itinerary items 
     - has_many "travelers" / users 
     `trips = { destination: ,trip_name: , travelers: [{ ObjectID } ,  ], comments, itinerary_items: { } } `
@@ -12,5 +13,30 @@ Trips
     itinerary_items" [ `ObjectIds` ]
 }
 
-Itinerary Item
-    - 
+
+
+Itinerary Item (belongs_to a trip)
+    { 
+        id: ,
+        itinerary_item_name: ,
+        category: ,
+        date: ,
+        address: ,
+        description: ,
+        timestamp,
+    }
+
+
+Comments 
+    - belongs_to a user 
+    {
+        id: ,
+        username: ,
+        comment: ,
+        timestamp,
+    }
+
+
+Final Itinerary (our joins table) 
+    - belongs_to trip 
+    - has_many itinerary_items
