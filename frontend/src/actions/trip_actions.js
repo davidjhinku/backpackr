@@ -9,6 +9,10 @@ export const receiveUserTrips = trips => ({
     trips
 });
 
+export const receiveATrip = trip => ({
+    
+})
+
 export const receiveNewTrip = trip => ({
     type: RECEIVE_NEW_TRIP,
     trip
