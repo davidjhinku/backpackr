@@ -1,0 +1,14 @@
+// Jose Miralles
+// This is the color pallete being used: https://colorhunt.co/palette/225760
+// This is a place-holder pallete, so change the link, or remove it once a pallete is chosen.
+
+$main-color: #f05454;
+$secondary-color: red; // Probably won't use this one, since it's really hard not to make things look tacky with two colors.
+
+// Mostly used for text.
+$dark: #222831;
+$dark-secondary: lighten($dark, 5%);
+
+// We are probably want to switch to lighter whites than these.
+$light: #dddddd;
+$light-secondary: darken($light, 5%);
