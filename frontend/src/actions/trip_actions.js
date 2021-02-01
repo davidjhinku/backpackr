@@ -10,7 +10,8 @@ export const receiveUserTrips = trips => ({
 });
 
 export const receiveATrip = trip => ({
-    
+    type: RECEIVE_A_TRIP,
+    trip
 })
 
 export const receiveNewTrip = trip => ({
@@ -18,13 +19,17 @@ export const receiveNewTrip = trip => ({
     trip
 });
 
-export const fetchUserTrips = id => dispatch => (
-    fetchUserTrips(id)
+export const fetchUserTrips = userId => dispatch => (
+    APIUtil.fetchAllTrips(userId)
         .then(trips => dispatch(receiveUserTrips(trips)))
         .catch(err => console.log(err))
 );
 
-// export const fetchATrip = 
+export const fetchATrip = tripId => dispatch => (
+    APIUtil.fetchTrip(tripId)
+        .then(trip => dispatch(receiveATrip(trip)))
+        .catch(err => console.log(err))
+)
 
 export const createTrip = data => dispatch => (
     createTrip(data)
