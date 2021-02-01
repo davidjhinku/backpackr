@@ -35,7 +35,7 @@ export const signup = user => dispatch => (
     ), err => (
         dispatch(receiveErrors(err.response.data))
     ))
-);
+)
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
 export const login = user => dispatch => (
@@ -46,13 +46,13 @@ export const login = user => dispatch => (
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded))
     })
-    .catch(err => {
-        dispatch(receiveErrors(err.response.data));
-    })
+        .catch(err => {
+            dispatch(receiveErrors(err.response.data));
+        })
 )
 
 export const logout = () => dispatch => {
-    localStorage.removeItem('jwtToken')
-    APIUtil.setAuthToken(false)
+    localStorage.removeItem('jwtToken') //remove token from local storage
+    APIUtil.setAuthToken(false) //remove token from common axios header
     dispatch(logoutUser())
-};
+}
