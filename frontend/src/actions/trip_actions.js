@@ -1,4 +1,4 @@
-import * as APIUtil from '' //to import from the trip util folder
+import * as APIUtil from '../util/trip_api_util'
 
 export const RECEIVE_USER_TRIPS = 'RECEIVE_USER_TRIPS';
 export const RECEIVE_A_TRIP = 'RECEIVE_A_TRIP';
