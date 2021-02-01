@@ -5,14 +5,14 @@ class Profile extends React.Component {
         super(props);
     }
     
-    componentWillMount() {
-        console.log(this.props.currentUser.id)
-        this.props.fetchUserTweets(this.props.currentUser.id);
-    }
+    // componentWillMount() {
+    //     console.log(this.props.currentUser.id)
+    //     this.props.fetchUserTweets(this.props.currentUser.id);
+    // }
 
-    componentWillReceiveProps(newState) {
-        this.setState({ tweets: newState.tweets });
-    }   
+    // componentWillReceiveProps(newState) {
+    //     this.setState({ tweets: newState.tweets });
+    // }   
     
     render() {
       return (
