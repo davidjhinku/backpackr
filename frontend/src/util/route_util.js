@@ -8,9 +8,8 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-        // Redirect to the tweets page if the user is authenticated
-      <Redirect to="/tweets" />
-    )
+        <Redirect to='/profile' /> //redirect to profile if user is authenticated
+      )
   )} />
 );
 
@@ -21,9 +20,8 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
       loggedIn ? (
         <Component {...props} />
       ) : (
-        // Redirect to the login page if the user is already authenticated
-        <Redirect to="/login" />
-      )
+          <Redirect to='login' />
+        )
     }
   />
 );
@@ -31,9 +29,8 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
 // Use the isAuthenitcated slice of state to determine whether a user is logged in
 
 const mapStateToProps = state => (
-  {loggedIn: state.session.isAuthenticated}
+  { loggedIn: state.session.isAuthenticated }
 );
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
-
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
