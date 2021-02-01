@@ -6,9 +6,10 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Backpackr</h1>
-        <Link to={'/signup'}>Signup</Link>
-        <Link to={'/login'}>Login</Link>
+        <h1>Backpackr - On the Main page</h1>
+        <footer>
+            Probably not Copyright &copy; 2021 Backpackr
+        </footer>
       </div>
     );
   }
