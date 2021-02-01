@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MainPage extends React.Component {
 
@@ -6,8 +7,8 @@ class MainPage extends React.Component {
     return (
       <div>
         <h1>Backpackr</h1>
-        <h2><a href="/signup">Sign up</a></h2>
-        <a href="/login">Login</a>
+        <Link to={'/signup'}>Signup</Link>
+        <Link to={'/login'}>Login</Link>
       </div>
     );
   }
