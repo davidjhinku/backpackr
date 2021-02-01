@@ -1,6 +1,7 @@
-import {} from '' //to import from the trip util folder
+import * as APIUtil from '' //to import from the trip util folder
 
 export const RECEIVE_USER_TRIPS = 'RECEIVE_USER_TRIPS';
+export const RECEIVE_A_TRIP = 'RECEIVE_A_TRIP';
 export const RECEIVE_NEW_TRIP = 'RECEIVE_NEW_TRIP';
 
 export const receiveUserTrips = trips => ({
@@ -14,10 +15,12 @@ export const receiveNewTrip = trip => ({
 });
 
 export const fetchUserTrips = id => dispatch => (
-    fetchUsetTrips(id)
+    fetchUserTrips(id)
         .then(trips => dispatch(receiveUserTrips(trips)))
         .catch(err => console.log(err))
 );
+
+// export const fetchATrip = 
 
 export const createTrip = data => dispatch => (
     createTrip(data)
