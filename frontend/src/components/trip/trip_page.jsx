@@ -8,6 +8,7 @@ import ItineraryItemContainer from '../itinerary_item/itinerary_item_container';
 class TripPage extends React.Component {
 
     componentDidMount() {
+        debugger
         this.props.fetchATrip(this.props.tripId)
     }
 

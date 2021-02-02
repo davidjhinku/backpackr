@@ -6,9 +6,12 @@ class CreateTrip extends React.Component {
         super(props)
         this.state = {
             destination: '',
-            trip_name: '',
-            start_date: '',
-            end_date: '',
+            tripName: '',
+            startDate: '',
+            endDate: '',
+            users: [],
+            comments: [],
+            itineraryItems: [],
             errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -29,12 +32,19 @@ class CreateTrip extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let trip = {
-            location: this.state.location,
-            start_date: this.state.start_date,
-            end_date: this.state.end_date
+            destination: this.state.destination,
+            tripName: this.state.tripName,
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
+            users: this.state.users,
+            comments: this.state.comments,
+            itinerary_item: this.state.itineraryItems,
         };
+
         this.props.createTrip(trip)
-        .then(this.props.history.push(`/trips/${trip.id}`))
+        .then(returnedTrip => {
+            this.props.history.push(`/trips/${returnedTrip.trip.data._id}`);
+        });
     }
     
     componentWillUnmount() {
@@ -64,8 +74,8 @@ class CreateTrip extends React.Component {
                         <div>
                             <input className='create-trip-input-element'
                                 type="text"
-                                value={this.state.trip_name}
-                                onChange={this.handleChange('trip_name')}
+                                value={this.state.tripName}
+                                onChange={this.handleChange('tripName')}
                                 placeholder='Trip Name'
                             />
                             <br />
@@ -76,7 +86,7 @@ class CreateTrip extends React.Component {
                                 type="text"
                                 value={this.state.destination}    
                                 onChange={this.handleChange('destination')}
-                                placeholder='Location'
+                                placeholder='Destination'
                             />
                             <br/>
                         </div>
@@ -84,14 +94,14 @@ class CreateTrip extends React.Component {
                         <div>
                             <input className='create-trip-date-element'
                                 type="date"
-                                value={this.state.start_date}
-                                onChange={this.handleChange('start_date')}
+                                value={this.state.startDate}
+                                onChange={this.handleChange('startDate')}
                             />
                         </div>
                             <input className='create-trip-date-element'
                                 type="date"
-                                value={this.state.end_date}
-                                onChange={this.handleChange('end_date')}
+                                value={this.state.endDate}
+                                onChange={this.handleChange('endDate')}
                             />
                         <div>
 
