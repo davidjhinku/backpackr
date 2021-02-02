@@ -3,6 +3,7 @@ import * as APIUtil from '../util/trip_api_util'
 export const RECEIVE_USER_TRIPS = 'RECEIVE_USER_TRIPS';
 export const RECEIVE_A_TRIP = 'RECEIVE_A_TRIP';
 export const RECEIVE_NEW_TRIP = 'RECEIVE_NEW_TRIP';
+export const RECEIVE_TRIP_ERRORS = 'RECEIVE_TRIP_ERRORS'
 
 export const receiveUserTrips = trips => ({
     type: RECEIVE_USER_TRIPS,
@@ -19,20 +20,25 @@ export const receiveNewTrip = trip => ({
     trip
 });
 
+export const receiveErrors = errors => ({
+    type: RECEIVE_TRIP_ERRORS,
+    errors
+});
+
 export const fetchUserTrips = userId => dispatch => (
     APIUtil.fetchAllTrips(userId)
         .then(trips => dispatch(receiveUserTrips(trips)))
-        .catch(err => console.log(err))
+        .catch(err => dispatch(receiveErrors(err)))
 );
 
 export const fetchATrip = tripId => dispatch => (
     APIUtil.fetchTrip(tripId)
         .then(trip => dispatch(receiveATrip(trip)))
-        .catch(err => console.log(err))
+        .catch(err => dispatch(receiveErrors(err)))
 )
 
 export const createTrip = data => dispatch => (
-    createTrip(data)
+    APIUtil.createTrip(data)
         .then(trip => dispatch(receiveNewTrip(trip)))
-        .catch(err => console.log(err))
+        .catch(err => dispatch(receiveErrors(err)))
 );
