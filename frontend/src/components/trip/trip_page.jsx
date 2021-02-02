@@ -21,7 +21,7 @@ class TripPage extends React.Component {
                 <div className='trip-overview-page'>
                     <h1>Next stop, {this.props.trip.location}!</h1>
                     <div className='trip-users-container'>
-                        <UsersListContainer trip={this.props.trip} />
+                        <UsersListContainer trip={this.props.trip} tripId={this.props.tripId} />
                     </div>
 
                     {/* <div className='trips-chat-container'>
@@ -31,7 +31,7 @@ class TripPage extends React.Component {
                     <div className='trips-itinerary-container'>
                         <CreateItineraryItemContainer />
                         <br/>
-                        <ItineraryItemContainer trip={this.props.trip} />
+                        {/* <ItineraryItemContainer trip={this.props.trip} /> */}
                     </div>
                 </div>
             )
