@@ -1,0 +1,84 @@
+.splash-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-subcontainer {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #5ae3da;
+    width: 100%;
+    height: 900px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splash-header-container{
+    border: 1px solid white;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:400px;
+    height:100px;
+}
+
+.splash-header-logo{
+    border: 1px solid white;
+    width: 100px;
+    height:100px;
+}
+
+.splash-body-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: space-between;
+}
+
+.splash-body-text-1{
+    font-weight:900;
+    font-size:60px;
+    width:400px;
+}
+
+.splash-body-text-2{
+    font-size:20px;
+}
+
+.splash-body-text-3{
+    font-size:10px;
+}
+
+.splash-body-text-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    color:white;
+    padding-top: 120px;
+}
+
+.arrow-img{
+    width: 100px;
+}
+
+
+
+.splash-img{
+    width:70%;
+}
+
+.splash-header-text{
+    border: 1px solid white;
+    font-size:48px;
+    font-weight:900;
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.splash-body-text-container{
+    
+}
