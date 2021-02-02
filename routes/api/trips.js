@@ -57,7 +57,9 @@ router.post("/",
         const newTrip = new Trip({
             users: [req.user],
             destination: req.body.destination,
-            tripName: req.body.tripName
+            tripName: req.body.tripName,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate
         });
 
         newTrip.save().then(trip => res.json(trip));

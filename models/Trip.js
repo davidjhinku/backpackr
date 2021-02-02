@@ -15,11 +15,15 @@ const TripSchema = new Schema({
     },
     comments: [mongoose.Schema.Types.ObjectId],
     itineraryItems: [mongoose.Schema.Types.ObjectId],
-    start_date: {
+    startDate:{
         type: Date,
-        default: Date.now
+        required: true
     },
-    end_date: {
+    endDate:{
+        type: Date,
+        required: true
+    },
+    date: {
         type: Date,
         default: Date.now
     }
