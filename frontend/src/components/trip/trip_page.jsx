@@ -8,13 +8,11 @@ import ItineraryItemContainer from '../itinerary_item/itinerary_item_container';
 class TripPage extends React.Component {
 
     componentDidMount() {
-        debugger
         this.props.fetchATrip(this.props.tripId)
     }
 
     render() {
-        debugger
-        if (!this.props.trip) {
+        if (!this.props.trip._id) {
             return (
                 <div>Loading Trip...</div>
             )
@@ -22,7 +20,7 @@ class TripPage extends React.Component {
             return(
                 <div className='trip-overview-page'>
                     <h1>Next stop, {this.props.trip.location}!</h1>
-                    <div className='trip-users-container'>
+                    {/* <div className='trip-users-container'>
                         <UsersListContainer />
                     </div>
 
@@ -34,7 +32,7 @@ class TripPage extends React.Component {
                         <CreateItineraryItemContainer />
                         <br/>
                         <ItineraryItemContainer />
-                    </div>
+                    </div> */}
                 </div>
             )
         }
