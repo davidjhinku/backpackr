@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
-const ItineraryItem = require("./ItineraryItem");
-const User = require("./User");
 const Schema = mongoose.Schema;
 
+// Register Schemas
+const ItineraryItemSchema = require("./ItineraryItem");
+const UserSchema = require("./User");
+const CommentSchema = require("./Comment");
+
 const TripSchema = new Schema({
-    users: [mongoose.Schema.Types.ObjectId],
+    users: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }],
     destination: {
         type: String,
         required: true
@@ -13,8 +19,14 @@ const TripSchema = new Schema({
         type: String,
         required: true
     },
-    comments: [mongoose.Schema.Types.ObjectId],
-    itineraryItems: [mongoose.Schema.Types.ObjectId],
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
+    }],
+    itineraryItems: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ItineraryItem"
+    }],
     startDate:{
         type: Date,
         required: true

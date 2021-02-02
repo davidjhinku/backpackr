@@ -31,8 +31,29 @@ router.get("/:id",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Trip.findById(req.params.id)
+            .populate({
+                path: "users",
+                model: "User",
+                select: ["handle", "_id"]
+            })
+            .populate({
+                    path: "comments",
+                    model: "Comment",
+                    populate: {
+                        path: "author",
+                        model: "User",
+                        select: ["handle", "_id"]
+                    }
+            })
+            .populate({
+                    path: "itineraryItems",
+                    model: "ItineraryItem"
+            })
             .then(trip => {
-                if (trip.users.includes(req.user.id)) {
+                debugger
+
+                // Check if the current user is part of the trip.
+                if (trip.users.some(user => (req.user.id === user.id))) {
                     return res.json(trip)
                 } else {
                     // This user isn't authorized to view this trip.
@@ -40,6 +61,7 @@ router.get("/:id",
                 }
             })
             .catch(err => {
+                debugger
                 return res.status(404).json({ notripfound: "This trip doesn't exist" })
             });
     });
