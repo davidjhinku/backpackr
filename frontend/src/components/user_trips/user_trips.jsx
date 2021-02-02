@@ -27,12 +27,19 @@ class UserTrips extends React.Component {
         // debugger
         return (
           <div className='users-trip-page'>
-            <h1>My Trips</h1>
-            <ul className='users-trip-container'>
-              {this.state.trips.map(trip => (
-                <TripDetails key={trip._id} trip={trip}/>
-              ))}
-            </ul>
+            <div className='users-trip-subcontainer'>
+
+              <div className="users-trip-header">
+                <h1>My Trips</h1>
+              </div>
+              <ul className='users-trip-container'>
+                {this.state.trips.map(trip => (
+                  <TripDetails key={trip._id} trip={trip}/>
+                ))}
+              </ul>
+
+
+            </div>
           </div>
         )
       }
