@@ -1,8 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class TripDetails extends React.Component {
     render() {
-        debugger
         const trip = this.props.trip
 
         return (
@@ -11,6 +11,9 @@ class TripDetails extends React.Component {
                 <h3>{trip.destination}</h3>
                 <p>{`${trip.startDate} - ${trip.endDate}`}</p>
                 <br/>
+                <div>
+                    {/* LINKS TO UPDATE AND DELETE */}
+                </div>
             </li>
         );
     }
