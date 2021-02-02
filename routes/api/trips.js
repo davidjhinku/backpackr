@@ -30,10 +30,24 @@ router.get("/user/:user_id",
 router.get("/:id",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        Trip.findById(req.params.id).populate({
+        Trip.findById(req.params.id)
+            .populate({
                 path: "users",
                 model: "User",
                 select: ["handle", "_id"]
+            })
+            .populate({
+                    path: "comments",
+                    model: "Comment",
+                    populate: {
+                        path: "author",
+                        model: "User",
+                        select: ["handle", "_id"]
+                    }
+            })
+            .populate({
+                    path: "itineraryItems",
+                    model: "ItineraryItem"
             })
             .then(trip => {
                 debugger
