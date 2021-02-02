@@ -7,17 +7,24 @@ class CreateTrip extends React.Component {
         this.state = {
             location: '',
             start_date: '',
-            end_date: ''
+            end_date: '',
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleChange(field) {
-        return e => this.setState({
-            [field]: e.target.value
-        })
+    componentWillReceiveProps(nextProps) {
+        this.setState({errors: nextProps.errors})
     }
 
+    handleChange(field) {
+        return e => {
+            this.setState({[field]: e.target.value});
+            this.props.clearErrors([]);
+        }
+    }
+
+    
     handleSubmit(e) {
         e.preventDefault();
         let trip = {
@@ -25,16 +32,66 @@ class CreateTrip extends React.Component {
             start_date: this.state.start_date,
             end_date: this.state.end_date
         };
-        this.props.createTrip(trip);
+        this.props.createTrip(trip)
+        .then(this.props.history.push(`/trips/${trip.id}`))
+    }
+    
+    componentWillUnmount() {
+        this.props.clearErrors([])
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {Object.keys(this.state.errors).map((error, idx) => (
+                    <li className='create-trip-errors-element' key={`err-${idx}`}>
+                        {this.state.errors[error]}
+                    </li>
+                ))}
+            </ul>
+        )
     }
 
     render() {
+
         return (
-            <div>
+            <div className='create-trip-container'>
                 <h3>Create a Trip!</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"/>
+                    <div className='create-trip-subcontainer'>
+                        <div>
+                            <input className='create-trip-input-element'
+                                type="text"
+                                value={this.state.location}    
+                                onChange={this.handleChange('location')}
+                                placeholder='Location'
+                            />
+                            <br/>
+                        </div>
+
+                        <div>
+                            <input className='create-trip-date-element'
+                                type="date"
+                                value={this.state.start_date}
+                                onChange={this.handleChange('start_date')}
+                            />
+                        </div>
+                            <input className='create-trip-date-element'
+                                type="date"
+                                value={this.state.end_date}
+                                onChange={this.handleChange('end_date')}
+                            />
+                        <div>
+
+                        </div>
+
+                        <div className="create-trip-errors">
+                            {this.renderErrors()}
+                        </div>
+
+                        <div className="create-trip-submit-btn">
+                            <input className="create-trip-submit-text" type="submit" value="Create Trip" />
+                        </div>
 
                     </div>
                 </form>
