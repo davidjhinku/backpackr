@@ -5,6 +5,9 @@
 // Things like how <h1> tags should look on the entire site.
 @import "main.scss";
 
+
 // NOTE: Remember to use the colors from colors.scss
 // Import your files after this line.
 @import "./splash.scss";
+@import "footer.scss";
+@import "/nav.scss";

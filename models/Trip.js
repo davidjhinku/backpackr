@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const ItineraryItem = require("./ItineraryItem");
+const User = require("./User");
 const Schema = mongoose.Schema;
 
 const TripSchema = new Schema({
-    users: [UserSchema],
+    users: [mongoose.Schema.Types.ObjectId],
     destination: {
         type: String,
         required: true
@@ -12,8 +13,8 @@ const TripSchema = new Schema({
         type: String,
         required: true
     },
-    comments: [CommentSchema],
-    itineraryItems: [ItineraryItemSchema],
+    comments: [mongoose.Schema.Types.ObjectId],
+    itineraryItems: [mongoose.Schema.Types.ObjectId],
     date: {
         type: Date,
         default: Date.now
