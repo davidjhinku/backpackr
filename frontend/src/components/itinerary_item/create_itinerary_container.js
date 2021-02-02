@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { createItineraryItem, receiveErrors } from '../../actions/itinerary_actions'
-import CreateItinerary from './create_itinerary'
+import { createItineraryItem, receiveErrors } from '../../actions/itinerary_item_actions'
+import CreateItineraryItem from './create_itinerary_item'
 
 const mSTP = (state, ownProps) => {
     return {
@@ -16,4 +16,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(createItineraryItem);
+export default connect(mSTP, mDTP)(CreateItineraryItem);

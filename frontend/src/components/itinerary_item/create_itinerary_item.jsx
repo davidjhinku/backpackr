@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-class CreateTrip extends React.Component {
+class CreateItineraryItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -113,4 +113,4 @@ class CreateTrip extends React.Component {
     }
 }
 
-export default withRouter(CreateTrip);
+export default withRouter(CreateItineraryItem);

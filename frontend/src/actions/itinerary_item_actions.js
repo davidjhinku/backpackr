@@ -1,18 +1,18 @@
-import * as ItemAPIUtil from '../util/trip_api_util'
+import * as ItemAPIUtil from '../util/itinerary_item_api_util'
 
-export const RECEIVE_ALL_ITINERARY_ITEM = 'RECEIVE_ALL_ITINERARY_ITEM';
+export const RECEIVE_ALL_ITINERARY_ITEMS = 'RECEIVE_ALL_ITINERARY_ITEMS';
 export const RECEIVE_ITINERARY_ITEM = 'RECEIVE_ITINERARY_ITEM';
 export const RECEIVE_NEW_ITINERARY_ITEM = 'RECEIVE_NEW_ITINERARY_ITEM';
 export const RECEIVE_ITINERARY_ITEM_ERRORS = 'RECEIVE_ITINERARY_ITEM_ERRORS'
 
 
-export const receiveAllItineraryItems = () => ({
-    type: RECEIVE_A_TRIP,
+export const receiveAllItineraryItems = items => ({
+    type: RECEIVE_ALL_ITINERARY_ITEMS,
     items
 })
 
 export const receiveItineraryItem = item => ({
-    type: RECEIVE_A_TRIP,
+    type: RECEIVE_ITINERARY_ITEM,
     item
 })
 
