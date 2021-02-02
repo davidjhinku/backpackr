@@ -16,8 +16,8 @@ class Splash extends React.Component {
               <img alt="splash-img" className="splash-img" src="https://i.ibb.co/WKytN1W/splash-image-3.png" />
 
             <div className="splash-body-text-container">
-              <div>
-                <h1 className="splash-body-text-1">Travel Planning Made Simple. </h1>
+              <div className="splash-body-text-header">
+                <h1 className="splash-body-text-1">Travel Planning Made Simple.</h1>
                 <br />
               </div>
 
