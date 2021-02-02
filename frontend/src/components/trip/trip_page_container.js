@@ -4,9 +4,12 @@ import TripPage from './trip_page'
 
 const mSTP = (state, ownProps) => {
     debugger
+    const tripId = ownProps.match.params.tripId
+    const trip = state.trips.trip[tripId]
+    debugger
     return {
-        tripId: ownProps.match.params.tripId,
-        trip: state.trips[tripId]
+        tripId: tripId,
+        trip: trip
     }
 }
 
