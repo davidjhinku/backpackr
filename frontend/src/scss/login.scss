@@ -1,0 +1,93 @@
+.login-form-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:900px;
+
+    background-image: url("https://images.pexels.com/photos/1230665/pexels-photo-1230665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:$secondary-color
+}
+
+.login-form-subcontainer{
+    margin-bottom:100px;
+    border:1px solid white;
+    padding: 88px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.264);
+}
+
+.login-form-input-element{
+    width:250px;
+    margin-top:22px;
+    padding: 14px;
+    border: 1px solid $secondary-color;
+    border-radius:30px;
+}
+
+.login-form-input-element:hover{
+    background-color: lightgrey;
+}
+
+.login-form-input-element:focus{
+    outline:none;
+}
+
+::placeholder{
+    color:$secondary-color;
+}
+
+.login-form-errors{
+    font-weight:300;
+    font-style: italic;
+}
+
+.login-form-errors-element{
+    margin-top: 22px;
+    padding:4px;
+}
+
+.login-form-submit-btn{
+    width: 143px;
+    height: 35px;
+    margin-top: 80px;
+
+    border: 1px solid $secondary-color;
+    background-color: transparent;
+    border-radius: 40px;
+    
+    text-align: center;
+    color: white;
+
+}
+
+.login-form-submit-text{
+    padding-top:7px;
+    font-weight: bold;
+    font-size: 17px;
+    color:white;
+}
+
+.login-form-submit-btn:hover{
+    background-color: lightgrey;
+}
+
+.login-form-text{
+    font-size:14.5px;
+
+    margin-top:48px;
+    width: 340px;
+    line-height: 26px;
+}
+
+.login-form-signup-link{
+    color:$main-color;
+    font-weight:800;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -23,10 +23,15 @@ class SignupForm extends React.Component {
     this.setState({ errors: nextProps.errors })
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors([])
+  }
+
   handleChange(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
+    return (e) => {
+      this.setState({[field]: e.target.value});
+      this.props.clearErrors([]);
+    }
   }
 
   handleSubmit(e) {
@@ -45,7 +50,7 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, idx) => (
-          <li key={`error-${idx}`}>
+          <li className="signup-form-errors-element" key={`error-${idx}`}>
             {this.state.errors[error]}
           </li>
         ))}
@@ -55,36 +60,66 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="signup-form-container">
+        
         <form onSubmit={this.handleSubmit}>
-          <div className='signup-form'>
-            <br />
-            <input type="text"
+          
+          <div className='signup-form-subcontainer'>
+            <h1 className="signup-form-header">Welcome to Backpackr</h1>
+            <div className="signup-form-input-container">
+              <input 
+              className="signup-form-input-element"
+              type="text"
               value={this.state.email}
               onChange={this.handleChange('email')}
               placeholder="Email"
             />
             <br />
-            <input type="text"
-              value={this.state.handle}
-              onChange={this.handleChange('handle')}
-              placeholder="Handle"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.handleChange('password')}
-              placeholder='Password'
-            />
-            <br />
-            <input type="password"
-              value={this.state.password2}
-              onChange={this.handleChange('password2')}
-              placeholder='Confirm Password'
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            </div>
+
+            <div className="signup-form-input-container">
+              <input 
+                className="signup-form-input-element"
+                type="text"
+                value={this.state.handle}
+                onChange={this.handleChange('handle')}
+                placeholder="Username"
+              />
+              <br />
+            </div>
+
+            <div className="signup-form-input-container">
+              <input 
+                className="signup-form-input-element"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange('password')}
+                placeholder='Password'
+              />
+              <br />
+            </div>
+
+            <div className="signup-form-input-container">
+              <input className="signup-form-input-element"
+                type="password"
+                value={this.state.password2}
+                onChange={this.handleChange('password2')}
+                placeholder='Confirm Password'
+              />
+              <br />
+            </div>
+
+              <div className="signup-form-errors">
+                {this.renderErrors()}
+              </div>
+
+            <div className="signup-form-submit-btn">
+                <input className="signup-form-submit-text" type="submit" value="Submit" />
+            </div>
+
+            <div className="login-form-text">
+              Already have an account? Go ahead and <Link className="signup-form-login-link" to="/login">login</Link>.
+            </div>
           </div>
         </form>
       </div>
