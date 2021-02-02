@@ -7,8 +7,8 @@ import Splash from './splash/splash_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
-import TripPage from './trip/trip_page_container'
-import TripCreateContainer from './trip/create_trip_container'
+import TripPageContainer from './trip/trip_page_container';
+import TripCreateContainer from './trip/create_trip_container';
 
 const App = () => (
   <div>
@@ -18,8 +18,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <ProtectedRoute exact path="/trips/tripId" component={TripPage} />
       <ProtectedRoute exact path="/trips/create" component={TripCreateContainer} />
+      <ProtectedRoute exact path="/trips/:tripId" component={TripPageContainer} />
       <ProtectedRoute />
     </Switch>
     <Footer />

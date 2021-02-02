@@ -8,29 +8,34 @@ import ItineraryItemContainer from '../itinerary_item/itinerary_item_container';
 class TripPage extends React.Component {
 
     componentDidMount() {
-        debugger
         this.props.fetchATrip(this.props.tripId)
     }
 
     render() {
-        return(
-            <div className='trip-overview-page'>
-                <h1>Next stop, {this.props.trip.location}!</h1>
-                <div className='trip-users-container'>
-                    <UsersListContainer />
-                </div>
+        if (!this.props.trip._id) {
+            return (
+                <div>Loading Trip...</div>
+            )
+        } else {
+            return(
+                <div className='trip-overview-page'>
+                    <h1>Next stop, {this.props.trip.location}!</h1>
+                    {/* <div className='trip-users-container'>
+                        <UsersListContainer />
+                    </div>
 
-                <div className='trips-chat-container'>
-                    <ChatsContainer />
-                </div>
+                    <div className='trips-chat-container'>
+                        <ChatsContainer />
+                    </div>
 
-                <div className='trips-itinerary-container'>
-                    <CreateItineraryItemContainer />
-                    <br/>
-                    <ItineraryItemContainer />
+                    <div className='trips-itinerary-container'>
+                        <CreateItineraryItemContainer />
+                        <br/>
+                        <ItineraryItemContainer />
+                    </div> */}
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 
