@@ -9,7 +9,7 @@ class UsersList extends React.Component{
         const tripUsers = Object.values(this.props.trip.users).map((user, idx)=>{
             return (
                 <ul>
-                    <li className="trip-users-element" key={`user-${idx}`}>{user.handle}</li> <Link to="">Edit</Link>
+                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li> <Link to="">Edit</Link>
                 </ul>
             )
         });
