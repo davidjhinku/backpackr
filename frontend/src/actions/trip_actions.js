@@ -10,10 +10,13 @@ export const receiveUserTrips = trips => ({
     trips
 });
 
-export const receiveATrip = trip => ({
-    type: RECEIVE_A_TRIP,
-    trip
-})
+export const receiveATrip = trip => {
+    debugger
+    return {
+        type: RECEIVE_A_TRIP,
+        trip
+    }
+}
 
 export const receiveNewTrip = trip => ({
     type: RECEIVE_NEW_TRIP,
@@ -37,8 +40,9 @@ export const fetchATrip = tripId => dispatch => (
         .catch(err => dispatch(receiveErrors(err)))
 )
 
-export const createTrip = data => dispatch => (
-    APIUtil.createTrip(data)
+export const createTrip = data => dispatch => {
+    debugger
+    return APIUtil.createTrip(data)
         .then(trip => dispatch(receiveNewTrip(trip)))
         .catch(err => dispatch(receiveErrors(err)))
-);
+}

@@ -9,6 +9,9 @@ class CreateTrip extends React.Component {
             trip_name: '',
             start_date: '',
             end_date: '',
+            users: [],
+            comments: [],
+            itinerary_items: [],
             errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,14 +30,21 @@ class CreateTrip extends React.Component {
 
     
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         let trip = {
-            location: this.state.location,
+            destination: this.state.destination,
+            trip_name: this.state.trip_name,
             start_date: this.state.start_date,
-            end_date: this.state.end_date
+            end_date: this.state.end_date,
+            users: this.state.users,
+            comments: this.state.comments,
+            itinerary_item: this.state.itinerary_items,
         };
+
+        debugger
         this.props.createTrip(trip)
-        .then(this.props.history.push(`/trips/${trip.id}`))
+        // .then(this.props.history.push(`/trips/${trip._id}`))
     }
     
     componentWillUnmount() {
@@ -76,7 +86,7 @@ class CreateTrip extends React.Component {
                                 type="text"
                                 value={this.state.destination}    
                                 onChange={this.handleChange('destination')}
-                                placeholder='Location'
+                                placeholder='Destination'
                             />
                             <br/>
                         </div>
