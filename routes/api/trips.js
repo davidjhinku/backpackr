@@ -3,8 +3,15 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
+// Models
 const Trip = require("../../models/Trip");
+const Comment = require("../../models/Comment");
+const User = require("../../models/User");
+const ItineraryItem = require("../../models/ItineraryItem");
+
 const ValidateTripInput = require("../../validation/trip");
+const ValidateCommentInput = require("../../validation/comment");
+
 
 // Get the trips for a specific user.
 router.get("/user/:user_id",
@@ -39,11 +46,7 @@ router.get("/:id",
             .populate({
                     path: "comments",
                     model: "Comment",
-                    populate: {
-                        path: "author",
-                        model: "User",
-                        select: ["handle", "_id"]
-                    }
+                    select: "author"
             })
             .populate({
                     path: "itineraryItems",
@@ -89,7 +92,7 @@ router.post("/",
 );
 
 // Update existing trip.
-router.put("/:id",
+router.patch("/:id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         const { errors, isValid } = ValidateTripInput(req.body);
@@ -110,7 +113,7 @@ router.put("/:id",
     }
 );
 
-// Get a specific trip.
+// Delete a specific trip.
 router.delete("/:id",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
@@ -126,6 +129,35 @@ router.delete("/:id",
             .catch(err => {
                 return res.status(404).json({ notripfound: "This trip doesn't exist" })
             });
+    });
+
+// Add a comment to a trip.
+router.post("/:trip_id/comment",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id).then(trip => {
+            // Check that the current user is part of this trip.
+            if (trip.users.includes(req.user.id)){
+                const { errors, isValid } = ValidateCommentInput(req.body);
+
+                if (!isValid){
+                    return res.status(400).json(errors);
+                }
+
+                const newComment = new Comment({
+                    author: { _id: req.user.id, handle: req.user.handle },
+                    trip: trip.id,
+                    comment: req.body.comment
+                });
+
+                newComment.save().then(comment => {
+                    trip.comments.push(comment.id);
+                    trip.save().then(() => res.json(comment));
+                });
+            } else {
+                return res.status(401).json("UNAUTHORIZED");
+            }
+        });
     });
 
 module.exports = router;
