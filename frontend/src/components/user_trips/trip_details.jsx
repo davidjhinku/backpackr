@@ -3,10 +3,14 @@ import React from 'react';
 class TripDetails extends React.Component {
     render() {
         debugger
+        const trip = this.props.trip
+
         return (
             <li className="trip-card">
-                <h3>{this.props.tripName}</h3>
-                <p>{this.props.description}</p>
+                <h2>{trip.tripName}</h2>
+                <h3>{trip.destination}</h3>
+                <p>{`${trip.startDate} - ${trip.endDate}`}</p>
+                <br/>
             </li>
         );
     }

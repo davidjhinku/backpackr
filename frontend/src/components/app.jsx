@@ -9,6 +9,7 @@ import SignupFormContainer from './session/signup_form_container';
 import UserTripsContainer from './user_trips/user_trips_container';
 import TripPageContainer from './trip/trip_page_container';
 import TripCreateContainer from './trip/create_trip_container';
+import TripEditContainer from './trip/edit_trip_container';
 import ItineraryCreateContainer from './itinerary_item/create_itinerary_container';
 
 const App = () => (
@@ -21,8 +22,8 @@ const App = () => (
       <ProtectedRoute exact path="/profile" component={UserTripsContainer} />
       <ProtectedRoute exact path="/trips/create" component={TripCreateContainer} />
       <ProtectedRoute exact path="/trips/:tripId" component={TripPageContainer} />
+      <ProtectedRoute path="/trips/:tripId/edit" component={TripEditContainer}/>
       <ProtectedRoute exact path="/itineraryitems/create" component={ItineraryCreateContainer} />
-      <ProtectedRoute />
     </Switch>
     <Footer />
   </div>
