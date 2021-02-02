@@ -8,6 +8,7 @@ const path = require('path')
 const users = require("./routes/api/users");
 const trips = require("./routes/api/trips");
 
+
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
     app.get('/', (res, req) => {
