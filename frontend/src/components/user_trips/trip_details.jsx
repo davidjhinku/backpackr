@@ -1,14 +1,15 @@
 import React from 'react';
 
-class ProfileItem extends React.Component {
+class TripDetails extends React.Component {
     render() {
+        debugger
         return (
-            <div className="trip-card">
+            <li className="trip-card">
                 <h3>{this.props.tripName}</h3>
                 <p>{this.props.description}</p>
-            </div>
+            </li>
         );
     }
 }
 
-export default ProfileItem;
+export default TripDetails;
