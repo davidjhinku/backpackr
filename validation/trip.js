@@ -5,7 +5,7 @@ module.exports = function validateTripInput(data){
 
     let errors = {};
 
-    data.destination = validText(data.destinaton) ? data.destination : "";
+    data.destination = validText(data.destination) ? data.destination : "";
     data.tripName = validText(data.tripName) ? data.tripName : "";
 
     if (Validator.isEmpty(data.destination))
@@ -13,8 +13,6 @@ module.exports = function validateTripInput(data){
 
     if (Validator.isEmpty(data.tripName))
         errors.tripName = "You need to give your trip a name";
-
-    debugger
 
     return {
         errors,
