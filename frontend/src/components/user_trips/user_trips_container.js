@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserTrips from './user_trips';
-import { fetchUserTrips } from '../../actions/trip_actions'
+import { fetchUserTrips, deleteTrip } from '../../actions/trip_actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserTrips: userId => dispatch(fetchUserTrips(userId))
+    fetchUserTrips: userId => dispatch(fetchUserTrips(userId)),
+    deleteTrip: tripId => dispatch(deleteTrip(tripId))
   };
 };
 

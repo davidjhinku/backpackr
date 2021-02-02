@@ -12,7 +12,7 @@ class TripDetails extends React.Component {
                 <p>{`${trip.startDate} - ${trip.endDate}`}</p>
                 <div>
                     <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit</Link>
-                    {/* LINKS TO UPDATE AND DELETE */}
+                    <button onClick={() => this.props.deleteTrip(trip._id)}>Delete Trip</button>
                 </div>
                 <br/>
             </li>
