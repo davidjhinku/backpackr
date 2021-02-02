@@ -41,10 +41,8 @@ class CreateTrip extends React.Component {
             itinerary_item: this.state.itineraryItems,
         };
 
-        debugger
         this.props.createTrip(trip)
         .then(returnedTrip => {
-            debugger
             this.props.history.push(`/trips/${returnedTrip.trip.data._id}`);
         });
     }

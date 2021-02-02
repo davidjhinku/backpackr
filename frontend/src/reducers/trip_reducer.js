@@ -7,7 +7,6 @@ const defaultState = {
 }
 
 const TripsReducer = (state = defaultState, action) => {
-    debugger
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch(action.type) {

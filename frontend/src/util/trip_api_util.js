@@ -8,7 +8,7 @@ export const fetchTrip = (tripId) => {
 };
 
 export const createTrip = (data) => { 
-    debugger
+    // debugger
     return axios.post('/api/trips/', data);
 }
 
