@@ -1,6 +1,6 @@
 import React from 'react';
 import TripDetails from './trip_details'
-
+import {Link} from 'react-router-dom'
 
 class UserTrips extends React.Component {
     constructor(props) {
@@ -34,10 +34,12 @@ class UserTrips extends React.Component {
               </div>
               <ul className='users-trip-container'>
                 {this.state.trips.map(trip => (
-                  <TripDetails key={trip._id} trip={trip}/>
+                  <TripDetails key={trip._id} trip={trip} deleteTrip={this.props.deleteTrip}/>
                 ))}
               </ul>
 
+              <br/>
+              <Link to='/trips/create'>Create a new trip</Link>
 
             </div>
           </div>
