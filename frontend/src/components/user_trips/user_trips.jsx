@@ -1,6 +1,6 @@
 import React from 'react';
 import TripDetails from './trip_details'
-
+import {Link} from 'react-router-dom'
 
 class UserTrips extends React.Component {
     constructor(props) {
@@ -33,6 +33,7 @@ class UserTrips extends React.Component {
                 <TripDetails key={trip._id} trip={trip}/>
               ))}
             </ul>
+            <Link to='/trips/create' >Create a New Trip</Link>
           </div>
         )
       }
