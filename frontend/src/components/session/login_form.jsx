@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -22,9 +23,10 @@ class LoginForm extends React.Component {
   }
 
   handleChange(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
+    return (e) => {
+      this.setState({[field]: e.target.value});
+      this.props.clearErrors([]);
+    }
   }
 
   handleSubmit(e) {
@@ -36,11 +38,15 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors([])
+  }
+
   renderErrors() {
     return (
-      <ul>
+      <ul >
         {Object.keys(this.state.errors).map((error, idx) => (
-          <li key={`error-${idx}`}>
+          <li className="login-form-errors-element" key={`error-${idx}`}>
             {this.state.errors[error]}
           </li>
         ))}
@@ -50,23 +56,40 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <input type="text"
+          <div className="login-form-subcontainer">
+
+            <div className="login-form-input-container">
+              <input className="login-form-input-element" type="text"
               value={this.state.email}
               onChange={this.handleChange('email')}
               placeholder='Email'
             />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.handleChange('password')}
-              placeholder='Password'
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+              <br />
+            </div>
+            
+            <div className="login-form-input-container">
+              <input className="login-form-input-element" type="password"
+                value={this.state.password}
+                onChange={this.handleChange('password')}
+                placeholder='Password'
+              />
+              <br />
+            </div>
+
+            <div className="login-form-errors">
+              {this.renderErrors()}
+            </div>
+
+            <div className="login-form-submit-btn">
+              <input className="login-form-submit-text" type="submit" value="Login" />
+            </div>
+
+            <div className="login-form-text">
+              Don't have an account? Go ahead and <Link className="login-form-signup-link" to="/signup">make one right quick</Link>.
+            </div>
+            
           </div>
         </form>
       </div>
