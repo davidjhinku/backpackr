@@ -5,7 +5,7 @@ import CreateTrip from './create_trip'
 const mSTP = (state, ownProps) => {
     return {
         currentUser: state.session.user,
-        errors: state.errors.trips //NEED TO ADD THE ACTION/REDUCER
+        errors: state.errors.trip
     }
 }
 
