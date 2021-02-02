@@ -5,7 +5,8 @@ class CreateTrip extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            location: '',
+            destination: '',
+            trip_name: '',
             start_date: '',
             end_date: '',
             errors: {}
@@ -59,11 +60,22 @@ class CreateTrip extends React.Component {
                 <h3>Create a Trip!</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className='create-trip-subcontainer'>
+                        
                         <div>
                             <input className='create-trip-input-element'
                                 type="text"
-                                value={this.state.location}    
-                                onChange={this.handleChange('location')}
+                                value={this.state.trip_name}
+                                onChange={this.handleChange('trip_name')}
+                                placeholder='Trip Name'
+                            />
+                            <br />
+                        </div>                        
+                        
+                        <div>
+                            <input className='create-trip-input-element'
+                                type="text"
+                                value={this.state.destination}    
+                                onChange={this.handleChange('destination')}
                                 placeholder='Location'
                             />
                             <br/>

@@ -38,7 +38,7 @@ export const fetchATrip = tripId => dispatch => (
 )
 
 export const createTrip = data => dispatch => (
-    createTrip(data)
+    APIUtil.createTrip(data)
         .then(trip => dispatch(receiveNewTrip(trip)))
         .catch(err => dispatch(receiveErrors(err)))
 );
