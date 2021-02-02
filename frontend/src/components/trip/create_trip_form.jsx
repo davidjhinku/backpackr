@@ -1,7 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 
-class TripForm extends React.Component {
+class CreateTripForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -67,7 +67,7 @@ class TripForm extends React.Component {
 
         return (
             <div className='create-trip-container'>
-                <h3>Create a Trip!</h3>
+                <h3>Create a Trip</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className='create-trip-subcontainer'>
                         
@@ -122,4 +122,4 @@ class TripForm extends React.Component {
     }
 }
 
-export default withRouter(TripForm);
+export default withRouter(CreateTripForm);

@@ -1,10 +1,9 @@
 import {connect} from 'react-redux';
 import {createTrip, receiveErrors} from '../../actions/trip_actions'
-import TripForm from './trip_form'
+import CreateTripForm from './create_trip_form'
 
 const mSTP = (state, ownProps) => {
     return {
-        currentUser: state.session.user,
         errors: state.errors.trip
     }
 }
@@ -16,4 +15,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(TripForm);
+export default connect(mSTP, mDTP)(CreateTripForm);

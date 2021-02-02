@@ -10,10 +10,11 @@ class TripDetails extends React.Component {
                 <h2>{trip.tripName}</h2>
                 <h3>{trip.destination}</h3>
                 <p>{`${trip.startDate} - ${trip.endDate}`}</p>
-                <br/>
                 <div>
+                    <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit</Link>
                     {/* LINKS TO UPDATE AND DELETE */}
                 </div>
+                <br/>
             </li>
         );
     }
