@@ -1,8 +1,8 @@
 import React from 'react';
-import ProfileItem from './profile_item'
+import TripDetails from './trip_details'
 
 
-class Profile extends React.Component {
+class UserTrips extends React.Component {
     constructor(props) {
         super(props);
 
@@ -24,16 +24,19 @@ class Profile extends React.Component {
       if (this.state.trips.length === 0) {
         return (<div>You don't have any trips planned yet!</div>)
       } else {
+        // debugger
         return (
-          <div>
+          <div className='users-trip-page'>
             <h1>My Trips</h1>
-            {this.state.trips.map(trip => (
-              <ProfileItem key={trip._id} tripName={trip.tripName} destination={trip.destination} />
-            ))}
+            <ul className='users-trip-container'>
+              {this.state.trips.map(trip => (
+                <TripDetails key={trip._id} trip={trip}/>
+              ))}
+            </ul>
           </div>
         )
       }
     }
 }
 
-export default Profile;
+export default UserTrips;
