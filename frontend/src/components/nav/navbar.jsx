@@ -23,9 +23,18 @@ class NavBar extends React.Component {
             );
         } else {
             return (
-                <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                <div className="splash-navbar-container">
+                    <div className="splash-navbar-about">
+                        ABOUT
+                    </div>
+                    <div className="splash-session-options-container">
+                        <div>
+                            <Link to={'/signup'}>SIGNUP</Link>
+                        </div>
+                        <div>
+                            <Link to={'/login'}>LOGIN</Link>
+                        </div>
+                    </div>
                 </div>
             );
         }
@@ -34,7 +43,6 @@ class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <h3>Backpackr Navbar-Logo Eventually</h3>
                 {this.chooseLinks()}
             </div>
         );
