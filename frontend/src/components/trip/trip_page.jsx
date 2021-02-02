@@ -20,19 +20,19 @@ class TripPage extends React.Component {
             return(
                 <div className='trip-overview-page'>
                     <h1>Next stop, {this.props.trip.location}!</h1>
-                    {/* <div className='trip-users-container'>
-                        <UsersListContainer />
+                    <div className='trip-users-container'>
+                        <UsersListContainer trip={this.props.trip} />
                     </div>
 
-                    <div className='trips-chat-container'>
-                        <ChatsContainer />
-                    </div>
+                    {/* <div className='trips-chat-container'>
+                        <ChatsContainer trip={this.props.trip} />
+                    </div> */}
 
                     <div className='trips-itinerary-container'>
                         <CreateItineraryItemContainer />
                         <br/>
-                        <ItineraryItemContainer />
-                    </div> */}
+                        <ItineraryItemContainer trip={this.props.trip} />
+                    </div>
                 </div>
             )
         }
