@@ -36,15 +36,16 @@ class CreateItineraryItem extends React.Component {
             tripId: this.props.tripId
         };
         this.props.createItineraryItem(item)
-            .then(item => {
-                this.setState({
-                    itemName: '',
-                    category: '',
-                    address: '',
-                    description: '',
-                    errors: {}
-                })
-            })
+            .then(this.props.fetchATrip(this.props.tripId))
+            // .then(item => {
+            //     this.setState({
+            //         itemName: '',
+            //         category: '',
+            //         address: '',
+            //         description: '',
+            //         errors: {}
+            //     })
+            // })
     }
 
     componentWillUnmount() {
