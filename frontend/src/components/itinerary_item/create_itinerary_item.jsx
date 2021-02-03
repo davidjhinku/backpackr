@@ -32,27 +32,27 @@ class CreateItineraryItem extends React.Component {
             itemName: this.state.itemName,
             category: this.state.category,
             address: this.state.address,
-            description: this.state.description
+            description: this.state.description,
+            tripId: this.props.tripId
         };
         this.props.createItineraryItem(item)
-            .then(this.props.history.push(`/itineraryitems/${item._id}`))
     }
 
     componentWillUnmount() {
         this.props.clearErrors([])
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
-                    <li className='create-item-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, idx) => (
+    //                 <li className='create-item-errors-element' key={`err-${idx}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
     render() {
 
@@ -98,9 +98,9 @@ class CreateItineraryItem extends React.Component {
 
                         </div>
 
-                        <div className="create-item-errors">
+                        {/* <div className="create-item-errors">
                             {this.renderErrors()}
-                        </div>
+                        </div> */}
 
                         <div className="create-item-submit-btn">
                             <input className="create-item-submit-text" type="submit" value="Create an Item" />
