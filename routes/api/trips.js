@@ -48,7 +48,7 @@ router.get("/:id",
             .populate({
                 path: "comments",
                 model: "Comment",
-                select: "author"
+                select: ["author", "comment"]
             })
             .populate({
                 path: "itineraryItems",
