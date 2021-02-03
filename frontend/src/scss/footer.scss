@@ -1,8 +1,62 @@
 .footer-container{
+
+    // Guide to make it stick to the bottom:
+    // https://css-tricks.com/couple-takes-sticky-footer/
+
+    display: flex;
+    justify-content: center;
+
+    padding: 75px 0px;
+
     font-family: 'Helvetica Neue', sans-serif;
-    color:white;
+    color:$light;
     font-size: 15px;
-    background-color: #5ae3da;
+    // background-color: $main-color;
+    background-color: $dark;
     width: 100%;
+
+    footer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        max-width: 1000px;
+        width: 100%;
+    }
+
 }
 
+footer > ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+
+    & > li {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+
+        & > p {
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        & > ul > li {
+            margin-bottom: 7px;
+        }
+
+        &:first-child {
+            border-right: solid $light 1px;
+            padding-right: 20px;
+        }
+    }
+}
+
+#footer-copyright{
+    margin-top: 55px;
+    font-weight: bold;
+}
