@@ -16,5 +16,5 @@ export const updateItineraryItem = (data) => {
 } //unsure of data.id 
 
 export const deleteItineraryItem = (itemId) => {
-    return axios.delete(`api/itineraryitems/${itemId}`)
+    return axios.delete(`/api/trips/itineraryItems/${itemId}`)
 }

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchATrip } from '../../actions/trip_actions'
+import {deleteItem} from '../../actions/itinerary_item_actions'
 import TripPage from './trip_page'
 
 const mSTP = (state, ownProps) => {
@@ -14,7 +15,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        fetchATrip: tripId => dispatch(fetchATrip(tripId))
+        fetchATrip: tripId => dispatch(fetchATrip(tripId)),
+        deleteItem: itemId => dispatch(deleteItem(itemId))
     }
 }
 

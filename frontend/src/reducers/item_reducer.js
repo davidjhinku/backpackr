@@ -1,4 +1,9 @@
-import { RECEIVE_ALL_ITINERARY_ITEMS, RECEIVE_ITINERARY_ITEM, RECEIVE_NEW_ITINERARY_ITEM } from '../actions/itinerary_item_actions'
+import {
+    RECEIVE_ALL_ITINERARY_ITEMS,
+    RECEIVE_ITINERARY_ITEM,
+    RECEIVE_NEW_ITINERARY_ITEM,
+    REMOVE_ITEM
+} from '../actions/itinerary_item_actions'
 
 const defaultState = {
     item: {},
@@ -15,6 +20,9 @@ const ItemsReducer = (state = defaultState, action) => {
             return action.item.data;
         case RECEIVE_NEW_ITINERARY_ITEM:
             newState.new = action.item.data;
+            return newState;
+        case REMOVE_ITEM:
+            delete newState[action.itemId]
             return newState;
         default:
             return state;
