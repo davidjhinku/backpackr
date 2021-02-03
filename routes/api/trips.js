@@ -175,8 +175,6 @@ router.delete("/comments/:id",
             // Check that the current user is the owner of this comment.
             if (comment.author.id === req.user.id) {
 
-                debugger
-
                 const trip = Trip.findById(comment.trip).then(trip => {
                     trip.comments.pull({ _id: comment.id }).then(() => {
                         comment.remove().then(() => res.json("DELETED"));
