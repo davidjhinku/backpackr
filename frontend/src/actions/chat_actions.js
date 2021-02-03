@@ -1,6 +1,4 @@
-//still need to write update portion
-
-import * as ChatAPIUtil from '../util/itinerary_item_api_util'
+import * as ChatAPIUtil from '../util/chat_api_util'
 
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
@@ -53,7 +51,13 @@ export const createComment = data => dispatch => (
         .catch(err => dispatch(receiveErrors(err)))
 );
 
+export const updateComment = data => dispatch => {
+    return ChatAPIUtil.updateComment(data)
+        .then(comment => dispatch(receiveComment(comment)))
+        .catch(err => dispatch(receiveErrors(err)))
+}
+
 export const deleteTrip = tripId => dispatch => {
-    return APIUtil.deleteComment(tripId)
+    return ChatAPIUtil.deleteComment(tripId)
         .then(trip => dispatch(removeTrip(trip.id)))
 }
