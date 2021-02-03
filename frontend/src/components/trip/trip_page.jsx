@@ -17,7 +17,6 @@ class TripPage extends React.Component {
                 <div>Loading Trip...</div>
             )
         } else {
-            debugger
             return(
                 <div className='trip-overview-page'>
                     <h1>Next stop, {this.props.trip.destination}!</h1>

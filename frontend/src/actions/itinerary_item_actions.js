@@ -39,12 +39,9 @@ export const fetchItineraryItem = itemId => dispatch => (
 )
 
 export const createItineraryItem = data => dispatch => {
-    debugger
     return ItemAPIUtil.createItineraryItem(data)
         .then(item => {
-            debugger
             return dispatch(receiveNewItineraryItem(item))})
         .catch(err => {
-            debugger
             return dispatch(receiveErrors(err))})
 };

@@ -42,17 +42,17 @@ class CreateItineraryItem extends React.Component {
         this.props.clearErrors([])
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
-                    <li className='create-item-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, idx) => (
+    //                 <li className='create-item-errors-element' key={`err-${idx}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
     render() {
 
@@ -98,9 +98,9 @@ class CreateItineraryItem extends React.Component {
 
                         </div>
 
-                        <div className="create-item-errors">
+                        {/* <div className="create-item-errors">
                             {this.renderErrors()}
-                        </div>
+                        </div> */}
 
                         <div className="create-item-submit-btn">
                             <input className="create-item-submit-text" type="submit" value="Create an Item" />
