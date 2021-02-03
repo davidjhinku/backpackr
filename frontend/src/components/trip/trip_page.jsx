@@ -12,28 +12,26 @@ class TripPage extends React.Component {
     }
 
     render() {
-        debugger
         if (!this.props.trip) {
             return (
                 <div>Loading Trip...</div>
             )
         } else {
-            debugger
             return(
                 <div className='trip-overview-page'>
                     <h1>Next stop, {this.props.trip.destination}!</h1>
-                    {/* <div className='trip-users-container'>
+                    <div className='trip-users-container'>
                         <UsersListContainer trip={this.props.trip} tripId={this.props.tripId} />
-                    </div> */}
+                    </div>
 
                     {/* <div className='trips-chat-container'>
-                        <ChatsContainer trip={this.props.trip} />
+                        <ChatsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
                     </div> */}
 
                     <div className='trips-itinerary-container'>
                         <CreateItineraryItemContainer />
                         <br/>
-                        {/* <ItineraryItemContainer trip={this.props.trip} /> */}
+                        <ItineraryItemContainer trip={this.props.trip} />
                     </div>
                 </div>
             )
