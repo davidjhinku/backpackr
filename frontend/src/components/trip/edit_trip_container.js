@@ -19,6 +19,7 @@ class EditTrip extends React.Component {
                 <EditTripForm trip={props.trip}
                     formType={props.formType}
                     updateTrip={props.updateTrip}
+                    clearErrors={props.clearErrors}
                 />
             )
         }

@@ -13,6 +13,7 @@ export const createTrip = (data) => {
 }
 
 export const updateTrip = (data) => { 
+    debugger
     return axios.patch(`/api/trips/${data.id}`, data);
 } //unsure of data.id 
 

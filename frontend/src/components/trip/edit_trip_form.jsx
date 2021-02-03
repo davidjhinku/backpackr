@@ -4,14 +4,15 @@ import { withRouter } from 'react-router-dom'
 class EditTripForm extends React.Component {
     constructor(props) {
         super(props)
+        const trip = this.props.trip
         this.state = {
-            destination: '',
-            tripName: '',
-            startDate: '',
-            endDate: '',
-            users: [],
-            comments: [],
-            itineraryItems: [],
+            destination: trip.destination,
+            tripName: trip.tripName,
+            startDate: trip.startDate,
+            endDate: trip.endDate,
+            users: trip.users,
+            comments: trip.comments,
+            itineraryItems: trip.itineraryItems,
             errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,6 +33,7 @@ class EditTripForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let trip = {
+            id: this.props.trip._id,
             destination: this.state.destination,
             tripName: this.state.tripName,
             startDate: this.state.startDate,
@@ -41,9 +43,10 @@ class EditTripForm extends React.Component {
             itinerary_item: this.state.itineraryItems,
         };
 
-        this.props.update(trip)
+        this.props.updateTrip(trip)
             .then(returnedTrip => {
-                this.props.history.push(`/trips/${returnedTrip.trip.data._id}`);
+                debugger
+                this.props.history.push(`/trips/${this.props.match.params.tripId}`);
             });
     }
 
@@ -51,17 +54,17 @@ class EditTripForm extends React.Component {
         this.props.clearErrors([])
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
-                    <li className='create-trip-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, idx) => (
+    //                 <li className='create-trip-errors-element' key={`err-${idx}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
     render() {
         debugger
@@ -107,12 +110,12 @@ class EditTripForm extends React.Component {
 
                         </div>
 
-                        <div className="create-trip-errors">
+                        {/* <div className="create-trip-errors">
                             {this.renderErrors()}
-                        </div>
+                        </div> */}
 
                         <div className="create-trip-submit-btn">
-                            <input className="create-trip-submit-text" type="submit" value="Create Trip" />
+                            <input className="create-trip-submit-text" type="submit" value="Update Trip" />
                         </div>
 
                     </div>
