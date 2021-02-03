@@ -32,10 +32,10 @@ class CreateItineraryItem extends React.Component {
             itemName: this.state.itemName,
             category: this.state.category,
             address: this.state.address,
-            description: this.state.description
+            description: this.state.description,
+            tripId: this.props.tripId
         };
         this.props.createItineraryItem(item)
-            .then(this.props.history.push(`/itineraryitems/${item._id}`))
     }
 
     componentWillUnmount() {

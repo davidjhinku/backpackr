@@ -174,8 +174,6 @@ router.delete("/comments/:id",
             // Check that the current user is the owner of this comment.
             if (trip.author.id === req.user.id) {
 
-                debugger
-
                 const trip = Trip.findById(comment.trip).then(trip => {
                     trip.comments.pull({ _id: comment.id }).then(() => {
                         comment.remove().then(() => res.json("DELETED"));
@@ -198,6 +196,7 @@ router.post("/:trip_id/itineraryItem",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         Trip.findById(req.params.trip_id).then(trip => {
+            debugger
             // Check that the current user is part of this trip.
             if (trip.users.includes(req.user.id)) {
                 const { errors, isValid } = validateItineraryItemInput(req.body);
@@ -215,6 +214,7 @@ router.post("/:trip_id/itineraryItem",
                 });
 
                 newitineraryItem.save().then(ItineraryItem => {
+                    debugger
                     trip.itineraryItems.push(ItineraryItem.id);
                     trip.save().then(() => res.json(ItineraryItem));
                 });

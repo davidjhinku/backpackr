@@ -24,11 +24,11 @@ class TripPage extends React.Component {
                     <div className='trip-users-container'>
                         <UsersListContainer users={this.props.trip.users} tripId={this.props.tripId} />
                     </div>
-
+                    <br/>
                     <div className='trips-chat-container'>
                         <ChatsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
                     </div>
-
+                    <br/>
                     <div className='trips-itinerary-container'>
                         <CreateItineraryItemContainer tripId={this.props.tripId} itineraryItems={this.props.trip.itineraryItems} />
                         <br/>

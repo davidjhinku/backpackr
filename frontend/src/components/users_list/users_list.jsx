@@ -6,7 +6,7 @@ class UsersList extends React.Component{
     //{`{/trips/{tripId}/edit}`} edit page
 
     render(){
-        const tripUsers = Object.values(this.props.trip.users).map((user, idx)=>{
+        const tripUsers = this.props.users.map((user, idx)=>{
             return (
                 <div>
                     <h2>Adventurers</h2>

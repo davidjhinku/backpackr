@@ -47,17 +47,17 @@ class Chats extends React.Component {
         this.props.clearErrors([])
     }
 
-    renderErrors(){
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
-                    <li className='create-trip-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors(){
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, idx) => (
+    //                 <li className='create-trip-errors-element' key={`err-${idx}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
 
     render(){
@@ -81,9 +81,9 @@ class Chats extends React.Component {
                         </div>
 
 
-                        <div className="create-trip-errors">
+                        {/* <div className="create-trip-errors">
                             {this.renderErrors()}
-                        </div>
+                        </div> */}
 
                         <div className="create-trip-submit-btn">
                             <input className="create-trip-submit-text" type="submit" value="Create Trip" />

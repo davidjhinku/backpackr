@@ -38,8 +38,13 @@ export const fetchItineraryItem = itemId => dispatch => (
         .catch(err => dispatch(receiveErrors(err)))
 )
 
-export const createItineraryItem = data => dispatch => (
-    ItemAPIUtil.createItineraryItem(data)
-        .then(item => dispatch(receiveNewItineraryItem(item)))
-        .catch(err => dispatch(receiveErrors(err)))
-);
+export const createItineraryItem = data => dispatch => {
+    debugger
+    return ItemAPIUtil.createItineraryItem(data)
+        .then(item => {
+            debugger
+            return dispatch(receiveNewItineraryItem(item))})
+        .catch(err => {
+            debugger
+            return dispatch(receiveErrors(err))})
+};

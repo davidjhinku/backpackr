@@ -9,7 +9,7 @@ export const fetchItineraryItem = (itemId) => {
 
 export const createItineraryItem = (data) => {
     debugger
-    return axios.post(`/api/trips/${trip._id}/itineraryItem`, data);
+    return axios.post(`/api/trips/${data.tripId}/itineraryItem`, data);
 }
 
 // export const updateItineraryItem = (data) => {
