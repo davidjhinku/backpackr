@@ -1,4 +1,4 @@
-import { RECEIVE_CHAT_ERRORS, RECEIVE_COMMENT } from '../actions/chat_actions'
+import { RECEIVE_CHAT_ERRORS, RECEIVE_COMMENT } from '../actions/comment_actions'
 
 const _nullErrors = [];
 

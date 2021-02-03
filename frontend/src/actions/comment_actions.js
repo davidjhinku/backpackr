@@ -1,4 +1,4 @@
-import * as ChatAPIUtil from '../util/chat_api_util'
+import * as CommentAPIUtil from '../util/comment_api_util'
 
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
@@ -27,7 +27,7 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const removeTrip = commentId => {
+export const removeComment = commentId => {
     return {
         type: REMOVE_COMMENT,
         commentId
@@ -35,29 +35,30 @@ export const removeTrip = commentId => {
 }
 
 export const fetchComments = () => dispatch => (
-    ChatAPIUtil.fetchAllComments()
+    CommentAPIUtil.fetchAllComments()
         .then(comments => dispatch(receiveAllComments(comments)))
         .catch(err => dispatch(receiveErrors(err)))
 )
 export const fetchComment = commentId => dispatch => (
-    ChatAPIUtil.fetchComment(commentId)
+    CommentAPIUtil.fetchComment(commentId)
         .then(comment => dispatch(receiveComment(comment)))
         .catch(err => dispatch(receiveErrors(err)))
 )
 
-export const createComment = data => dispatch => (
-    ChatAPIUtil.createComment(data)
+export const createComment = data => dispatch => {
+    debugger
+    return CommentAPIUtil.createComment(data)
         .then(comment => dispatch(receiveNewComment(comment)))
         .catch(err => dispatch(receiveErrors(err)))
-);
+};
 
 export const updateComment = data => dispatch => {
-    return ChatAPIUtil.updateComment(data)
+    return CommentAPIUtil.updateComment(data)
         .then(comment => dispatch(receiveComment(comment)))
         .catch(err => dispatch(receiveErrors(err)))
 }
 
-export const deleteTrip = tripId => dispatch => {
-    return ChatAPIUtil.deleteComment(tripId)
-        .then(trip => dispatch(removeTrip(trip.id)))
+export const deleteComment = commentId => dispatch => {
+    return CommentAPIUtil.deleteComment(commentId)
+        .then(commentId => dispatch(removeComment(commentId)))
 }
