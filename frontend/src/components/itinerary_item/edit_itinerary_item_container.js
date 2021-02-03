@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { fetchItineraryItem, updateItineraryItem, receiveErrors } from '../../actions/itinerary_item_actions'
+import { fetchItineraryItem, receiveErrors } from '../../actions/itinerary_item_actions'
+// import { fetchItineraryItem, updateItineraryItem, receiveErrors } from '../../actions/itinerary_item_actions'
 import EditItineraryItem from './edit_itinerary_item'
 
 class EditItem extends React.Component {
@@ -16,7 +17,7 @@ class EditItem extends React.Component {
             return (
                 <EditItineraryItem
                     item={this.props.item}
-                    updateItineraryItem={this.props.updateItineraryItem}
+                    // updateItineraryItem={this.props.updateItineraryItem}
                     clearErrors={this.props.clearErrors}
                 />
             )
