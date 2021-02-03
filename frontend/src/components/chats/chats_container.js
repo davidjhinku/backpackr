@@ -4,7 +4,7 @@ import Chats from './chats'
 
 const mSTP = (state, ownProps) => {
     return {
-        errors: state.errors.trip
+       
     }
 }
 
