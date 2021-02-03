@@ -9,7 +9,7 @@ class TripDetails extends React.Component {
             <li className="trip-card">
                 <h2>{trip.tripName}</h2>
                 <h3>{trip.destination}</h3>
-                <p>{`${trip.startDate} - ${trip.endDate}`}</p>
+                <p>{`${trip.startDate.slice(0,10)} - ${trip.endDate.slice(0,10)}`}</p>
                 <div>
                     <Link to={`trips/${trip._id}`} >View Trip</Link>
                     <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit</Link>

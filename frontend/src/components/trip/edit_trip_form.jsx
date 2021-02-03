@@ -8,8 +8,8 @@ class EditTripForm extends React.Component {
         this.state = {
             destination: trip.destination,
             tripName: trip.tripName,
-            startDate: trip.startDate,
-            endDate: trip.endDate,
+            startDate: trip.startDate.slice(0,10),
+            endDate: trip.endDate.slice(0,10),
             users: trip.users,
             comments: trip.comments,
             itineraryItems: trip.itineraryItems,
@@ -98,6 +98,7 @@ class EditTripForm extends React.Component {
                             <input className='edit-trip-date-element'
                                 type="date"
                                 value={this.state.startDate}
+                                // value='2020-10-05'
                                 onChange={this.handleChange('startDate')}
                             />
                         </div>
