@@ -7,13 +7,13 @@ class TripDetails extends React.Component {
 
         return (
             <li className="trip-card">
-                <h2>{trip.tripName}</h2>
-                <h3>{trip.destination}</h3>
-                <p>{`${trip.startDate.slice(0,10)} - ${trip.endDate.slice(0,10)}`}</p>
+                <h2><Link to={`trips/${trip._id}`} >{trip.tripName}</Link></h2>
+                <p>Destination: {trip.destination}</p>
+                <p>Dates: {`${trip.startDate.slice(0,10)} - ${trip.endDate.slice(0,10)}`}</p>
                 <div>
-                    <Link to={`trips/${trip._id}`} >View Trip</Link>
-                    <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit</Link>
-                    <button onClick={() => this.props.deleteTrip(trip._id)}>Delete Trip</button>
+                    <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit This Trip</Link>
+                    <br/>
+                    <button onClick={() => this.props.deleteTrip(trip._id)}>Delete This Trip</button>
                 </div>
                 <br/>
             </li>
