@@ -5,9 +5,10 @@ import TripPage from './trip_page'
 const mSTP = (state, ownProps) => {
     const tripId = ownProps.match.params.tripId
     const trip = state.trips.trip
+    // debugger
     return {
         tripId: tripId,
-        trip: trip
+        trip: Object.values(trip)[0]
     }
 }
 
