@@ -36,6 +36,16 @@ class CreateItineraryItem extends React.Component {
             tripId: this.props.tripId
         };
         this.props.createItineraryItem(item)
+            // .then(this.props.fetchATrip(this.props.tripId))
+            .then(item => {
+                this.setState({
+                    itemName: '',
+                    category: '',
+                    address: '',
+                    description: '',
+                    errors: {}
+                })
+            })
     }
 
     componentWillUnmount() {
@@ -65,7 +75,7 @@ class CreateItineraryItem extends React.Component {
                         <div>
                             <input className='create-item-input'
                                 type="text"
-                                value={this.state.item_name}
+                                value={this.state.itemName}
                                 onChange={this.handleChange('itemName')}
                                 placeholder='Itinerary Item Name'
                             />
@@ -87,13 +97,17 @@ class CreateItineraryItem extends React.Component {
                                 type="text"
                                 value={this.state.address}
                                 onChange={this.handleChange('address')}
+                                placeholder='Address'
                             />
+                            <br/>
                         </div>
                         <input className='create-item-input'
                             type="text"
                             value={this.state.description}
                             onChange={this.handleChange('description')}
+                            placeholder='Description'
                         />
+                        <br/>
                         <div>
 
                         </div>
