@@ -3,10 +3,10 @@ import {
     RECEIVE_COMMENT, 
     RECEIVE_NEW_COMMENT, 
     REMOVE_COMMENT
-} from '../actions/chat_actions'
+} from '../actions/comment_actions'
 
 const defaultState = {
-    comment: {},
+    comment:{},
     new: undefined
 }
 
