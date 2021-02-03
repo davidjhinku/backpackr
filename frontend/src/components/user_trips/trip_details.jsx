@@ -11,9 +11,9 @@ class TripDetails extends React.Component {
                 <p>Destination: {trip.destination}</p>
                 <p>Dates: {`${trip.startDate.slice(0,10)} - ${trip.endDate.slice(0,10)}`}</p>
                 <div>
-                    <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit This Trip</Link>
+                    <Link className="edit-trip" to={`trips/${trip._id}/edit`} trip={trip}>Edit This Trip</Link>
                     <br/>
-                    <button onClick={() => this.props.deleteTrip(trip._id)}>Delete This Trip</button>
+                    <button className="delete-trip" onClick={() => this.props.deleteTrip(trip._id)}>Delete This Trip</button>
                 </div>
                 <br/>
             </li>
