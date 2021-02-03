@@ -39,8 +39,6 @@ class CreateComment extends React.Component {
         
         this.props.createComment(comment)
             .then(comment => {
-                debugger
-                
                 this.setState({
                     author: this.props.currentUser,
                     comment: "",

@@ -15,7 +15,6 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = dispatch => {
-    debugger
     return {
         
         createComment: data => dispatch(createComment(data)),
