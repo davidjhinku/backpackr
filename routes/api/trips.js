@@ -11,6 +11,8 @@ const ItineraryItem = require("../../models/ItineraryItem");
 
 const ValidateTripInput = require("../../validation/trip");
 const ValidateCommentInput = require("../../validation/comment");
+validateItineraryItemInput = require("../../validation/itineraryItem");
+const validText = require("../../validation/valid-text");
 
 
 // Get the trips for a specific user.
@@ -44,27 +46,25 @@ router.get("/:id",
                 select: ["handle", "_id"]
             })
             .populate({
-                    path: "comments",
-                    model: "Comment",
-                    select: "author"
+                path: "comments",
+                model: "Comment",
+                select: "author"
             })
             .populate({
-                    path: "itineraryItems",
-                    model: "ItineraryItem"
+                path: "itineraryItems",
+                model: "ItineraryItem"
             })
             .then(trip => {
-                debugger
 
                 // Check if the current user is part of the trip.
                 if (trip.users.some(user => (req.user.id === user.id))) {
-                    return res.json(trip)
+                    return res.json({ [trip.id]: trip })
                 } else {
                     // This user isn't authorized to view this trip.
                     return res.status(401).json({ unauthorized: "You are not authorized" });
                 }
             })
             .catch(err => {
-                debugger
                 return res.status(404).json({ notripfound: "This trip doesn't exist" })
             });
     });
@@ -87,7 +87,10 @@ router.post("/",
             endDate: req.body.endDate
         });
 
-        newTrip.save().then(trip => res.json(trip));
+        newTrip.save().then(trip => res.json(trip))
+        .catch(err => {
+            return res.status(404).json({ notripfound: "There was a problem creating the route." })
+        });;
     }
 );
 
@@ -109,7 +112,10 @@ router.patch("/:id",
         };
 
         Trip.findByIdAndUpdate(req.params.id, newTripData, { new: true, upsert: true })
-            .then(trip => res.json(trip));
+            .then(trip => res.json({ [trip.id]: trip }))
+            .catch(err => {
+                return res.status(404).json({ notripfound: "There was a problem updating the route." })
+            });
     }
 );
 
@@ -137,10 +143,10 @@ router.post("/:trip_id/comment",
     (req, res) => {
         Trip.findById(req.params.trip_id).then(trip => {
             // Check that the current user is part of this trip.
-            if (trip.users.includes(req.user.id)){
+            if (trip.users.includes(req.user.id)) {
                 const { errors, isValid } = ValidateCommentInput(req.body);
 
-                if (!isValid){
+                if (!isValid) {
                     return res.status(400).json(errors);
                 }
 
@@ -158,6 +164,70 @@ router.post("/:trip_id/comment",
                 return res.status(401).json("UNAUTHORIZED");
             }
         });
+    });
+
+// Add a itineraryItem to a trip.
+router.post("/:trip_id/itineraryItem",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id).then(trip => {
+            // Check that the current user is part of this trip.
+            if (trip.users.includes(req.user.id)) {
+                const { errors, isValid } = validateItineraryItemInput(req.body);
+
+                if (!isValid) {
+                    return res.status(400).json(errors);
+                }
+
+                const newitineraryItem = new ItineraryItem({
+                    trip: trip.id,
+                    itemName: req.body.itemName,
+                    category: req.body.category,
+                    address: req.body.address,
+                    description: req.body.description,
+                });
+
+                newitineraryItem.save().then(ItineraryItem => {
+                    trip.itineraryItems.push(ItineraryItem.id);
+                    trip.save().then(() => res.json(ItineraryItem));
+                });
+            } else {
+                return res.status(401).json("UNAUTHORIZED");
+            }
+        });
+    });
+
+// Add a user to a trip.
+router.post("/:trip_id/user",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id)
+            .then(trip => {
+
+                if (trip.users.includes(req.user.id)) {
+
+                    if (!validText(req.body.email)) {
+                        const errors = {};
+                        errors.email = "Enter a user's email to invite them";
+                        return res.status(400).json(errors);
+                    }
+
+                    User.findOne({ email: req.body.email }).then(user => {
+
+                        // Add the user only if they aren't already part of the trip.
+                        if (!trip.users.includes(user.id))
+                            trip.users.push(user.id);
+
+                        trip.save().then(() => {
+                            return res.json("Success")
+                        });
+
+                    });
+
+                } else {
+                    return res.status(401).json("Unauthorized");
+                }
+            });
     });
 
 module.exports = router;

@@ -16,7 +16,10 @@ module.exports = function validateItineraryItemInput(data) {
         errors.category = "Category is required";
 
     if (Validator.isEmpty(data.description))
-        errors.description = "Description is Descriptiond";
+        errors.description = "Description is required";
+
+    if (Validator.isEmpty(data.address))
+        errors.address = "Address is required";
 
     return {
         errors,
