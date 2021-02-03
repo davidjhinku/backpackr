@@ -10,9 +10,8 @@ class CreateComment extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            author: "",
+            author: this.props.currentUser,
             comment: "",
-            date: "",
             errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -35,7 +34,6 @@ class CreateComment extends React.Component {
         let comment = {
             author: this.state.author,
             comment: this.state.comment,
-            date: this.state.timestamp,
         };
     debugger
         this.props.createComment(comment)
@@ -45,17 +43,17 @@ class CreateComment extends React.Component {
         this.props.clearErrors([])
     }
 
-    // renderErrors(){
-    //     return (
-    //         <ul>
-    //             {Object.keys(this.state.errors).map((error, idx) => (
-    //                 <li className='create-comment-errors-element' key={`err-${idx}`}>
-    //                     {this.state.errors[error]}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     )
-    // }
+    renderErrors(){
+        return (
+            <ul>
+                {Object.keys(this.state.errors).map((error, idx) => (
+                    <li className='create-comment-errors-element' key={`err-${idx}`}>
+                        {this.state.errors[error]}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
 
 
     render() {
@@ -78,10 +76,9 @@ class CreateComment extends React.Component {
                             <br />
                         </div>
 
-
-                        {/* <div className="create-comment-errors">
+                        <div className="create-comment-errors">
                             {this.renderErrors()}
-                        </div> */}
+                        </div>
 
                         <div className="create-trip-submit-btn">
                             <input className="create-trip-submit-text" type="submit" value="Create Comment" />

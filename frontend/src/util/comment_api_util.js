@@ -8,7 +8,7 @@ export const fetchComment = (commentId) => {
 };
 
 export const createComment = (data) => {
-    return axios.get(`/api/trips/${data.tripId}/comment/`, data) 
+    return axios.post(`/api/trips/${data.tripId}/comment/`, data) 
 };
 
 export const updateComment = (data) => {

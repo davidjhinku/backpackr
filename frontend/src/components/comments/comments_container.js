@@ -9,7 +9,7 @@ import Comments from './comments';
 const mSTP = (state, ownProps) => {
     // const comment = state.comments.comment
     return {
-        // currentUser: state.session.user,
+        currentUser: state.session.user,
         // comments: comment
     }
 }
