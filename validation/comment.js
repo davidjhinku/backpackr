@@ -10,9 +10,9 @@ module.exports = function validateTripInput(data){
     if (Validator.isEmpty(data.comment))
         errors.comment = "The comment can't be empty";
 
+
     return {
         errors,
         isValid: Object.keys(errors).length === 0
     }
-
 }
