@@ -22,7 +22,11 @@ class UserTrips extends React.Component {
     
     render() {
       if (this.state.trips.length === 0) {
-        return (<div>You don't have any trips planned yet!</div>)
+        return (
+          <div>
+            <h1>You don't have any trips planned yet!</h1>
+            <Link to='/trips/create'>Create a new trip</Link>
+          </div>)
       } else {
         // debugger
         return (
