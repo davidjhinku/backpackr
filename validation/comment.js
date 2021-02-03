@@ -1,14 +1,15 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
 
-// Validates email and password from login requests.
-module.exports = function validateCommentInput(data) {
-    let errors = {};
+module.exports = function validateTripInput(data){
+
+    let errors ={};
 
     data.comment = validText(data.comment) ? data.comment : "";
 
-    if (Validator.isEmpty(data.destination))
-        errors.destination = "You need to enter a comment";
+    if (Validator.isEmpty(data.comment))
+        errors.comment = "The comment can't be empty";
+
 
     return {
         errors,

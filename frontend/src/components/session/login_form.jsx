@@ -35,7 +35,8 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.login(user);
+    this.props.login(user)
+      .then(this.props.history.push('/profile'));
   }
 
   componentWillUnmount() {

@@ -52,6 +52,7 @@ class CreateTripForm extends React.Component {
     }
 
     renderErrors() {
+        debugger
         return (
             <ul>
                 {Object.keys(this.state.errors).map((error, idx) => (
