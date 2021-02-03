@@ -1,7 +1,5 @@
 // still need to:
 // 1) map through comments
-// 2) create separate comment input form
-// 3) access author & datetime for comment display
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
@@ -35,8 +33,18 @@ class CreateComment extends React.Component {
             author: this.state.author,
             comment: this.state.comment,
         };
-    debugger
+
+        
         this.props.createComment(comment)
+            .then(comment => {
+                debugger
+                
+                this.setState({
+                    author: this.props.currentUser,
+                    comment: "",
+                    errors: {}
+                })
+            })
     }
 
     componentWillUnmount() {
