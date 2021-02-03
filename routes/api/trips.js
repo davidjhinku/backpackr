@@ -13,6 +13,7 @@ const ValidateTripInput = require("../../validation/trip");
 const ValidateCommentInput = require("../../validation/comment");
 validateItineraryItemInput = require("../../validation/itineraryItem");
 const validText = require("../../validation/valid-text");
+const itineraryItem = require("../../validation/itineraryItem");
 
 
 // Get the trips for a specific user.
@@ -126,7 +127,7 @@ router.delete("/:id",
         Trip.findById(req.params.id)
             .then(trip => {
                 if (trip.users.includes(req.user.id)) {
-                    trip.remove(() => res.json("DELETED"));
+                    trip.remove(() => res.json(trip));
                 } else {
                     // This user isn't authorized to view this trip.
                     return res.status(401).json({ unauthorized: "You are not authorized" });
@@ -151,7 +152,7 @@ router.post("/:trip_id/comment",
                 }
 
                 const newComment = new Comment({
-                    author: { _id: req.user.id, handle: req.user.handle },
+                    author: { _id: req.user.id, username: req.user.username },
                     trip: trip.id,
                     comment: req.body.comment
                 });
@@ -161,7 +162,7 @@ router.post("/:trip_id/comment",
                     trip.save().then(() => res.json(comment));
                 });
             } else {
-                return res.status(401).json("UNAUTHORIZED");
+                return res.status(401).json("Not the owner");
             }
         });
     });
@@ -170,24 +171,19 @@ router.post("/:trip_id/comment",
 router.delete("/comments/:id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
-        Comment.findById(req.params.id).then(comment => {
-            debugger
+        Comment.findById(req.params.id).populate("author._id").then(comment => {
             // Check that the current user is the owner of this comment.
-            if (comment.author.id === req.user.id) {
+            if (comment.author._id.id === req.user.id) {
 
-                const trip = Trip.findById(comment.trip).then(trip => {
-                    trip.comments.pull({ _id: comment.id }).then(() => {
-                        comment.remove().then(() => res.json("DELETED"));
-                    })
-                });
-
-                newComment.save().then(comment => {
-                    trip.comments.push(comment.id);
-                    trip.save().then(() => res.json(comment));
+                Trip.findById(comment.trip).then(trip => {
+                    trip.comments.pull({ _id: comment.id })
+                    trip.save().then(() => {
+                        comment.remove().then(() => res.json(comment));
+                    });
                 });
 
             } else {
-                return res.status(401).json("UNAUTHORIZED");
+                return res.status(401).json("Not the owner");
             }
         });
     });
@@ -213,13 +209,38 @@ router.post("/:trip_id/itineraryItem",
                     description: req.body.description,
                 });
 
-                debugger
                 newitineraryItem.save().then(ItineraryItem => {
                     trip.itineraryItems.push(ItineraryItem.id);
                     trip.save().then(() => res.json(ItineraryItem));
                 });
             } else {
-                return res.status(401).json("UNAUTHORIZED");
+                return res.status(401).json("Not the owner");
+            }
+        });
+    });
+
+// Delete a itineraryItem, and remove it from a trip.
+router.delete("/itineraryItems/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        ItineraryItem.findById(req.params.id)
+        .populate({ // Populate the trip to remove the itinerary item from it before deleteing it.
+            path: "trip",
+            model: "Trip",
+            select: ["itineraryItems", "users"]
+        })
+        .then(itineraryItem => {
+            // Check that the current user is part of the trip that is parent if this itinerary item.
+            if (itineraryItem.trip.users.includes(req.user.id)) {
+
+                const trip = itineraryItem.trip;
+                trip.itineraryItems.pull({ _id: itineraryItem.id })
+                trip.save().then(() => {
+                    itineraryItem.remove().then(() => res.json(itineraryItem));
+                });
+
+            } else {
+                return res.status(401).json("Not the owner");
             }
         });
     });
@@ -252,7 +273,7 @@ router.post("/:trip_id/user",
                     });
 
                 } else {
-                    return res.status(401).json("Unauthorized");
+                    return res.status(401).json("Not the owner");
                 }
             });
     });

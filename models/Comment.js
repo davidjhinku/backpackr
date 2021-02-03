@@ -8,7 +8,7 @@ const CommentSchema = new Schema({
             ref: 'User',
         },
 
-        handle: String
+        username: String
     },
     comment: {
         type: String,
