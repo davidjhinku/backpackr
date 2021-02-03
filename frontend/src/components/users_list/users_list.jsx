@@ -7,12 +7,17 @@ class UsersList extends React.Component{
         this.state = {
             email: ''
         }
-        this.inviteFriend = this.inviteFriend.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    inviteFriend(e){
+    handleSubmit(e){
         e.preventDefault()
 
+    }
+    
+    handleChange(e) {
+        this.setState({email: e.target.value})
     }
 
     render(){
@@ -27,19 +32,20 @@ class UsersList extends React.Component{
 
         return(
             <div>
-                <h2>Adventurers</h2>
                 <br/>
 
-                <p>Invite you friends</p>
-                <form onSubmit={this.inviteFriend}>
-                    <input type="text"
+                <p>Invite your friends</p>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="email"
                         value={this.state.email}
-                        placeholder=''
+                        onChange={this.handleChange}
+                        placeholder='Email'
                     />
+                    <br/>
                     <button>Send Invite</button>
                 </form>
                 <br/>
-                
+                <h2>Adventurers</h2>
                 <ul>
                     {tripUsers}
                 </ul>
