@@ -4,7 +4,6 @@ import {fetchATrip} from '../../actions/trip_actions'
 import CreateItineraryItem from './create_itinerary_item'
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
         currentUser: state.session.user,
         errors: state.errors.itineraryItem,

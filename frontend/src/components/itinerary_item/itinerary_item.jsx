@@ -9,12 +9,10 @@ class ItineraryItem extends React.Component {
     // }
 
     render() {
-        debugger
         const itemsList = this.props.itineraryItems.map((item, idx) => {
-            return <ItineraryItemDetails key={`item-${idx}`} item={item} />
+            return <ItineraryItemDetails key={`item-${idx}`} item={item} deleteItem={this.props.deleteItem}/>
         })
 
-        debugger
         return (
             <div className="item-container">
                 <CreateItineraryItemContainer />
