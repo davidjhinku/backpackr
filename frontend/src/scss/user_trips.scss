@@ -40,7 +40,8 @@
     border-top: 1px solid #f0f0f5;
     width: inherit;
     padding: 30px;
-    width: 75%;
+    padding-left: 100px;
+    width: 80%;
     font-size: 48px;
     font-weight:900;
     color: $main-color;
@@ -49,9 +50,9 @@
 }
 
 .trip-card {
-    margin: 1px 0;
-    width: 75%;
-    padding: 20px;
+    margin: 5px 0;
+    width: 90%;
+    padding: 30px 20px;
     border: 1px solid #fff;
     background-color: #fff;
     border-radius: 50px;
@@ -62,6 +63,7 @@
         font-weight:700;
         color: $light-secondary;
         font-family: 'Helvetica Neue', sans-serif;
+        padding-left: 10px;
         margin-bottom: 10px;
     }
 
@@ -71,18 +73,18 @@
     }
 
     p { 
-        padding-left: 10px;
+        padding-left: 20px;
         font-weight: 500;
         color: $light-secondary;
         font-family: 'Helvetica Neue', sans-serif;
     }
 
     .edit-trip { 
-        padding-left: 10px;
+        padding-left: 20px;
     }
 
     .delete-trip { 
-        padding-left: 10px;
+        padding-left: 20px;
     }
 }
 
@@ -95,9 +97,9 @@
     padding: 20px;
     font-family: 'Helvetica Neue', sans-serif;
     border-radius: 40px;
-    border: 1px solid #fff;
 }
 
 .new-trip-btn:hover { 
-    color: $light;  
+    color: rgba(255, 255, 255, 0.856);
+    background-color: $light;
 }
