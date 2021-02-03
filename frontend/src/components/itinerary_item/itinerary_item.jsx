@@ -8,6 +8,7 @@ class ItineraryItem extends React.Component {
     }
 
     render() { 
+        const items = this.props.itinerayItems
         return (
             <div className="item-container">
                 <div>
