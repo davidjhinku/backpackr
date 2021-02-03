@@ -17,6 +17,6 @@ module.exports = function validateTripInput(data){
     return {
         errors,
         isValid: Object.keys(errors).length === 0
-    }
+    };
 
 }
