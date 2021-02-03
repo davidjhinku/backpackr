@@ -1,5 +1,6 @@
 // still need to:
-// 1) map through comments
+// 1) delete comment
+// 2) 
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
@@ -32,6 +33,7 @@ class CreateComment extends React.Component {
         let comment = {
             author: this.state.author,
             comment: this.state.comment,
+            tripId: this.props.tripId,
         };
 
         

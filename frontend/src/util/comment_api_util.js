@@ -8,6 +8,7 @@ export const fetchComment = (commentId) => {
 };
 
 export const createComment = (data) => {
+    debugger
     return axios.post(`/api/trips/${data.tripId}/comment/`, data) 
 };
 
