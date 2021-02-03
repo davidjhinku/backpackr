@@ -31,19 +31,21 @@ class UserTrips extends React.Component {
         // debugger
         return (
           <div className='users-trip-page'>
-            <div className='users-trip-subcontainer'>
+            <div className="user-trips-nav-border"></div>
+            <div className='users-trip-container'>
 
               <div className="users-trip-header">
                 <h1>My Trips</h1>
               </div>
-              <ul className='users-trip-container'>
+
+              <ul className='users-trip-subcontainer'>
                 {this.state.trips.map(trip => (
                   <TripDetails key={trip._id} trip={trip} deleteTrip={this.props.deleteTrip}/>
                 ))}
+                <Link className="new-trip-btn" to='/trips/create'>Create a new trip</Link>
               </ul>
 
               <br/>
-              <Link to='/trips/create'>Create a new trip</Link>
 
             </div>
           </div>

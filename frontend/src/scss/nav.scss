@@ -29,13 +29,13 @@
     letter-spacing: 4px;
 }
 
-
 .auth-navbar-container{
+    position: fixed;
+    width: 100%;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color:$main-color;
+    background-color:$secondary-color;
     height:55px;
     font-size:22px;
-
     display:flex;
     flex-direction:row;
     justify-content: space-between;
@@ -46,7 +46,7 @@
     width:250px;
     padding:23px;
     font-weight:700;
-    color:$secondary-color;
+    color:$main-color;
     letter-spacing: 4px;
 }
 
@@ -54,6 +54,10 @@
     width:160px;
     padding:23px;
     font-weight:700;
-    color:rgb(192, 186, 186);
+    color:$light-secondary;
     letter-spacing: 4px;
+}
+
+.logout-btn:hover{
+    color: $light;
 }
