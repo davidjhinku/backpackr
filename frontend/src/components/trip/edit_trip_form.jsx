@@ -64,7 +64,7 @@ class EditTripForm extends React.Component {
     }
 
     render() {
-
+        debugger
         return (
             <div className='create-trip-container'>
                 <h3>Update your Trip</h3>

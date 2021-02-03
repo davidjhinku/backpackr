@@ -5,12 +5,13 @@ import EditTripForm from './edit_trip_form'
 
 class EditTrip extends React.Component {
     componentDidMount(){
+        debugger
         this.props.fetchATrip(this.props.match.params.tripId)
     }
 
     render() {
         const props = this.props
-
+        debugger
         if (!props.trip) {
             return null;
         } else {
@@ -27,9 +28,9 @@ class EditTrip extends React.Component {
 
 
 const mSTP = (state, ownProps) => {
-    // debugger
+    debugger
     return {
-        trip: state.trips[ownProps.match.params.tripId],
+        trip: state.trips.trip[ownProps.match.params.tripId],
         errors: state.errors.trip,
         formType: 'Update your Trip!'
     }
