@@ -7,10 +7,8 @@ from '../../actions/comment_actions';
 import Comments from './comments';
 
 const mSTP = (state, ownProps) => {
-    // const comment = state.comments.comment
     return {
-        // currentUser: state.session.user,
-        // comments: comment
+        currentUser: state.session.user
     }
 }
 

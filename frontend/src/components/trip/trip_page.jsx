@@ -1,6 +1,6 @@
 import React from 'react';
 import UsersListContainer from '../users_list/users_list_container';
-import CreateCommentsContainer from '../comments/create_comment_container';
+import CommentsContainer from '../comments/comments_container';
 import ItineraryItemContainer from '../itinerary_item/itinerary_item';
 
 
@@ -25,7 +25,7 @@ class TripPage extends React.Component {
                         </div>
                         <br />
                         <div className='trips-chat-container'>
-                            <CreateCommentsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
+                            <CommentsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
                         </div>
                         <br />
                         <div className='trips-itinerary-container'>
