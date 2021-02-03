@@ -88,9 +88,9 @@ router.post("/",
         });
 
         newTrip.save().then(trip => res.json(trip))
-        .catch(err => {
-            return res.status(404).json({ notripfound: "There was a problem creating the route." })
-        });;
+            .catch(err => {
+                return res.status(404).json({ notripfound: "There was a problem creating the route." })
+            });;
     }
 );
 
@@ -160,6 +160,31 @@ router.post("/:trip_id/comment",
                     trip.comments.push(comment.id);
                     trip.save().then(() => res.json(comment));
                 });
+            } else {
+                return res.status(401).json("UNAUTHORIZED");
+            }
+        });
+    });
+
+// Delete a comment, and remove it from a trip.
+router.delete("/comments/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Comment.findById(req.params.id).then(comment => {
+            // Check that the current user is the owner of this comment.
+            if (trip.author.id === req.user.id) {
+
+                const trip = Trip.findById(comment.trip).then(trip => {
+                    trip.comments.pull({ _id: comment.id }).then(() => {
+                        comment.remove().then(() => res.json("DELETED"));
+                    })
+                });
+
+                newComment.save().then(comment => {
+                    trip.comments.push(comment.id);
+                    trip.save().then(() => res.json(comment));
+                });
+
             } else {
                 return res.status(401).json("UNAUTHORIZED");
             }

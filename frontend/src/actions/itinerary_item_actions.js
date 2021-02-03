@@ -38,19 +38,10 @@ export const fetchItineraryItem = itemId => dispatch => (
         .catch(err => dispatch(receiveErrors(err)))
 )
 
-export const createItineraryItem = data => dispatch => (
-    ItemAPIUtil.createItineraryItem(data)
-        .then(item => dispatch(receiveNewItineraryItem(item)))
-        .catch(err => dispatch(receiveErrors(err)))
-);
-
-export const updateItineraryItem = data => dispatch => {
-    return ItemAPIUtil.updateItineraryItem(data)
-        .then(item => dispatch(receiveItineraryItem(item)))
-        .catch(err => dispatch(receiveErrors(err)))
-}
-
-export const deleteItineraryItem = itemId => dispatch => {
-    return ItemAPIUtil.deleteItineraryItem(itemId)
-        .then(item => dispatch(deleteItineraryItem(item.id)))
-}
+export const createItineraryItem = data => dispatch => {
+    return ItemAPIUtil.createItineraryItem(data)
+        .then(item => {
+            return dispatch(receiveNewItineraryItem(item))})
+        .catch(err => {
+            return dispatch(receiveErrors(err))})
+};

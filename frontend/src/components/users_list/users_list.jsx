@@ -6,11 +6,15 @@ class UsersList extends React.Component{
     //{`{/trips/{tripId}/edit}`} edit page
 
     render(){
-        const tripUsers = Object.values(this.props.trip.users).map((user, idx)=>{
+        const tripUsers = this.props.users.map((user, idx)=>{
             return (
-                <ul>
-                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li> <Link to="">Edit</Link>
-                </ul>
+                <div>
+                    <h2>Adventurers</h2>
+                    <ul>
+                        <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li> <Link to="">Edit</Link>
+                    </ul>
+                    <br/>
+                </div>
             )
         });
         
