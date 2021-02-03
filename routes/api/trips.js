@@ -43,7 +43,7 @@ router.get("/:id",
             .populate({
                 path: "users",
                 model: "User",
-                select: ["handle", "_id"]
+                select: ["username", "_id"]
             })
             .populate({
                 path: "comments",

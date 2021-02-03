@@ -5,7 +5,7 @@ class CreateItineraryItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            item_name: '',
+            itemName: '',
             category: '',
             address: '',
             description: '',
@@ -29,7 +29,7 @@ class CreateItineraryItem extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let item = {
-            item_name: this.state.item_name,
+            itemName: this.state.itemName,
             category: this.state.category,
             address: this.state.address,
             description: this.state.description
@@ -66,7 +66,7 @@ class CreateItineraryItem extends React.Component {
                             <input className='create-item-input'
                                 type="text"
                                 value={this.state.item_name}
-                                onChange={this.handleChange('item_name')}
+                                onChange={this.handleChange('itemName')}
                                 placeholder='Itinerary Item Name'
                             />
                             <br />
@@ -89,7 +89,7 @@ class CreateItineraryItem extends React.Component {
                                 onChange={this.handleChange('address')}
                             />
                         </div>
-                        <input className='create-trip-item-input'
+                        <input className='create-item-input'
                             type="text"
                             value={this.state.description}
                             onChange={this.handleChange('description')}
