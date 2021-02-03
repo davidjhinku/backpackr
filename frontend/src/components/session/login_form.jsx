@@ -35,7 +35,8 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.login(user);
+    this.props.login(user)
+      .then(this.props.history.push('/profile'));
   }
 
   componentWillUnmount() {
@@ -59,7 +60,7 @@ class LoginForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="login-form-subcontainer">
-
+            <h1 className="signup-form-header">Welcome back!</h1>
             <div className="login-form-input-container">
               <input className="login-form-input-element" type="text"
               value={this.state.email}

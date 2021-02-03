@@ -12,9 +12,10 @@ export const createTrip = (data) => {
     return axios.post('/api/trips/', data);
 }
 
-// export const updateTrip = (data) => { 
-//     return axios.patch(`/api/trips/${data.id}`, data);
-// } //unsure of data.id 
+export const updateTrip = (data) => { 
+    debugger
+    return axios.patch(`/api/trips/${data.id}`, data);
+} //unsure of data.id 
 
 export const deleteTrip = (tripId) => { 
     return axios.delete(`api/trips/${tripId}`)

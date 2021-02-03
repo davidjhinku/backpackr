@@ -9,11 +9,13 @@ class TripDetails extends React.Component {
             <li className="trip-card">
                 <h2>{trip.tripName}</h2>
                 <h3>{trip.destination}</h3>
-                <p>{`${trip.startDate} - ${trip.endDate}`}</p>
-                <br/>
+                <p>{`${trip.startDate.slice(0,10)} - ${trip.endDate.slice(0,10)}`}</p>
                 <div>
-                    {/* LINKS TO UPDATE AND DELETE */}
+                    <Link to={`trips/${trip._id}`} >View Trip</Link>
+                    <Link to={`trips/${trip._id}/edit`} trip={trip}>Edit</Link>
+                    <button onClick={() => this.props.deleteTrip(trip._id)}>Delete Trip</button>
                 </div>
+                <br/>
             </li>
         );
     }

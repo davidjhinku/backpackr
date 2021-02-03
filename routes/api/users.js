@@ -15,7 +15,7 @@ const validateLoginInput = require("../../validation/login");
 router.get("/current", passport.authenticate("jwt", {session: false}), (req, res) => {
     res.json({
         id: req.user.id,
-        handle: req.user.handle,
+        username: req.user.username,
         email: req.user.email
     });
 });
@@ -29,18 +29,18 @@ router.post("/register", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    User.findOne({ handle: req.body.handle })
+    User.findOne({ username: req.body.username })
         .then(user => {
 
             if (user){
-                // Throw error, this handle is already taken.
-                errors.handle = "User already exists";
+                // Throw error, this username is already taken.
+                errors.username = "User already exists";
                 return res.status(400).json(errors);
             } else {
 
                 // Email not in use, create the user.
                 const newUser = new User({
-                    handle: req.body.handle,
+                    username: req.body.username,
                     email: req.body.email
                 });
 
@@ -52,7 +52,7 @@ router.post("/register", (req, res) => {
                         newUser.save()
                             .then(user => {
 
-                                const payload = { id: user.id, handle: user.handle };
+                                const payload = { id: user.id, username: user.username };
 
                                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                     res.json({

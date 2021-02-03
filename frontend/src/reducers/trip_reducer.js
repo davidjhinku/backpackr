@@ -1,4 +1,9 @@
-import {RECEIVE_USER_TRIPS, RECEIVE_A_TRIP, RECEIVE_NEW_TRIP} from '../actions/trip_actions'
+import {
+    RECEIVE_USER_TRIPS,
+    RECEIVE_A_TRIP,
+    RECEIVE_NEW_TRIP,
+    REMOVE_TRIP
+} from '../actions/trip_actions'
 
 const defaultState = {
     user: {},
@@ -18,6 +23,9 @@ const TripsReducer = (state = defaultState, action) => {
             return newState;
         case RECEIVE_NEW_TRIP:
             newState.new = action.trip.data;
+            return newState;
+        case REMOVE_TRIP:
+            delete newState[action.tripId]
             return newState;
         default:
             return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 import TripDetails from './trip_details'
-
+import {Link} from 'react-router-dom'
 
 class UserTrips extends React.Component {
     constructor(props) {
@@ -22,17 +22,30 @@ class UserTrips extends React.Component {
     
     render() {
       if (this.state.trips.length === 0) {
-        return (<div>You don't have any trips planned yet!</div>)
+        return (
+          <div>
+            <h1>You don't have any trips planned yet!</h1>
+            <Link to='/trips/create'>Create a new trip</Link>
+          </div>)
       } else {
         // debugger
         return (
           <div className='users-trip-page'>
-            <h1>My Trips</h1>
-            <ul className='users-trip-container'>
-              {this.state.trips.map(trip => (
-                <TripDetails key={trip._id} trip={trip}/>
-              ))}
-            </ul>
+            <div className='users-trip-subcontainer'>
+
+              <div className="users-trip-header">
+                <h1>My Trips</h1>
+              </div>
+              <ul className='users-trip-container'>
+                {this.state.trips.map(trip => (
+                  <TripDetails key={trip._id} trip={trip} deleteTrip={this.props.deleteTrip}/>
+                ))}
+              </ul>
+
+              <br/>
+              <Link to='/trips/create'>Create a new trip</Link>
+
+            </div>
           </div>
         )
       }

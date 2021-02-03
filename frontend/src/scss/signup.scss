@@ -15,6 +15,8 @@
 
 .signup-form-header{
     margin-bottom:16px;
+    font-size:37px;
+    z-index:2;
 }
 
 .signup-form-subcontainer{
@@ -25,7 +27,8 @@
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    background-color:rgba(0, 0, 0, 0.264);
+    background-color:rgba(0, 0, 0, 0.342);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .signup-form-input-element{
@@ -38,14 +41,17 @@
 
 .signup-form-input-element:hover{
     background-color: lightgrey;
+    border: 1px solid $main-color;
 }
 
 .signup-form-input-element:focus{
     outline:none;
+    background-color:lightgrey;
 }
 
 ::placeholder{
     color:$secondary-color;
+    font-size:15px;
 }
 
 .signup-form-errors{
@@ -59,12 +65,14 @@
 }
 
 .signup-form-submit-btn{
-    width: 143px;
-    height: 35px;
-    margin-top: 80px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 40px;
 
     border: 1px solid $secondary-color;
-    background-color: transparent;
+    background-color: rgba(25, 24, 24, 0.312);
     border-radius: 40px;
     
     text-align: center;
