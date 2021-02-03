@@ -278,4 +278,26 @@ router.post("/:trip_id/user",
             });
     });
 
+// Remove a user from a trip.
+router.delete("/:trip_id/user/:user_id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id)
+        .then(trip => {
+            // Check that the current user is the one being removed,
+            // and that they are in this trip.
+            if (trip.users.includes(req.user.id)
+            && req.user.id === req.params.user_id) {
+
+                trip.users.pull({ _id: req.params.user_id })
+                trip.save().then(newTrip => res.json(newTrip));
+
+                // TODO: What if the trip is left empty? Without any users.
+
+            } else {
+                return res.status(401).json("Not the owner");
+            }
+        });
+    });
+
 module.exports = router;
