@@ -29,6 +29,40 @@
     letter-spacing: 4px;
 }
 
+.splash-navbar-container { 
+    height: 55px;
+    width: auto;
+}
+
+.nav-splash-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+    width: auto;
+    height:55px;
+
+    a { 
+        display:flex;
+        flex-direction: row;
+    }
+}
+
+.splash-logo{
+    width: 55px;
+    height: 55px;
+}
+
+.splash-logo-text{
+    display:flex;
+    height: auto;
+    align-items: center;
+    font-size:36px;
+    font-weight:900;
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
 .auth-navbar-container{
     position: fixed;
     width: 100%;

@@ -25,8 +25,9 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div className="splash-navbar-container">
-                    <div className="splash-navbar-about">
-                        ABOUT
+                    <div className="nav-splash-container">
+                        <Link to="/"><img class="backpackr-logo" className="splash-logo" src="https://i.ibb.co/HdM0KxR/logo.png" />
+                        <div className="splash-logo-text">Backpackr</div></Link>
                     </div>
                     <div className="splash-session-options-container">
                         <div>
