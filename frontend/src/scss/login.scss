@@ -85,9 +85,14 @@
     background-color: lightgrey;
 }
 
+.login-form-submit-text:focus{
+    text-decoration: none;
+    outline: none;
+}
+
 .login-form-text{
     font-size:14.5px;
-
+    text-align: center;
     margin-top:48px;
     width: 340px;
     line-height: 26px;

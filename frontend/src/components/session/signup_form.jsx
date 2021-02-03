@@ -113,13 +113,11 @@ class SignupForm extends React.Component {
                 {this.renderErrors()}
               </div>
 
-            <div className="signup-form-submit-btn">
-                <input className="signup-form-submit-text" type="submit" value="Submit" />
-            </div>
+              <button className="signup-form-submit-btn" onClick={this.handleSubmit}>Sign Up</button>
 
-            <div className="login-form-text">
-              Already have an account? Go ahead and <Link className="signup-form-login-link" to="/login">login</Link>.
-            </div>
+              <div className="login-form-text">
+                Already have an account? Go ahead and <Link className="signup-form-login-link" to="/login">login</Link>.
+              </div>
           </div>
         </form>
       </div>
