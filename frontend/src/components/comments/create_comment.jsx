@@ -1,7 +1,6 @@
 // still need to:
-// 1) map through comments
-// 2) create separate comment input form
-// 3) access author & datetime for comment display
+// 1) delete comment
+// 2) 
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
@@ -10,9 +9,8 @@ class CreateComment extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            author: "",
+            author: this.props.currentUser,
             comment: "",
-            date: "",
             errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -35,27 +33,35 @@ class CreateComment extends React.Component {
         let comment = {
             author: this.state.author,
             comment: this.state.comment,
-            date: this.state.timestamp,
+            tripId: this.props.tripId,
         };
-    debugger
+
+        
         this.props.createComment(comment)
+            .then(comment => {
+                this.setState({
+                    author: this.props.currentUser,
+                    comment: "",
+                    errors: {}
+                })
+            })
     }
 
     componentWillUnmount() {
         this.props.clearErrors([])
     }
 
-    // renderErrors(){
-    //     return (
-    //         <ul>
-    //             {Object.keys(this.state.errors).map((error, idx) => (
-    //                 <li className='create-comment-errors-element' key={`err-${idx}`}>
-    //                     {this.state.errors[error]}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     )
-    // }
+    renderErrors(){
+        return (
+            <ul>
+                {Object.keys(this.state.errors).map((error, idx) => (
+                    <li className='create-comment-errors-element' key={`err-${idx}`}>
+                        {this.state.errors[error]}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
 
 
     render() {
@@ -78,10 +84,9 @@ class CreateComment extends React.Component {
                             <br />
                         </div>
 
-
-                        {/* <div className="create-comment-errors">
+                        <div className="create-comment-errors">
                             {this.renderErrors()}
-                        </div> */}
+                        </div>
 
                         <div className="create-trip-submit-btn">
                             <input className="create-trip-submit-text" type="submit" value="Create Comment" />
