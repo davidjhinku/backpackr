@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ItineraryItemSchema = new Schema({
-    _id: {
-        type: Schema.Types.ObjectId
-    },
-
     itemName: {
         type: String,
         required: true
@@ -21,13 +17,15 @@ const ItineraryItemSchema = new Schema({
         type: String,
         required: true
     },
-
-
+    trip: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
     }
 })
-
 
 module.exports = ItineraryItem = mongoose.model("ItineraryItem", ItineraryItemSchema);

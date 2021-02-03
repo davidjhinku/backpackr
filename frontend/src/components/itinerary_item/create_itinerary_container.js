@@ -12,6 +12,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
     return {
         createItineraryItem: data => dispatch(createItineraryItem(data)),
+        updateItineraryItem: data => dispatch(updateItineraryItem(data)),
         clearErrors: errors => dispatch(receiveErrors(errors))
     }
 }

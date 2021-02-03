@@ -5,13 +5,18 @@ const CommentSchema = new Schema({
     author: {
         _id: {
             type: Schema.Types.ObjectId,
-            ref: 'users',
+            ref: 'User',
         },
 
-        username: String
+        handle: String
     },
     comment: {
         type: String,
+        required: true
+    },
+    trip: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     date: {
