@@ -43,3 +43,14 @@ export const createItineraryItem = data => dispatch => (
         .then(item => dispatch(receiveNewItineraryItem(item)))
         .catch(err => dispatch(receiveErrors(err)))
 );
+
+export const updateItineraryItem = data => dispatch => {
+    return APIUtil.updateItineraryItem(data)
+        .then(trip => dispatch(receiveItineraryItem(trip)))
+        .catch(err => dispatch(receiveErrors(err)))
+}
+
+export const deleteItineraryItem = itemId => dispatch => {
+    return APIUtil.deleteItineraryItem(itemId)
+        .then(trip => dispatch(removeTrip(trip.id)))
+}
