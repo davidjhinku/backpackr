@@ -8,9 +8,13 @@ class UsersList extends React.Component{
     render(){
         const tripUsers = Object.values(this.props.trip.users).map((user, idx)=>{
             return (
-                <ul>
-                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li> <Link to="">Edit</Link>
-                </ul>
+                <div>
+                    <h2>Adventurers</h2>
+                    <ul>
+                        <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li> <Link to="">Edit</Link>
+                    </ul>
+                    <br/>
+                </div>
             )
         });
         

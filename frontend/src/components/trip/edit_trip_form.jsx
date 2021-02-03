@@ -45,7 +45,6 @@ class EditTripForm extends React.Component {
 
         this.props.updateTrip(trip)
             .then(returnedTrip => {
-                debugger
                 this.props.history.push(`/trips/${this.props.match.params.tripId}`);
             });
     }
@@ -67,7 +66,7 @@ class EditTripForm extends React.Component {
     // }
 
     render() {
-        debugger
+        
         return (
             <div className='edit-trip-container'>
                 <h3>Update your Trip</h3>
