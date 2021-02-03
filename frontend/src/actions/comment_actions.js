@@ -46,13 +46,10 @@ export const fetchComment = commentId => dispatch => (
 )
 
 export const createComment = data => dispatch => {
-    debugger
     return CommentAPIUtil.createComment(data)
         .then(comment => {
-            debugger
             return dispatch(receiveNewComment(comment))})
         .catch(err => {
-            debugger
             return dispatch(receiveErrors(err))})
 };
 
