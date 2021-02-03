@@ -1,17 +1,19 @@
 
 .users-trip-page{
     width:100%;
-    height:100vh;
+    height:100%;
     padding-top: 55px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fff;
+    margin-bottom: 80px;
 }
 
 .users-trip-container{
     width:80%;
-    height:100vh;
+    height:100%;
+    padding-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,7 +27,7 @@
     align-items: center;
     width: 100%;
     height: 80%;
-    margin-top: 90px;
+    margin-top: 105px;
     // border:1px solid black;
 }
 
