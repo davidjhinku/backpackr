@@ -171,8 +171,9 @@ router.delete("/comments/:id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         Comment.findById(req.params.id).then(comment => {
+            debugger
             // Check that the current user is the owner of this comment.
-            if (trip.author.id === req.user.id) {
+            if (comment.author.id === req.user.id) {
 
                 debugger
 
@@ -214,6 +215,7 @@ router.post("/:trip_id/itineraryItem",
                     description: req.body.description,
                 });
 
+                debugger
                 newitineraryItem.save().then(ItineraryItem => {
                     trip.itineraryItems.push(ItineraryItem.id);
                     trip.save().then(() => res.json(ItineraryItem));
