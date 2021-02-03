@@ -1,4 +1,5 @@
 import * as UsersAPIUtil from '../util/users_api_util'
+import { removeTrip } from './trip_actions';
 
 export const ADD_USER = 'RECEIVE_USER';
 export const REMOVE_USER = 'REMOVE_USER';
@@ -23,3 +24,14 @@ export const receiveErrors = errors => {
     }
 }
 
+export const addUserToTrip = user => dispatch => {
+    return UsersAPIUtil.addUserToTrip(user)
+        .then(user => dispatch(receiveUser(user)))
+        .catch(err => dispatch(receiveErrors(err)))
+}
+
+export const removeUserFromTrip = user => dispatch => {
+    return UsersAPIUtil.removeUserFromTrip(user)
+        .then(user => dispatch(removeUser(user)))
+        .catch(err => dispatch(receiveErrors(err)))
+}
