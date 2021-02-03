@@ -3,16 +3,17 @@
 // 2) create separate comment input form
 // 3) access author & datetime for comment display
 
-import React from 'react'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-class Chats extends React.Component {
+class CreateComment extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username:"",
-            comment:"",
-            date:"",
-            errors:{}
+            author: "",
+            comment: "",
+            date: "",
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -32,18 +33,15 @@ class Chats extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let comment = {
-            username: this.state.username,
+            author: this.state.author,
             comment: this.state.comment,
             date: this.state.timestamp,
         };
-
-        // this.props.createComment(comment)
-        //     // .then(returnedComment=> {
-        //         // this.props.history.push(`/trips/${ownProps.match.params.trip.data._id}/comments`); need help with this
-        //     // });
+    debugger
+        this.props.createComment(comment)
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.props.clearErrors([])
     }
 
@@ -51,7 +49,7 @@ class Chats extends React.Component {
     //     return (
     //         <ul>
     //             {Object.keys(this.state.errors).map((error, idx) => (
-    //                 <li className='create-trip-errors-element' key={`err-${idx}`}>
+    //                 <li className='create-comment-errors-element' key={`err-${idx}`}>
     //                     {this.state.errors[error]}
     //                 </li>
     //             ))}
@@ -60,13 +58,13 @@ class Chats extends React.Component {
     // }
 
 
-    render(){
+    render() {
 
         return (
             <div className='comments-container'>
                 <h3>Comments</h3>
 
-                 
+
                 <form onSubmit={this.handleSubmit}>
                     <div className='comments-subcontainer'>
 
@@ -81,12 +79,12 @@ class Chats extends React.Component {
                         </div>
 
 
-                        {/* <div className="create-trip-errors">
+                        {/* <div className="create-comment-errors">
                             {this.renderErrors()}
                         </div> */}
 
                         <div className="create-trip-submit-btn">
-                            <input className="create-trip-submit-text" type="submit" value="Create Trip" />
+                            <input className="create-trip-submit-text" type="submit" value="Create Comment" />
                         </div>
                     </div>
                 </form>
@@ -95,4 +93,4 @@ class Chats extends React.Component {
     }
 }
 
-export default Chats;
+export default CreateComment;
