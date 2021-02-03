@@ -87,6 +87,11 @@
     color:white;
 }
 
+.signup-form-submit-text:focus{
+    text-decoration: none;
+    outline: none;
+}
+
 .signup-form-submit-btn:hover{
     background-color: lightgrey;
 }
