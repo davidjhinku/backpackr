@@ -11,14 +11,14 @@ class CreateComment extends React.Component {
         this.state = {
             author: this.props.currentUser,
             comment: "",
-            errors: {}
+            // errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ errors: nextProps.errors })
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ errors: nextProps.errors })
+    // }
 
     handleChange(field) {
         return e => {
@@ -37,14 +37,7 @@ class CreateComment extends React.Component {
         };
 
         
-        this.props.createComment(comment)
-            .then(comment => {
-                this.setState({
-                    author: this.props.currentUser,
-                    comment: "",
-                    errors: {}
-                })
-            })
+        this.props.createComment(comment);
     }
 
     componentWillUnmount() {
@@ -54,9 +47,9 @@ class CreateComment extends React.Component {
     renderErrors(){
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
+                {Object.keys(this.props.errors).map((error, idx) => (
                     <li className='create-comment-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
+                        {this.props.errors[error]}
                     </li>
                 ))}
             </ul>

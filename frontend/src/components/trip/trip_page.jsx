@@ -24,7 +24,7 @@ class TripPage extends React.Component {
                         </div>
                     </div>
                     <div className='trip-chat-container'>
-                        <CommentsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
+                        <CommentsContainer tripId={this.props.trip._id} comments={Object.values(this.props.comments)} />
                     </div>
                     <div className="trip-items-container">
                         <header className="trip-items-header">
