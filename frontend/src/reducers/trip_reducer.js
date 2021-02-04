@@ -16,7 +16,12 @@ const TripsReducer = (state = defaultState, action) => {
     let newState = Object.assign({}, state);
     switch(action.type) {
         case RECEIVE_USER_TRIPS:
-            newState.user = action.trips.data;
+            newState.user = {};
+            // Turn this array into an object with keys as id's.
+            action.trips.data.forEach(trip => {
+                newState.user[trip._id] = trip;
+            });
+            return newState;
             return newState;
         case RECEIVE_A_TRIP:
             newState.trip = action.trip.data;
@@ -25,7 +30,7 @@ const TripsReducer = (state = defaultState, action) => {
             newState.new = action.trip.data;
             return newState;
         case REMOVE_TRIP:
-            delete newState[action.tripId]
+            delete newState.user[action.tripId]
             return newState;
         default:
             return state;

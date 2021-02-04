@@ -1,0 +1,236 @@
+.trip-page-container {
+    background-color: #222831;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-around;
+    color:black;
+    
+}
+
+//comments
+.trip-chat-container{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height:80vh;
+    width:64vh;
+    margin-top:100px;
+    display: fixed;
+    padding:16px;
+}
+
+.comments-subcontainer{
+    height:68vh;
+    overflow: auto;
+}
+
+.create-comment-container{
+    height:11vh;
+    background-color: #ace3e0;
+    color:black;
+}
+
+.create-comment-subcontainer{
+    display:flex;
+    flex-direction:row;
+    padding: 20px;
+}
+
+.create-comment-form-header{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:700;
+    color:$light-secondary;
+    letter-spacing: 4px;
+    font-size: 15px;
+    word-wrap: wrap;
+}
+
+.comments-input-element{
+    height:50px;
+    width:90%;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
+    border-radius: 40px;
+    text-indent:19px;
+}
+
+.comments-input-element:focus{
+    outline:none;
+}
+
+
+
+.comments-input-element::placeholder{
+    color: white;
+}
+
+.create-comment-submit-btn{
+    height:10%;
+    width:10%;
+    cursor:pointer;
+}
+
+.message-bubble-1{
+    background: #ace3e0;
+    border-radius: 30px;
+    padding:10px;
+    margin-left:210px;
+
+    width: 270px;
+
+    font-family:'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: #000;
+
+}
+
+.message-bubble-2{
+    background: white;
+    border-radius: 30px;
+    padding:10px;
+
+    width: 270px;
+
+    font-family:'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: #000;
+
+}
+
+// .comment-list{
+
+// }
+
+//itinerary
+
+.trip-items-container{
+    background-color:#222831;
+    margin-bottom:40px;
+    height:82vh;
+    width: 60vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    margin-top:100px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.trip-items-header{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:700;
+    color:white;
+    letter-spacing: 2.5px;
+    font-size: 60px;
+    word-wrap: wrap;
+}
+
+
+.create-item-container{
+    height:100%;
+    width:100%;
+    border:1px solid lightgrey;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-item-first-row{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.create-item-input{
+    outline:none;
+    margin:10px;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
+
+    height:39px;
+    width:380px;
+    border-radius: 50px;
+    text-indent: 20px;
+}
+
+.create-item-input:hover, .create-item-input:focus{
+    background-color:transparent;
+    border: 1px solid grey;
+}
+
+
+.create-item-input-1{
+    outline:none;
+    margin:10px;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
+    outline:none;
+
+    height:39px;
+    width:175px;
+    border-radius: 50px;
+    text-indent: 20px;
+}
+
+.create-item-input-1:hover, .create-item-input-1:focus{
+    background-color:transparent;
+    border: 1px solid grey;
+}
+
+.create-item-submit-btn{
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
+    outline:none;
+    margin:10px;
+    margin-top:30px;
+    outline:none;
+    height:36px;
+    width:95%;
+    border-radius: 50px;
+}
+
+
+.create-item-submit-btn:hover{
+
+    background-color: rgba(103, 101, 101, 0.757);
+}
+
+.itinerary-item-list{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:500;
+    color:white;
+    letter-spacing: 2.5px;
+    font-size: 17px;
+    word-wrap: wrap;
+    margin:16px;
+    height:30px;
+    padding:10px;
+
+    border-radius:40px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    
+}
+
+//blank spacing
+.filler-queen{
+    width:1vh;
+}
+
