@@ -36,7 +36,6 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
     this.props.login(user)
-      .then(this.props.history.push('/profile'));
   }
 
   componentWillUnmount() {
@@ -90,6 +89,7 @@ class LoginForm extends React.Component {
             </div>
             
           </div>
+          
         </form>
       </div>
     );

@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,7 +44,12 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history); //Why are we passing in history?
+    this.props.signup(user, this.props.history);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    this.props.login({ email: "demo@gmail.com", password: "password" })
   }
 
   renderErrors() {
@@ -114,6 +120,7 @@ class SignupForm extends React.Component {
               </div>
 
               <button className="signup-form-submit-btn" onClick={this.handleSubmit}>Sign Up</button>
+              <button className="demo-user-btn" onClick={this.handleDemo}>Demo User</button>
 
               <div className="login-form-text">
                 Already have an account? Go ahead and <Link className="signup-form-login-link" to="/login">login</Link>.
