@@ -1,5 +1,14 @@
 $dashArrayCount: 1500;
 
+#loading-logo-wrapper{
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  background: #42a29cc4;
+}
+
 .loading-logo-container {
   position: fixed;
   top: 50%;
