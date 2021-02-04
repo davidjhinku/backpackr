@@ -30,7 +30,7 @@ const CommentsReducer = (state = defaultState, action) => {
             newState[action.comment._id] = action.comment;
             return newState;
         case REMOVE_COMMENT:
-            delete newState[action.commentId]
+            delete newState[action.commentId.data._id];
             return newState;
         default:
             return state;
