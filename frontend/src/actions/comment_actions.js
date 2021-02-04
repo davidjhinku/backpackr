@@ -60,7 +60,7 @@ export const updateComment = data => dispatch => {
 }
 
 export const deleteComment = commentId => dispatch => {
-    debugger
+    // debugger
     return CommentAPIUtil.deleteComment(commentId)
         .then(commentId => dispatch(removeComment(commentId)))
 }
