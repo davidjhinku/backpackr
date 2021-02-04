@@ -29,7 +29,7 @@ export const addUserToTrip = user => dispatch => {
         .then(user => {
             return dispatch(receiveUser(user))})
         .catch(err => {
-            return dispatch(receiveErrors(err))})
+            return dispatch(receiveErrors(err.response.data))})
 }
 
 export const removeUserFromTrip = user => dispatch => {
@@ -37,5 +37,5 @@ export const removeUserFromTrip = user => dispatch => {
         .then(user => {
             return dispatch(removeUser(user))})
         .catch(err => {
-            return dispatch(receiveErrors(err))})
+            return dispatch(receiveErrors(err.response.data))})
 }

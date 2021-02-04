@@ -48,7 +48,7 @@ export const fetchComment = commentId => dispatch => (
 export const createComment = data => dispatch => {
     return CommentAPIUtil.createComment(data)
         .then(comment => {
-            return dispatch(receiveNewComment(comment))})
+            return dispatch(receiveNewComment(comment.data))})
         .catch(err => {
             return dispatch(receiveErrors(err))})
 };
@@ -60,6 +60,7 @@ export const updateComment = data => dispatch => {
 }
 
 export const deleteComment = commentId => dispatch => {
+    // debugger
     return CommentAPIUtil.deleteComment(commentId)
         .then(commentId => dispatch(removeComment(commentId)))
 }

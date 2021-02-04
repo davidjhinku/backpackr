@@ -10,6 +10,7 @@ class UsersList extends React.Component{
         this.addFriend = this.addFriend.bind(this)
         this.removeFriend = this.removeFriend.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     addFriend(e){
@@ -39,19 +40,29 @@ class UsersList extends React.Component{
         this.setState({email: e.target.value})
     }
 
-    render(){
-        const tripUsers = this.props.users.map((user, idx)=>{
+    renderErrors(errors) {
+        return (
+            <li>
+                {errors}
+            </li>
+        )
+    }
+
+    tripUsers(users) {
+        return users.map((user, idx) => {
             return (
-                <div>
-                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li>
-                    <div>
-                        <button onClick={this.removeFriend(user._id)}>Uninvite?</button>
+                <li className="trip-users-element" key={`user-${idx}`}>
+                    <p>{user.username}</p>
+                    <div className='uninvite-friend'>
+                        <button onClick={this.removeFriend(user._id)}>X</button>
                     </div>
-                    <br/>
-                </div>
+                </li>
             )
-        });
-        
+        })
+    }
+
+
+    render(){
 
         return(
             <div className="userslist-container">
@@ -60,12 +71,11 @@ class UsersList extends React.Component{
                         <h2>Adventurers</h2>
                     </header>
                     
-
-                    <ul>
-                        {tripUsers}
+                    <ul className='trip-users-list'>
+                        {this.tripUsers(this.props.users)}
                     </ul>
-
                 </div>
+
 
                 <div className="userslist-invite-users-container">
                     <header className="userslist-header-element-2">
@@ -80,9 +90,15 @@ class UsersList extends React.Component{
                             className="userslist-input-element"
                         />
                         <br />
-                        <button>Send Invite</button>
+                        <button className='invite-button'>Send Invite</button>
                     </form>
+                    <div/>
+                        <ul className="users-list-errors">
+                            {this.renderErrors(this.props.errors)}
+                        </ul>
+                    <div/>
                 </div>
+                
             </div>
         )
     }

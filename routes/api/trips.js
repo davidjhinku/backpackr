@@ -11,7 +11,7 @@ const ItineraryItem = require("../../models/ItineraryItem");
 
 const ValidateTripInput = require("../../validation/trip");
 const ValidateCommentInput = require("../../validation/comment");
-validateItineraryItemInput = require("../../validation/itineraryItem");
+const validateItineraryItemInput = require("../../validation/itineraryItem");
 const validText = require("../../validation/valid-text");
 const itineraryItem = require("../../validation/itineraryItem");
 
@@ -251,7 +251,6 @@ router.post("/:trip_id/user",
     (req, res) => {
         Trip.findById(req.params.trip_id)
             .then(trip => {
-
                 if (trip.users.includes(req.user.id)) {
 
                     if (!validText(req.body.email)) {
@@ -260,8 +259,11 @@ router.post("/:trip_id/user",
                         return res.status(400).json(errors);
                     }
 
-                    User.findOne({ email: req.body.email }).then(user => {
-
+                    User.findOne({ email: req.body.email }).then(user => {   
+                        if (!user) {
+                            return res.status(401).json("User doesn't exist") 
+                        }
+    
                         // Add the user only if they aren't already part of the trip.
                         if (!trip.users.includes(user.id))
                             trip.users.push(user.id);
@@ -273,7 +275,7 @@ router.post("/:trip_id/user",
                     });
 
                 } else {
-                    return res.status(401).json("Not the owner");
+                    return res.status(401).json("You don't have permission to invite");
                 }
             });
     });
@@ -286,6 +288,7 @@ router.delete("/:trip_id/user/:user_id",
         .then(trip => {
             // Check that the current user is the one being removed,
             // and that they are in this trip.
+
             if (trip.users.includes(req.user.id)
             && req.user.id === req.params.user_id) {
 
@@ -295,7 +298,8 @@ router.delete("/:trip_id/user/:user_id",
                 // TODO: What if the trip is left empty? Without any users.
 
             } else {
-                return res.status(401).json("Not the owner");
+                return res.status(401).json("You can only remove yourself!");
+                // return res.status(401).json({errors: "You can only remove yourself!"});
             }
         });
     });
