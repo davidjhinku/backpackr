@@ -26,7 +26,6 @@ const CommentsReducer = (state = defaultState, action) => {
         case RECEIVE_COMMENT:
             return action.comment.data;
         case RECEIVE_NEW_COMMENT:
-            debugger
             const test = {};
             newState[action.comment._id] = action.comment;
             return newState;
