@@ -10,6 +10,7 @@ class UsersList extends React.Component{
         this.addFriend = this.addFriend.bind(this)
         this.removeFriend = this.removeFriend.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     addFriend(e){
@@ -39,19 +40,51 @@ class UsersList extends React.Component{
         this.setState({email: e.target.value})
     }
 
-    render(){
-        const tripUsers = this.props.users.map((user, idx)=>{
+    renderErrors(errors) {
+        debugger
+        return (
+            <li>
+                {errors}
+            </li>
+        )
+
+        // return errors.map((err, idx) => {
+        //     return (
+        //         <li key={`usererr-${idx}`}>
+        //             {err}
+        //         </li>
+        //     )
+        // })
+
+
+        // return (
+        //     <ul >
+        //         {Object.keys(this.props.errors).map((error, idx) => (
+        //             <li className="login-form-errors-element" key={`error-${idx}`}>
+        //                 {error}
+        //             </li>
+        //         ))}
+        //     </ul>
+        // );
+
+    }
+
+    tripUsers(users) {
+        return users.map((user, idx) => {
             return (
-                <div>
-                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li>
+                <li className="trip-users-element" key={`user-${idx}`}>{user.username}
                     <div>
                         <button onClick={this.removeFriend(user._id)}>Uninvite?</button>
                     </div>
-                    <br/>
-                </div>
+                    <br />
+                </li>
             )
-        });
-        
+        })
+    }
+
+
+    render(){
+        debugger
 
         return(
             <div className="userslist-container">
@@ -60,12 +93,11 @@ class UsersList extends React.Component{
                         <h2>Adventurers</h2>
                     </header>
                     
-
                     <ul>
-                        {tripUsers}
+                        {this.tripUsers(this.props.users)}
                     </ul>
-
                 </div>
+
 
                 <div className="userslist-invite-users-container">
                     <header className="userslist-header-element-2">
@@ -82,7 +114,13 @@ class UsersList extends React.Component{
                         <br />
                         <button>Send Invite</button>
                     </form>
+                    <div/>
+                        <ul className="users-list-errors">
+                            {this.renderErrors(this.props.errors)}
+                        </ul>
+                    <div/>
                 </div>
+                
             </div>
         )
     }
