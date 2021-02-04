@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from '../graphic/logo';
 
 class Splash extends React.Component {
 
@@ -9,8 +8,7 @@ class Splash extends React.Component {
         <div className="splash-subcontainer">
 
           <div className="splash-header-container">
-            {/* <img alt="backpackr-logo" className="splash-header-logo" src="https://i.ibb.co/HdM0KxR/logo.png" /> */}
-            <Logo />
+            <img alt="backpackr-logo" className="splash-header-logo" src="https://i.ibb.co/HdM0KxR/logo.png" />
                 <h1 className="splash-header-text">Backpackr</h1>
           </div>
 
