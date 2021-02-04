@@ -192,8 +192,8 @@
 
 .trip-items-container{
     background-color:#222831;
-    height:82vh;
     margin-bottom:40px;
+    height:82vh;
     width: 60vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -211,6 +211,7 @@
     font-size: 60px;
     word-wrap: wrap;
 }
+
 
 .create-item-container{
     height:100%;
@@ -258,6 +259,11 @@
     text-indent: 20px;
 }
 
+.create-item-input-1:hover, .create-item-input-1:focus{
+    background-color:white;
+    border: 1px solid grey;
+}
+
 .create-item-submit-btn{
     outline:none;
     margin:10px;
@@ -270,6 +276,16 @@
     text-indent: 20px;
 }
 
+
+.item-element{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:600;
+    color:white;
+    letter-spacing: 2.5px;
+    font-size: 19px;
+    word-wrap: wrap;
+    margin:16px;
+}
 
 //blank spacing
 .filler-queen{
