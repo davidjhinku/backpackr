@@ -25,12 +25,18 @@ export const receiveErrors = errors => {
 }
 
 export const addUserToTrip = user => dispatch => {
+    debugger
     return UsersAPIUtil.addUserToTrip(user)
-        .then(user => dispatch(receiveUser(user)))
-        .catch(err => dispatch(receiveErrors(err)))
+        .then(user => {
+            debugger
+            return dispatch(receiveUser(user))})
+        .catch(err => {
+            debugger
+            return dispatch(receiveErrors(err))})
 }
 
 export const removeUserFromTrip = user => dispatch => {
+    debugger
     return UsersAPIUtil.removeUserFromTrip(user)
         .then(user => dispatch(removeUser(user)))
         .catch(err => dispatch(receiveErrors(err)))

@@ -17,6 +17,8 @@ class UsersList extends React.Component{
             email: this.state.email,
             tripId: this.props.tripId
         }
+
+        debugger
         this.props.addUserToTrip(user)
             .then(this.setState({email: ''}))
     }

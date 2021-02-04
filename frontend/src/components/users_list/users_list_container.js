@@ -4,7 +4,8 @@ import UsersList from './users_list'
 
 const mSTP = (state, ownProps) => {
     return {
-        tripId: ownProps.match.params.tripId
+        tripId: Object.keys(state.trips.trip)[0],
+        errors: state.errors.user
     }
 }
 

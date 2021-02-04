@@ -14,3 +14,5 @@ const UserErrorsReducer = (state = [], action) => {
             return state;
     }
 }
+
+export default UserErrorsReducer;
