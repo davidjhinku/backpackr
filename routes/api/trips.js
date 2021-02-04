@@ -11,7 +11,7 @@ const ItineraryItem = require("../../models/ItineraryItem");
 
 const ValidateTripInput = require("../../validation/trip");
 const ValidateCommentInput = require("../../validation/comment");
-validateItineraryItemInput = require("../../validation/itineraryItem");
+const validateItineraryItemInput = require("../../validation/itineraryItem");
 const validText = require("../../validation/valid-text");
 const itineraryItem = require("../../validation/itineraryItem");
 
@@ -286,6 +286,7 @@ router.delete("/:trip_id/user/:user_id",
         .then(trip => {
             // Check that the current user is the one being removed,
             // and that they are in this trip.
+
             if (trip.users.includes(req.user.id)
             && req.user.id === req.params.user_id) {
 
@@ -295,7 +296,7 @@ router.delete("/:trip_id/user/:user_id",
                 // TODO: What if the trip is left empty? Without any users.
 
             } else {
-                return res.status(401).json("Not the owner");
+                return res.status(401).json({errors: "You can only remove yourself!"});
             }
         });
     });
