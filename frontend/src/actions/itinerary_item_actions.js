@@ -56,5 +56,5 @@ export const createItineraryItem = data => dispatch => {
 
 export const deleteItem = itemId => dispatch => {
     return ItemAPIUtil.deleteItineraryItem(itemId)
-        .then(item => dispatch(removeItem(item.id)))
+        .then(item => dispatch(removeItem(itemId)))
 }
