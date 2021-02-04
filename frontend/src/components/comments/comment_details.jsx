@@ -4,7 +4,6 @@ class CommentDetails extends React.Component{
 
     render () {
         const messageClass = ((this.props.idx) % 2 === 0)?"message-bubble-1" : "message-bubble-2"
-        // debugger
         return (<div className='comment-list' >
             <li className={messageClass}>
 
@@ -19,7 +18,7 @@ class CommentDetails extends React.Component{
                 <br />
 
                 <br />
-                <button onClick={() => this.props.deleteComment(this.props.comment.author._id.id)}>Delete Comment</button>
+                <button onClick={() => this.props.deleteComment(this.props.comment._id)}>Delete Comment</button>
             </li>
             <br />
         </div>
