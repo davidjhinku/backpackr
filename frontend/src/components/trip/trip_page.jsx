@@ -17,22 +17,29 @@ class TripPage extends React.Component {
             )
         } else {
             return (
-                <div className='trip-overview-page'>
-                    <div className="trip-overview-container">
-                        <h1>Next stop, {this.props.trip.destination}!</h1>
-                        <div className='trip-users-container'>
-                            <UsersListContainer users={this.props.trip.users} tripId={this.props.tripId} />
+                <div className='trip-page-container'>
+                    <div className='trip-sidebar-container'>
+                        <div className="trip-sidebar-container-elements">
+                        <UsersListContainer users={this.props.trip.users} tripId={this.props.tripId} />
                         </div>
-                        <br />
-                        <div className='trips-chat-container'>
-                            <CommentsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
-                        </div>
-                        <br />
-                        <div className='trips-itinerary-container'>
+                    </div>
+                    <div className='trip-chat-container'>
+                        <CommentsContainer tripId={this.props.trip._id} comments={this.props.trip.comments} />
+                    </div>
+                    <div className="trip-items-container">
+                        <header className="trip-items-header">
+                            <h1>Next stop, {this.props.trip.destination}!</h1>
+                            <br />
+                        </header>
+
+                        <div className='trip-items-subcontainer'>
                             {/* <CreateItineraryItemContainer tripId={this.props.tripId} itineraryItems={this.props.trip.itineraryItems} />
                             <br/> */}
-                            <ItineraryItemContainer tripId={this.props.tripId} itineraryItems={this.props.trip.itineraryItems} deleteItem={this.props.deleteItem}/>
+                            <ItineraryItemContainer tripId={this.props.tripId} itineraryItems={this.props.trip.itineraryItems} deleteItem={this.props.deleteItem} />
                         </div>
+                    </div>
+
+                    <div className="filler-queen">
                     </div>
                 </div>
             )

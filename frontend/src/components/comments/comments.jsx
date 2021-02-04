@@ -1,17 +1,18 @@
 import React from 'react';
-import CommentDetails from './comment_details';
+import CommentDetailsContainer from './comment_details_container';
 import CreateCommentContainer from './create_comment_container';
 
 class Comments extends React.Component {
     
     render() {
-        const commentsList = this.props.comments.map((comment, idx) => {
-            return <CommentDetails key={`comment-${idx}`} comment={comment} deleteComment={this.props.deleteComment} />
+        const commentsList = this.props.comments.map((comment, idx) => { 
+            return <CommentDetailsContainer idx={idx + 1} key={`err-${idx}`}comment={comment} />
         })
 
+
         return (
-            <div className="comments-container">
-                <ul>
+            <div>
+                <ul className="comments-subcontainer">
                     {commentsList}
                     <br />
                 </ul>

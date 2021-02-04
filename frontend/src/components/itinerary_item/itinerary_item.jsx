@@ -14,12 +14,15 @@ class ItineraryItem extends React.Component {
         })
 
         return (
-            <div className="item-container">
+            <div>
+                <div className="items-container">
+                    <ul>
+                        <li className="item-element">{itemsList}</li>
+                    </ul>
+                    <br />
+                </div>
+
                 <CreateItineraryItemContainer />
-                <br />
-                <ul>
-                    {itemsList}
-                </ul>
             </div>
         )
     }

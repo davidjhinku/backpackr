@@ -54,24 +54,35 @@ class UsersList extends React.Component{
         
 
         return(
-            <div>
-                <br/>
+            <div className="userslist-container">
+                <div className="userslist-users-container">
+                    <header className="userslist-header-element-1">
+                        <h2>Adventurers</h2>
+                    </header>
+                    
 
-                <p>Invite your friends</p>
-                <form onSubmit={this.addFriend}>
-                    <input type="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        placeholder='Email'
-                    />
-                    <br/>
-                    <button>Send Invite</button>
-                </form>
-                <br/>
-                <h2>Adventurers</h2>
-                <ul>
-                    {tripUsers}
-                </ul>
+                    <ul>
+                        {tripUsers}
+                    </ul>
+
+                </div>
+
+                <div className="userslist-invite-users-container">
+                    <header className="userslist-header-element-2">
+                        <h3>Invite friends</h3>
+                    </header>
+
+                    <form onSubmit={this.addFriend}>
+                        <input type="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            placeholder='Email'
+                            className="userslist-input-element"
+                        />
+                        <br />
+                        <button>Send Invite</button>
+                    </form>
+                </div>
             </div>
         )
     }
