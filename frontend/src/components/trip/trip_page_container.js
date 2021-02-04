@@ -9,7 +9,8 @@ const mSTP = (state, ownProps) => {
     // debugger
     return {
         tripId: tripId,
-        trip: Object.values(trip)[0]
+        trip: Object.values(trip)[0],
+        comments: state.comments
     }
 }
 
