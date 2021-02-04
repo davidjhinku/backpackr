@@ -13,6 +13,7 @@ import TripEditContainer from './trip/edit_trip_container';
 import ItineraryCreateContainer from './itinerary_item/create_itinerary_container';
 import ItineraryItemEditContainer from './itinerary_item/edit_itinerary_item_container';
 import ItineraryItemContainer from './itinerary_item/itinerary_item_container';
+import LoadingLogo from './graphic/loading_logo';
 
 const App = () => (
   <div>
@@ -30,6 +31,7 @@ const App = () => (
       <ProtectedRoute path="/trips/:itemId/edit" component={ItineraryItemEditContainer} />
     </Switch>
     <Footer />
+    <LoadingLogo />
   </div>
 );
 

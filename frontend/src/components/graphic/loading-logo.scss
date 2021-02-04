@@ -1,0 +1,38 @@
+$dashArrayCount: 1500;
+
+.loading-logo-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 50px;
+  border-radius: 100%;
+  border: solid white 10px;
+
+  z-index: 999;
+  width: 100px;
+  height: 100px;
+
+  background-color: #5ae3da;
+  box-shadow: #00000014 10px 10px 10px;
+  
+}
+
+.loading-logo {
+    fill: none;
+    stroke: white;
+    stroke-width: 10px;
+    stroke-dasharray: $dashArrayCount;
+    animation: dash 5s ease-in-out infinite;
+}
+  
+@keyframes dash {
+  to {
+    stroke-dashoffset: $dashArrayCount * 2;
+  }
+}
