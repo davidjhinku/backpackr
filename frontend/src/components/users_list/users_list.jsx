@@ -13,7 +13,12 @@ class UsersList extends React.Component{
 
     handleSubmit(e){
         e.preventDefault()
-
+        let user = {
+            email: this.state.email,
+            tripId: this.props.tripId
+        }
+        this.props.addUserToTrip(user)
+            .then(this.setState({email: ''}))
     }
     
     handleChange(e) {

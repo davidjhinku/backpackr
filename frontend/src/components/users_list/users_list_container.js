@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchATrip } from '../../actions/trip_actions'
+import { addUserToTrip, removeUserFromTrip } from '../../actions/users_actions'
 import UsersList from './users_list'
 
 const mSTP = (state, ownProps) => {
     return {
+        tripId: ownProps.match.params.tripId
     }
 }
 
 const mDTP = dispatch => {
     return {
-        fetchATrip: tripId => dispatch(fetchATrip(tripId))
+        addUserToTrip: user => dispatch(addUserToTrip(user)),
+        removeUserFromTrip: user => dispatch(removeUserFromTrip(user))
     }
 }
 
