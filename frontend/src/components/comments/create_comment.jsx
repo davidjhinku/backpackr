@@ -67,33 +67,25 @@ class CreateComment extends React.Component {
     render() {
 
         return (
-            <div className='comments-container'>
-                <h3>Comments</h3>
+                <form>
+                    <div className='create-comment-subcontainer'>
 
-
-                <form onSubmit={this.handleSubmit}>
-                    <div className='comments-subcontainer'>
-
-                        <div>
-                            <input className='comments-input-element'
+                            <input 
+                                className='comments-input-element'
                                 type="text"
                                 value={this.state.comment}
                                 onChange={this.handleChange('comment')}
-                                placeholder='Write your comment here!'
+                                placeholder='Write your comment here'
                             />
                             <br />
-                        </div>
 
                         <div className="create-comment-errors">
                             {this.renderErrors()}
                         </div>
 
-                        <div className="create-trip-submit-btn">
-                            <input className="create-trip-submit-text" type="submit" value="Create Comment" />
-                        </div>
+                            <img className="create-comment-submit-btn" onClick={this.handleSubmit} src="https://i.ibb.co/th9QxJw/comment-submit.png" />
                     </div>
                 </form>
-            </div>
         )
     }
 }

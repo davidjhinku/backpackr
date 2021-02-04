@@ -67,29 +67,29 @@ class CreateItineraryItem extends React.Component {
     render() {
 
         return (
-            <div className='create-trip-container'>
-                <h3>Create an Itinerary Item</h3>
+            <div className='create-item-container'>
                 <form onSubmit={this.handleSubmit}>
                     <div className='create-item-box'>
+                        <div className="create-item-first-row">
+                            <div>
+                                <input className='create-item-input-1'
+                                    type="text"
+                                    value={this.state.itemName}
+                                    onChange={this.handleChange('itemName')}
+                                    placeholder='Itinerary Item Name'
+                                />
+                                <br />
+                            </div>
 
-                        <div>
-                            <input className='create-item-input'
-                                type="text"
-                                value={this.state.itemName}
-                                onChange={this.handleChange('itemName')}
-                                placeholder='Itinerary Item Name'
-                            />
-                            <br />
-                        </div>
-
-                        <div>
-                            <input className='create-item-input'
-                                type="text"
-                                value={this.state.category}
-                                onChange={this.handleChange('category')}
-                                placeholder='Category'
-                            />
-                            <br />
+                            <div>
+                                <input className='create-item-input-1'
+                                    type="text"
+                                    value={this.state.category}
+                                    onChange={this.handleChange('category')}
+                                    placeholder='Category'
+                                />
+                                <br />
+                            </div>
                         </div>
 
                         <div>
@@ -117,7 +117,7 @@ class CreateItineraryItem extends React.Component {
                         </div> */}
 
                         <div className="create-item-submit-btn">
-                            <input className="create-item-submit-text" type="submit" value="Create an Item" />
+                            <input className="create-item-submit-text" type="submit" value="Create an Itinerary Item" />
                         </div>
 
                     </div>
