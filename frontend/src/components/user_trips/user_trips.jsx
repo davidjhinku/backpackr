@@ -14,10 +14,14 @@ class UserTrips extends React.Component {
     
     render() {
       if (this.props.trips.length === 0) {
-        return (
-          <div>
-            <h1>You don't have any trips planned yet!</h1>
-            <Link to='/trips/create'>Create a new trip</Link>
+        return (  
+          <div className='no-trip-page'>
+            <div className="no-trip-container">
+              <h1>You don't have any trips planned yet!</h1>
+              <div className='no-trip-create-btn-container'>
+                <Link className="no-trip-create-btn" to='/trips/create'>Create a new trip</Link>
+              </div>
+            </div>
           </div>)
       } else {
         return (
