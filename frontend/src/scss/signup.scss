@@ -80,6 +80,22 @@
 
 }
 
+.demo-user-btn{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 20px;
+
+    border: 1px solid $secondary-color;
+    background-color: rgba(25, 24, 24, 0.312);
+    border-radius: 40px;
+    
+    text-align: center;
+    color: white;
+
+}
+
 .signup-form-submit-text{
     padding-top:7px;
     font-weight: bold;

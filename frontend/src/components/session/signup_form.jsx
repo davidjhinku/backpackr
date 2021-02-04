@@ -120,8 +120,7 @@ class SignupForm extends React.Component {
               </div>
 
               <button className="signup-form-submit-btn" onClick={this.handleSubmit}>Sign Up</button>
-
-              <button className="signup-form-submit-btn" onClick={this.handleDemo}>Demo User</button>
+              <button className="demo-user-btn" onClick={this.handleDemo}>Demo User</button>
 
               <div className="login-form-text">
                 Already have an account? Go ahead and <Link className="signup-form-login-link" to="/login">login</Link>.
