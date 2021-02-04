@@ -13,15 +13,16 @@ class SignupForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.signedIn === true) {
-  //     this.props.history.push('/login');
-  //   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.signedIn === true) {
+      this.props.history.push('/login');
+    }
 
-  //   this.setState({ errors: nextProps.errors })
-  // }
+    this.setState({ errors: nextProps.errors })
+  }
 
   componentWillUnmount() {
     this.props.clearErrors([])
@@ -43,10 +44,12 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history); //Why are we passing in history?
-    // this.props.signup(user)
-      // .then(this.props.login({email: this.state.email, password: this.state.password}))
-      // .then(this.props.history.push('/profile'));
+    this.props.signup(user, this.props.history);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    this.props.login({ email: "demo@gmail.com", password: "password" })
   }
 
   renderErrors() {
@@ -117,6 +120,8 @@ class SignupForm extends React.Component {
               </div>
 
               <button className="signup-form-submit-btn" onClick={this.handleSubmit}>Sign Up</button>
+
+              <button className="signup-form-submit-btn" onClick={this.handleDemo}>Demo User</button>
 
               <div className="login-form-text">
                 Already have an account? Go ahead and <Link className="signup-form-login-link" to="/login">login</Link>.
