@@ -130,25 +130,21 @@
 .comments-input-element{
     height:50px;
     width:90%;
-    border: 1px solid white;
-    background-color:white;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
     border-radius: 40px;
     text-indent:19px;
 }
 
-.comments-input-element:hover{
-    border: 1px solid white;
-    background-color:#ace3e0;
-}
-
 .comments-input-element:focus{
-    border: 1px solid white;
-    background-color: #ace3e0;
     outline:none;
 }
 
+
+
 .comments-input-element::placeholder{
-    color: grey;
+    color: white;
 }
 
 .create-comment-submit-btn{
@@ -170,6 +166,7 @@
     line-height: 14px;
     text-align: center;
     color: #000;
+
 }
 
 .message-bubble-2{
@@ -184,9 +181,12 @@
     line-height: 14px;
     text-align: center;
     color: #000;
+
 }
 
+// .comment-list{
 
+// }
 
 //itinerary
 
@@ -232,9 +232,12 @@
 .create-item-input{
     outline:none;
     margin:10px;
-    background-color:#ace3e0;
-    outline:none;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color:#1a1e25;
     border:1px solid lightgrey;
+
     height:39px;
     width:380px;
     border-radius: 50px;
@@ -242,7 +245,7 @@
 }
 
 .create-item-input:hover, .create-item-input:focus{
-    background-color:white;
+    background-color:transparent;
     border: 1px solid grey;
 }
 
@@ -250,9 +253,13 @@
 .create-item-input-1{
     outline:none;
     margin:10px;
-    background-color:#ace3e0;
-    outline:none;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color:#1a1e25;
     border:1px solid lightgrey;
+    outline:none;
+
     height:39px;
     width:175px;
     border-radius: 50px;
@@ -260,31 +267,49 @@
 }
 
 .create-item-input-1:hover, .create-item-input-1:focus{
-    background-color:white;
+    background-color:transparent;
     border: 1px solid grey;
 }
 
 .create-item-submit-btn{
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
     outline:none;
     margin:10px;
-    background-color:#ace3e0;
+    margin-top:30px;
     outline:none;
-    border:1px solid lightgrey;
-    height:39px;
-    width:175px;
+    height:36px;
+    width:95%;
     border-radius: 50px;
-    text-indent: 20px;
 }
 
 
-.item-element{
+.create-item-submit-btn:hover{
+
+    background-color: rgba(103, 101, 101, 0.757);
+}
+
+.itinerary-item-list{
     font-family:'Helvetica Neue', sans-serif;
-    font-weight:600;
+    font-weight:500;
     color:white;
     letter-spacing: 2.5px;
-    font-size: 19px;
+    font-size: 17px;
     word-wrap: wrap;
     margin:16px;
+    height:30px;
+    padding:10px;
+
+    border-radius:40px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    
 }
 
 //blank spacing
