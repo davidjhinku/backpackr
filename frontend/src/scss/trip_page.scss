@@ -75,9 +75,17 @@
 }
 
 .userslist-input-element{
-    background-color:grey;
+    font-family: 'Helvetica Neue', sans-serif;
+
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
     outline:none;
 
+    height:24px;
+    width: 94%;
+    border-radius: 30px;
+    text-indent:15px;
 }
 
 .userslist-input-element:hover{
