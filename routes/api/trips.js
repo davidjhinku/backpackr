@@ -251,7 +251,6 @@ router.post("/:trip_id/user",
     (req, res) => {
         Trip.findById(req.params.trip_id)
             .then(trip => {
-                debugger
                 if (trip.users.includes(req.user.id)) {
 
                     if (!validText(req.body.email)) {
@@ -260,8 +259,11 @@ router.post("/:trip_id/user",
                         return res.status(400).json(errors);
                     }
 
-                    User.findOne({ email: req.body.email }).then(user => {
-
+                    User.findOne({ email: req.body.email }).then(user => {   
+                        if (!user) {
+                            return res.status(401).json("User doesn't exist") 
+                        }
+    
                         // Add the user only if they aren't already part of the trip.
                         if (!trip.users.includes(user.id))
                             trip.users.push(user.id);
@@ -273,8 +275,7 @@ router.post("/:trip_id/user",
                     });
 
                 } else {
-                    debugger
-                    return res.status(401).json("User doesn't exist");
+                    return res.status(401).json("You don't have permission to invite");
                 }
             });
     });
