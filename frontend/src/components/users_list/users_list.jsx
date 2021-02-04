@@ -41,32 +41,11 @@ class UsersList extends React.Component{
     }
 
     renderErrors(errors) {
-        debugger
         return (
             <li>
                 {errors}
             </li>
         )
-
-        // return errors.map((err, idx) => {
-        //     return (
-        //         <li key={`usererr-${idx}`}>
-        //             {err}
-        //         </li>
-        //     )
-        // })
-
-
-        // return (
-        //     <ul >
-        //         {Object.keys(this.props.errors).map((error, idx) => (
-        //             <li className="login-form-errors-element" key={`error-${idx}`}>
-        //                 {error}
-        //             </li>
-        //         ))}
-        //     </ul>
-        // );
-
     }
 
     tripUsers(users) {
@@ -84,7 +63,6 @@ class UsersList extends React.Component{
 
 
     render(){
-        debugger
 
         return(
             <div className="userslist-container">
