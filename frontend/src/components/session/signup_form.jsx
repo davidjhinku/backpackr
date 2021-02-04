@@ -15,13 +15,13 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push('/login');
+  //   }
 
-    this.setState({ errors: nextProps.errors })
-  }
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
   componentWillUnmount() {
     this.props.clearErrors([])
@@ -44,6 +44,9 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history); //Why are we passing in history?
+    // this.props.signup(user)
+      // .then(this.props.login({email: this.state.email, password: this.state.password}))
+      // .then(this.props.history.push('/profile'));
   }
 
   renderErrors() {
