@@ -25,6 +25,7 @@ export const receiveErrors = errors => {
 }
 
 export const addUserToTrip = user => dispatch => {
+    debugger
     return UsersAPIUtil.addUserToTrip(user)
         .then(user => {
             debugger

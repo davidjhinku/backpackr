@@ -251,7 +251,7 @@ router.post("/:trip_id/user",
     (req, res) => {
         Trip.findById(req.params.trip_id)
             .then(trip => {
-
+                debugger
                 if (trip.users.includes(req.user.id)) {
 
                     if (!validText(req.body.email)) {
@@ -273,7 +273,8 @@ router.post("/:trip_id/user",
                     });
 
                 } else {
-                    return res.status(401).json("Not the owner");
+                    debugger
+                    return res.status(401).json("User doesn't exist");
                 }
             });
     });
@@ -296,7 +297,8 @@ router.delete("/:trip_id/user/:user_id",
                 // TODO: What if the trip is left empty? Without any users.
 
             } else {
-                return res.status(401).json({errors: "You can only remove yourself!"});
+                return res.status(401).json("You can only remove yourself!");
+                // return res.status(401).json({errors: "You can only remove yourself!"});
             }
         });
     });

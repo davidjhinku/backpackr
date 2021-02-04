@@ -42,14 +42,19 @@ class UsersList extends React.Component{
 
     renderErrors(errors) {
         debugger
-        return errors.map((err, idx) => {
-            return (
-                <li key={`usererr-${idx}`}>
-                    {/* {err} */}
-                    Just a test
-                </li>
-            )
-        })
+        return (
+            <li>
+                {errors}
+            </li>
+        )
+
+        // return errors.map((err, idx) => {
+        //     return (
+        //         <li key={`usererr-${idx}`}>
+        //             {err}
+        //         </li>
+        //     )
+        // })
 
 
         // return (
@@ -80,17 +85,6 @@ class UsersList extends React.Component{
 
     render(){
         debugger
-        // const tripUsers = this.props.users.map((user, idx)=>{
-        //     return (
-        //         <li className="trip-users-element" key={`user-${idx}`}>{user.username}
-        //             <div>
-        //                 <button onClick={this.removeFriend(user._id)}>Uninvite?</button>
-        //             </div>
-        //             <br/>
-        //         </li>
-        //     )
-        // });
-        
 
         return(
             <div className="userslist-container">
@@ -99,12 +93,11 @@ class UsersList extends React.Component{
                         <h2>Adventurers</h2>
                     </header>
                     
-
                     <ul>
                         {this.tripUsers(this.props.users)}
                     </ul>
-
                 </div>
+
 
                 <div className="userslist-invite-users-container">
                     <header className="userslist-header-element-2">
@@ -121,11 +114,13 @@ class UsersList extends React.Component{
                         <br />
                         <button>Send Invite</button>
                     </form>
-
-                    <ul className="users-list-errors">
-                        {this.renderErrors(Object.values(this.props.errors))}
-                    </ul>
+                    <div/>
+                        <ul className="users-list-errors">
+                            {this.renderErrors(this.props.errors)}
+                        </ul>
+                    <div/>
                 </div>
+                
             </div>
         )
     }
