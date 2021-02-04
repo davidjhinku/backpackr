@@ -1,8 +1,5 @@
 import { connect } from 'react-redux';
-import {
-    deleteComment
-}
-    from '../../actions/comment_actions';
+import { deleteComment } from '../../actions/comment_actions';
 import CommentDetails from './comment_details';
 
 const mSTP = (state, ownProps) => {
