@@ -7,22 +7,34 @@ class UsersList extends React.Component{
         this.state = {
             email: ''
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.addFriend = this.addFriend.bind(this)
+        this.removeFriend = this.removeFriend.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
 
-    handleSubmit(e){
+    addFriend(e){
         e.preventDefault()
         let user = {
             email: this.state.email,
             tripId: this.props.tripId
         }
 
-        debugger
         this.props.addUserToTrip(user)
             .then(this.setState({email: ''}))
     }
+
+    removeFriend(userId){
+        return e => {
+            e.preventDefault()
+            let user ={
+                userId: userId,
+                tripId: this.props.tripId
+            }
     
+            this.props.removeUserFromTrip(user)
+        }
+    }
+
     handleChange(e) {
         this.setState({email: e.target.value})
     }
@@ -31,7 +43,11 @@ class UsersList extends React.Component{
         const tripUsers = this.props.users.map((user, idx)=>{
             return (
                 <div>
-                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li> <Link to="">Edit</Link>
+                    <li className="trip-users-element" key={`user-${idx}`}>{user.username}</li>
+                    <div>
+                        <button onClick={this.removeFriend(user._id)}>Uninvite?</button>
+                    </div>
+                    <br/>
                 </div>
             )
         });
@@ -42,7 +58,7 @@ class UsersList extends React.Component{
                 <br/>
 
                 <p>Invite your friends</p>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.addFriend}>
                     <input type="email"
                         value={this.state.email}
                         onChange={this.handleChange}
