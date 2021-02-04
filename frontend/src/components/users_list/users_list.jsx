@@ -71,7 +71,7 @@ class UsersList extends React.Component{
                         <h2>Adventurers</h2>
                     </header>
                     
-                    <ul>
+                    <ul className='trip-users-list'>
                         {this.tripUsers(this.props.users)}
                     </ul>
                 </div>
@@ -90,7 +90,7 @@ class UsersList extends React.Component{
                             className="userslist-input-element"
                         />
                         <br />
-                        <button>Send Invite</button>
+                        <button className='invite-button'>Send Invite</button>
                     </form>
                     <div/>
                         <ul className="users-list-errors">
