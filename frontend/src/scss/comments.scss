@@ -1,0 +1,159 @@
+//comments
+.trip-chat-container{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height:80vh;
+    width:65vh;
+    margin-top:100px;
+    display: fixed;
+    padding:16px;
+}
+
+.comments-subcontainer{
+    height:68vh;
+    overflow: auto;
+
+    // overflow-anchor:none;
+}
+
+.comments-subcontainer-anchor{
+
+    overflow-anchor:bottom;
+    height:1px;
+}
+
+.create-comment-container{
+    height:11vh;
+    background-color: #ace3e0;
+    color:black;
+
+}
+
+.create-comment-subcontainer{
+    display:flex;
+    flex-direction:row;
+    padding: 20px;
+}
+
+.create-comment-form-header{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:700;
+    color:$light-secondary;
+    letter-spacing: 4px;
+    font-size: 15px;
+    word-wrap: wrap;
+}
+
+.comments-input-element{
+    height:50px;
+    width:90%;
+    color: white;
+    background-color:#1a1e25;
+    border:1px solid lightgrey;
+    border-radius: 40px;
+    text-indent:19px;
+}
+
+.comments-input-element:focus{
+    outline:none;
+}
+
+.comments-input-element::placeholder{
+    color: white;
+}
+
+.create-comment-submit-btn{
+    height:10%;
+    width:10%;
+    cursor:pointer;
+}
+
+.message-bubble-1{
+    background: #ace3e0;
+    border-radius: 30px;
+    padding:10px;
+    margin-left:210px;
+
+    width: 270px;
+
+    font-family:'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: #000;
+
+    position:relative
+
+}
+
+.message-bubble-1:before {
+  content: "";
+  position: absolute;
+  top:100%;
+  left:72%;
+  border-top: 22px solid #ace3e0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.message-bubble-2{
+    background: white;
+    border-radius: 30px;
+    padding:10px;
+
+    width: 270px;
+
+    font-family:'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: #000;
+
+    position:relative
+}
+
+.message-bubble-2:before {
+  content: "";
+  position: absolute;
+  top:100%;
+  left:14%;
+  border-top: 22px solid white;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.comment-text-user{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:900;
+    color:#222831;
+    font-size: 21px;
+    line-height:35px;
+    word-wrap: wrap;
+    letter-spacing: 1.25px;
+}
+
+.comment-test-date{
+    color:grey;
+    line-height:15px;
+    font-size: 12px;
+}
+
+.comment-test-time{
+    color:grey;
+    line-height:15px;
+    font-size: 12px;
+}
+
+.comment-text-body{
+    margin-top:9px;
+    line-height:25px;
+    font-size: 18px;
+    font-weight:500;
+    padding-left:8px;
+    padding-right:8px;
+}
+
+.comment-delete-btn{
+    color:grey;
+    line-height:15px;
+    font-size: 12px;
+}

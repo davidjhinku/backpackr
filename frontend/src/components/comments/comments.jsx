@@ -17,6 +17,8 @@ class Comments extends React.Component {
                     <br />
                 </ul>
 
+                <div className="comments-subcontainer-anchor"></div>
+
                 <div className="create-comment-container">
                     <CreateCommentContainer />
                 </div>
