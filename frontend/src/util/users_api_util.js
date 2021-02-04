@@ -5,6 +5,5 @@ export const addUserToTrip = data => {
 }
 
 export const removeUserFromTrip = data => {
-    debugger
     return axios.delete(`/api/trips/${data.tripId}/user/${data.userId}`, data)
 }

@@ -33,12 +33,9 @@ export const addUserToTrip = user => dispatch => {
 }
 
 export const removeUserFromTrip = user => dispatch => {
-    debugger
     return UsersAPIUtil.removeUserFromTrip(user)
         .then(user => {
-            debugger
             return dispatch(removeUser(user))})
         .catch(err => {
-            debugger
             return dispatch(receiveErrors(err))})
 }
