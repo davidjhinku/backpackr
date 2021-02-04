@@ -68,7 +68,7 @@ class CreateItineraryItem extends React.Component {
 
         return (
             <div className='create-item-container'>
-                <form onSubmit={this.handleSubmit}>
+                <form>
                     <div className='create-item-box'>
                         <div className="create-item-first-row">
                             <div>
@@ -116,9 +116,7 @@ class CreateItineraryItem extends React.Component {
                             {this.renderErrors()}
                         </div> */}
 
-                        <div className="create-item-submit-btn">
-                            <input className="create-item-submit-text" type="submit" value="Create an Itinerary Item" />
-                        </div>
+                        <button className="create-item-submit-btn" onClick={this.handleSubmit}>Create Itinerary Item</button>
 
                     </div>
                 </form>
