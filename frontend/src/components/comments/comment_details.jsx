@@ -4,7 +4,7 @@ class CommentDetails extends React.Component{
 
     render () {
         const messageClass = ((this.props.idx) % 2 === 0)?"message-bubble-1" : "message-bubble-2"
-        debugger
+        // debugger
         return (<div className='comment-list' >
             <li className={messageClass}>
 
