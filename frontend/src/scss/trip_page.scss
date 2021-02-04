@@ -1,0 +1,72 @@
+.trip-page-container {
+    padding:100px;
+    background-color: #222831;
+}
+
+.trip-page-subcontainer{
+    height:100%;
+    background-color: $main-color;
+    margin-bottom:40px;
+    padding-bottom:1px solid white;
+}
+
+// .trip-users-container{
+
+// }
+
+//comments
+.trips-chat-container{
+    background-color: #222831;
+}
+
+
+.comments-container{
+    border: 1px solid white;
+
+}
+
+.comments-subcontainer{
+    border: 1px solid white;
+}
+
+.comments-input-elements{
+    border: 1px solid white;
+    background-color:white;
+}
+
+.comments-input-elements:hover{
+    border: 1px solid white;
+    background-color:lightgrey;
+}
+
+.comments-input-elements:focus{
+    border: 1px solid white;
+    background-color:$main-color;
+    outline:none;
+}
+
+.create-comment-submit-btn{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 40px;
+
+    border: 1px solid $secondary-color;
+    background-color: rgba(25, 24, 24, 0.312);
+    border-radius: 40px;
+    
+    text-align: center;
+    color: white;
+}
+
+
+
+
+.trips-itinerary-container{
+    background-color: #222831;
+}
+
+
+
+
