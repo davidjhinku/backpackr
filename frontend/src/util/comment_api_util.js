@@ -16,5 +16,5 @@ export const updateComment = (data) => {
 };
 
 export const deleteComment = (commentId) => {
-    return axios.delete(`/api/comments/${commentId}`)
+    return axios.delete(`/api/trips/comments/${commentId}`)
 };
