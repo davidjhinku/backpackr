@@ -33,7 +33,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: space-around;
-    border: 1px solid blue;
+    // border: 1px solid blue;
 }
 
 .userslist-header-element-1{
@@ -50,8 +50,42 @@
     margin-top: 10px;
 }
 
+ul.trip-users-list > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ace3e0;
+    margin-bottom: 20px;
+    width: 88%;
+    height: 45px;
+    border-radius: 10px;
+    /* text-align: center; */
+    overflow: hidden;
+}
+
+.trip-users-element > p {
+    margin-left: 13px;
+    font-size: 19px;
+}
+
+.uninvite-friend {
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    background-color: #1a1e25;
+    color: white;
+    border-radius: 50px;
+}
+
+.uninvite-friend:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px darkgray;
+}
+
 .userslist-invite-users-container{
-    border:1px solid black;
+    // border:1px solid black;
     height: 20vh;
     width:100%;
     display:flex;
@@ -70,17 +104,16 @@
 }
 
 .userslist-input-element{
-    font-family: 'Helvetica Neue', sans-serif;
-
+    background: #1a1e25;
     color: white;
-    background-color:#1a1e25;
-    border:1px solid lightgrey;
-    outline:none;
-
-    height:24px;
-    width: 94%;
+    font-family: 'Helvetica Neue', sans-serif;
+    border: 1px solid lightgrey;
+    outline: none;
+    height: 24px;
+    width: 91%;
     border-radius: 30px;
-    text-indent:15px;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .userslist-input-element:focus{
@@ -95,9 +128,10 @@ button.invite-button {
     font-family: 'Helvetica Neue', sans-serif;
     border: 1px solid lightgrey;
     outline: none;
-    height: 24px;
+    height: 40px;
     width: 94%;
     border-radius: 30px;
     text-align: center;
     margin-top: 5px;
+    padding: 1px 2px;
 }

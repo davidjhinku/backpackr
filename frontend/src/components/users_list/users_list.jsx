@@ -51,11 +51,11 @@ class UsersList extends React.Component{
     tripUsers(users) {
         return users.map((user, idx) => {
             return (
-                <li className="trip-users-element" key={`user-${idx}`}>{user.username}
-                    <div>
-                        <button onClick={this.removeFriend(user._id)}>Uninvite?</button>
+                <li className="trip-users-element" key={`user-${idx}`}>
+                    <p>{user.username}</p>
+                    <div className='uninvite-friend'>
+                        <button onClick={this.removeFriend(user._id)}>X</button>
                     </div>
-                    <br />
                 </li>
             )
         })
