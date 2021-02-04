@@ -71,42 +71,43 @@ class CreateTripForm extends React.Component {
                     <div className='create-trip-subcontainer'>
                         
                         <div className="create-trip-form">
-                            <div>
-                                <h3>Create a Trip</h3>
-                                <input className='create-trip-input-element'
-                                    type="text"
-                                    value={this.state.tripName}
-                                    onChange={this.handleChange('tripName')}
-                                    placeholder='Trip Name'
-                                />
-                                <br />
-                            </div>                        
-                            
-                            <div>
-                                <input className='create-trip-input-element'
-                                    type="text"
-                                    value={this.state.destination}    
-                                    onChange={this.handleChange('destination')}
-                                    placeholder='Destination'
-                                />
-                                <br/>
-                            </div>
+                                <div>
+                                    <div className='create-trip-header'>
+                                        <h3>Create a Trip!</h3>
+                                    </div>
 
-                            <div className="create-trip-date-box">
+                                    </div>                        
+                                    <div>
+
+                                    <input className='create-trip-input-element'
+                                        type="text"
+                                        value={this.state.tripName}
+                                        onChange={this.handleChange('tripName')}
+                                        placeholder='Trip Name'
+                                        />
+                                    <br />
+                                        </div>
+                                
+                                <div>
+                                    <input className='create-trip-input-element'
+                                        type="text"
+                                        value={this.state.destination}    
+                                        onChange={this.handleChange('destination')}
+                                        placeholder='Destination'
+                                    />
+                                    <br/>
+                                </div>
+
                                 <input className='create-trip-date-element'
                                     type="date"
                                     value={this.state.startDate}
                                     onChange={this.handleChange('startDate')}
                                 />
-                            </div>
                                 <input className='create-trip-date-element'
                                     type="date"
                                     value={this.state.endDate}
                                     onChange={this.handleChange('endDate')}
                                 />
-                            <div>
-
-                            </div>
 
                             <div className="create-trip-errors">
                                 {this.renderErrors()}

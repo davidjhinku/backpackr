@@ -30,6 +30,16 @@
     }
 }
 
+
+.create-trip-header { 
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 48px;
+    font-weight:700;
+}
+
 .create-trip-input-element { 
     outline:none;
     margin:10px;
@@ -47,6 +57,22 @@
     background-color:white;
     border: 1px solid grey;
 }
+
+.create-trip-date-element { 
+    outline:none;
+    margin:10px;
+    padding-right: 20px;
+    background-color:#ace3e0;
+    outline:none;
+    border:1px solid rgb(196, 196, 196);
+    height:39px;
+    width:360px;
+    border-radius: 50px;
+    text-indent: 20px;
+    color: #fff;
+    justify-content: center;
+}
+
 
 .create-trip-submit-btn {
     display: flex;
