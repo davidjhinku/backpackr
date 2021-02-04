@@ -17,7 +17,10 @@ class ItineraryItem extends React.Component {
             <div>
                 <div className="items-container">
                     <ul>
-                        <li className="item-element">{itemsList}</li>
+                        <li className="item-element">
+                            {itemsList}
+                            <br />
+                        </li>
                     </ul>
                     <br />
                 </div>

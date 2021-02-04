@@ -62,5 +62,5 @@ export const updateTrip = data => dispatch => {
 
 export const deleteTrip = tripId => dispatch => {
     return APIUtil.deleteTrip(tripId)
-        .then(trip => dispatch(removeTrip(trip.id)))
+        .then(trip => dispatch(removeTrip(tripId)));
 }
