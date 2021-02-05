@@ -89,13 +89,21 @@ Friends can be also introduced to a trip simply by adding their email associated
 
 ## Creating comments
 
-All users on a trip can leave comments that appear in a chat without having to refresh the page. Users are also authorized to delete their own comments if they would like to. 
+Each trip has a private page where users who've been invited can chat with each other. Comments populate in the feed without having to refresh the page and of course, you can use your favorite emojis. Comments can only be deleted by their respective owner.
+
+<p align="center"> 
+  <img src="https://media.giphy.com/media/xqyBWt4MpD7lN9Qx5K/giphy.gif" width="300" height="480" frameBorder="0" allowFullScreen>
+</p>
 
 ## Itinerary items
 
-All users on a trip can also add itinerary items w
+All users on a trip can also add itinerary items with specific address, description, category, and name details. Itinerary items can also be deleted without refreshing the page.
 
-## Future features
+<p align="center"> 
+  <img src="https://media.giphy.com/media/9mnIsHmPblunOTKfxk/giphy.gif" width="300" height="480" frameBorder="0" allowFullScreen>
+</p>
+
+# Future features
 
 ## Map API
 In the original mockup plans, we had wanted to include the Google Maps API to include on the trip dashboard to allow users to access Google Maps while adding itinerary items and discussing with friends over travel details. This has been saved for a later date.
