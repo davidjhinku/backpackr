@@ -52,9 +52,9 @@ class UsersList extends React.Component{
         return users.map((user, idx) => {
             return (
                 <li className="trip-users-element" key={`user-${idx}`}>
-                    <p>{user.username}</p>
+                    <p className="trip-users-text">{user.username}</p>
                     <div className='uninvite-friend'>
-                        <button onClick={this.removeFriend(user._id)}>X</button>
+                        <button onClick={this.removeFriend(user._id)}>✕</button>
                     </div>
                 </li>
             )

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Splash extends React.Component {
 
@@ -26,7 +27,7 @@ class Splash extends React.Component {
               </div>
 
               <div className="splash-body-text-3">
-                <img alt="new-trip" className="arrow-img" src="https://i.ibb.co/cCtY6hd/arrow-icon.png" />
+                <Link to="/signup"><img alt="new-trip" className="arrow-img" src="https://i.ibb.co/cCtY6hd/arrow-icon.png" /></Link>
               </div>
 
             </div>

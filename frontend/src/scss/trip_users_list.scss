@@ -10,7 +10,7 @@
 
 .trip-sidebar-container-elements{
     margin-left:-170px;
-    margin-top: 30px;
+    margin-top: 46px;
     height: 669px;
     z-index:1;
 }
@@ -23,6 +23,11 @@
     height: 100%;
     width: 100%;
     // border: solid 1px black;
+}
+
+.trip-users-text{
+    font-family: "Helvetica", sans-serif;
+    color:rgb(0, 0, 0);
 }
 
 .userslist-users-container {
@@ -43,7 +48,6 @@
     letter-spacing: 4px;
     font-size: 15px;
     word-wrap: wrap;
-
 }
 
 .trip-users-list {
@@ -61,6 +65,15 @@ ul.trip-users-list > li {
     border-radius: 10px;
     /* text-align: center; */
     overflow: hidden;
+}
+
+ul.trip-users-list > li:hover, {
+    background-color: #222831;
+
+    .trip-users-text{
+    color:white;
+    }
+
 }
 
 .trip-users-element > p {
@@ -117,7 +130,7 @@ ul.trip-users-list > li {
 }
 
 .userslist-input-element:focus{
-    background-color: black;
+    background-color: darkslategray;
     outline:none;
 
 }
@@ -134,4 +147,8 @@ button.invite-button {
     text-align: center;
     margin-top: 5px;
     padding: 1px 2px;
+}
+
+.invite-button:hover{
+    background-color: grey;
 }
