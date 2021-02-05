@@ -35,8 +35,11 @@ class CreateComment extends React.Component {
             tripId: this.props.tripId,
         };
 
-        
-        this.props.createComment(comment);
+        this.props.createComment(comment)
+            .then(this.setState({
+                author: this.props.currentUser,
+                comment: "",
+            }));
     }
 
     componentWillUnmount() {
