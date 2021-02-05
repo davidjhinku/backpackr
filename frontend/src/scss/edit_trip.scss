@@ -1,6 +1,10 @@
 .edit-trip-container {
     background-color: lightgrey;
     border: 1px solid lightgrey;
+    background-image: url("https://images.unsplash.com/photo-1507843528572-dce34aa57530?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1930&q=80");
+    background-repeat: no-repeat;
+    // background-size: cover;
+    background-position-y: -100px;
 }
 .edit-trip-subcontainer {
     display: flex;
