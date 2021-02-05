@@ -44,17 +44,17 @@ class CreateComment extends React.Component {
         this.props.clearErrors([])
     }
 
-    renderErrors(){
-        return (
-            <ul>
-                {Object.keys(this.props.errors).map((error, idx) => (
-                    <li className='create-comment-errors-element' key={`err-${idx}`}>
-                        {this.props.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors(){
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.props.errors).map((error, idx) => (
+    //                 <li className='create-comment-errors-element' key={`err-${idx}`}>
+    //                     {this.props.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
 
     render() {
@@ -72,9 +72,9 @@ class CreateComment extends React.Component {
                             />
                             <br />
 
-                        <div className="create-comment-errors">
+                        {/* <div className="create-comment-errors">
                             {this.renderErrors()}
-                        </div>
+                        </div> */}
 
                             <img className="create-comment-submit-btn" onClick={this.handleSubmit} src="https://i.ibb.co/th9QxJw/comment-submit.png" />
                     </div>

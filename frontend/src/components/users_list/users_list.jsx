@@ -78,6 +78,11 @@ class UsersList extends React.Component{
 
 
                 <div className="userslist-invite-users-container">
+                    <div/>
+                        <ul className="users-list-errors">
+                            {this.renderErrors(this.props.errors)}
+                        </ul>
+                    <div/>
                     <header className="userslist-header-element-2">
                         <h3>Invite friends</h3>
                     </header>
@@ -92,11 +97,6 @@ class UsersList extends React.Component{
                         <br />
                         <button className='invite-button'>Send Invite</button>
                     </form>
-                    <div/>
-                        <ul className="users-list-errors">
-                            {this.renderErrors(this.props.errors)}
-                        </ul>
-                    <div/>
                 </div>
                 
             </div>

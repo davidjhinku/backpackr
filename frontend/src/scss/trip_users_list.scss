@@ -11,7 +11,7 @@
 .trip-sidebar-container-elements{
     margin-left:-170px;
     margin-top: 46px;
-    height: 669px;
+    height: 655px;
     z-index:1;
 }
 
@@ -133,6 +133,12 @@ ul.trip-users-list > li:hover, {
     background-color: darkslategray;
     outline:none;
 
+}
+
+ul.users-list-errors {
+    width: 168px;
+    font-family: 'Helvetica Neue', sans-serif;
+    text-align: center;
 }
 
 button.invite-button {
