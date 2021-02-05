@@ -4,16 +4,17 @@
 </p>
 
 -------------
-# Overview
+## Overview
 
-[Backpackr](https://backpackr-aa.herokuapp.com/) is an application designed to help travelers plan their voyages with more ease and organization. It was birthed when four curious software engineers prodded over the age-old problem of hassling over messy Google docs to plan itineraries for group trips. The original inspiration was to create an application that combines an interactive messenger alongside a running itinerary list that could store the key information from the group trip chat. Backpackr utilizes MongoDB and Express in the backend and React, Redux, and NodeJS in the frontend to achieve this, allowing users to utilize CRUD operations in both the comment and itinerary functionalities.
+[Backpackr](https://backpackr-aa.herokuapp.com/) is an application designed to help travelers plan their voyages with more ease and organization. It was birthed when four curious software engineers prodded over the age-old problem of hassling over messy Google docs to plan itineraries for group trips. The original inspiration was to create an application that combines an interactive messenger alongside a running itinerary list that could store the key information from the group trip chat. 
 
 <p align="center"> 
   <img src="https://media.giphy.com/media/DK5q6X56S0D1l2u6AC/giphy.gif" width="480" height="246" frameBorder="0" allowFullScreen>
 </p>
 
--------------
-# Key Technologies
+Backpackr utilizes MongoDB and Express in the backend and React, Redux, and NodeJS in the frontend to achieve this, allowing users to utilize CRUD operations in both the comment and itinerary functionalities.
+
+## Key Technologies
 * MongoDB
 * Express
 * React
