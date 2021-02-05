@@ -129,7 +129,7 @@
         font-size: 14px;
         color: #fff;
         font-family: 'Helvetica Neue', sans-serif;
-        background-color: #222831;
+        background-color: #708bb5;
         padding: 0px 10px;
         border-radius: 10px;
         /* text-align: center; */
@@ -152,7 +152,7 @@
         font-weight: 500;
         color: #fff;
         font-family: 'Helvetica Neue', sans-serif;
-        background-color: #222831;
+        background-color: #708bb5;
         padding: 0px 10px;
         border-radius: 10px;
         height: 60px;
@@ -167,7 +167,7 @@
 .new-trip-btn {
     font-size:24px;
     font-weight:700;
-    color: $light-secondary;
+    color: #8bade2;
     background-color: #fff;
     margin-top: 20px;
     padding: 20px;
@@ -194,7 +194,12 @@
     text-align: center;
 }
 
+// .new-trip-btn:hover { 
+//     color: rgba(255, 255, 255, 0.856);
+//     background-color: $light;
+// }
+
 .new-trip-btn:hover { 
     color: rgba(255, 255, 255, 0.856);
-    background-color: $light;
+    background-color: #8bade2;
 }
