@@ -25,7 +25,6 @@ class LoginForm extends React.Component {
   handleChange(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
-      this.props.clearErrors([]);
     }
   }
 
