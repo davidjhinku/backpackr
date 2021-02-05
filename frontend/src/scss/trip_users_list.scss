@@ -27,8 +27,9 @@
 
 .trip-users-text{
     font-family: "Helvetica", sans-serif;
-    color:rgb(74, 74, 74);
+    color:rgb(0, 0, 0);
 }
+
 .userslist-users-container {
     /* padding: 10px; */
     height: 100%;
@@ -47,7 +48,6 @@
     letter-spacing: 4px;
     font-size: 15px;
     word-wrap: wrap;
-
 }
 
 .trip-users-list {
@@ -65,6 +65,15 @@ ul.trip-users-list > li {
     border-radius: 10px;
     /* text-align: center; */
     overflow: hidden;
+}
+
+ul.trip-users-list > li:hover, {
+    background-color: #222831;
+
+    .trip-users-text{
+    color:white;
+    }
+
 }
 
 .trip-users-element > p {
