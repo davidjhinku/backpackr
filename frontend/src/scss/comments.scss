@@ -15,6 +15,10 @@
     // overflow-anchor:none;
 }
 
+.comments-subcontainer::-webkit-scrollbar {
+  display: none;
+}
+
 .comments-subcontainer-anchor{
 
     overflow-anchor:bottom;

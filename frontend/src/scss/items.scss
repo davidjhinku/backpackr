@@ -134,6 +134,10 @@
     height: 280px;
 }
 
+.item-element::-webkit-scrollbar {
+  display: none;
+}
+
 .item-detail-side {
     // border: 1px solid yellow;
     width: 99px;
