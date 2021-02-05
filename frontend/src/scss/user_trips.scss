@@ -82,14 +82,15 @@
 
 .trip-card {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    justify-content: space-between;
     margin: 5px 0;
     width: 90%;
     padding: 30px 20px;
     border: 1px solid #fff;
     background-color:#d2faf7;
     border-radius: 50px;
-
+    align-items: center;
 
     h2 { 
         font-size:24px;
@@ -113,28 +114,52 @@
         font-family: 'Helvetica Neue', sans-serif;
     }
     
-    .edit-trip { 
-        margin-left: 20px;
-        margin-top: 10px;
-        font-weight: 500;
-        font-size: 14px;
-        color: #fff;
-        font-family: 'Helvetica Neue', sans-serif;
-        background-color: $light;
-        padding: 0px 10px;
-        border-radius: 10px;
+    .trip-details-color {
+        color: #222831d6;
     }
 
-    .delete-trip { 
+    .user-trip-links {
+        display: flex;
+    }
+
+    .edit-trip {
+        margin-right: 20px;
+        font-weight: 500;
         font-size: 14px;
-        margin: 10px;
-        margin-left: 20px;
+        color: #fff;
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #222831;
+        padding: 0px 10px;
+        border-radius: 10px;
+        /* text-align: center; */
+        vertical-align: middle;
+        height: 60px;
+        width: 125px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .edit-trip:hover {
+        box-shadow: 0 0 3px #222831;
+    }
+
+    .delete-trip {
+        font-size: 14px;
+        /* margin: 10px; */
+        /* margin-left: 20px; */
         font-weight: 500;
         color: #fff;
         font-family: 'Helvetica Neue', sans-serif;
-        background-color: $light;
+        background-color: #222831;
         padding: 0px 10px;
-        border-radius: 10px
+        border-radius: 10px;
+        height: 60px;
+        width: 140px;
+    }
+
+    .delete-trip:hover {
+        box-shadow: 0 0 3px #222831;
     }
 }
 
