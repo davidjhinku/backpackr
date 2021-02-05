@@ -10,7 +10,7 @@
 
 .trip-sidebar-container-elements{
     margin-left:-170px;
-    margin-top: 30px;
+    margin-top: 46px;
     height: 669px;
     z-index:1;
 }
@@ -25,6 +25,10 @@
     // border: solid 1px black;
 }
 
+.trip-users-text{
+    font-family: "Helvetica", sans-serif;
+    color:rgb(74, 74, 74);
+}
 .userslist-users-container {
     /* padding: 10px; */
     height: 100%;
@@ -117,7 +121,7 @@ ul.trip-users-list > li {
 }
 
 .userslist-input-element:focus{
-    background-color: black;
+    background-color: darkslategray;
     outline:none;
 
 }
@@ -134,4 +138,8 @@ button.invite-button {
     text-align: center;
     margin-top: 5px;
     padding: 1px 2px;
+}
+
+.invite-button:hover{
+    background-color: grey;
 }

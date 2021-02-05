@@ -2,7 +2,7 @@
 .trip-chat-container{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height:80vh;
-    width:65vh;
+    width:62vh;
     margin-top:100px;
     display: fixed;
     padding:16px;
@@ -38,15 +38,6 @@
     padding: 20px;
 }
 
-.create-comment-form-header{
-    font-family:'Helvetica Neue', sans-serif;
-    font-weight:700;
-    color:$light-secondary;
-    letter-spacing: 4px;
-    font-size: 15px;
-    word-wrap: wrap;
-}
-
 .comments-input-element{
     height:50px;
     width:90%;
@@ -59,6 +50,7 @@
 
 .comments-input-element:focus{
     outline:none;
+    background-color:darkslategrey;
 }
 
 .comments-input-element::placeholder{
@@ -70,6 +62,8 @@
     width:10%;
     cursor:pointer;
 }
+
+//message bubble shape
 
 .message-bubble-1{
     background: #ace3e0;
@@ -85,7 +79,7 @@
     text-align: center;
     color: #000;
 
-    position:relative
+    position:relative;
 
 }
 
@@ -112,7 +106,8 @@
     text-align: center;
     color: #000;
 
-    position:relative
+    position:relative;
+
 }
 
 .message-bubble-2:before {
@@ -124,6 +119,8 @@
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
+
+//comment message text
 
 .comment-text-user{
     font-family:'Helvetica Neue', sans-serif;
