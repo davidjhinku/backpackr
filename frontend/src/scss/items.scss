@@ -125,11 +125,34 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: space-between;
+    align-items: center;
     
 }
 
 .item-element{
     overflow: auto;
     height: 280px;
+}
+
+.item-element::-webkit-scrollbar {
+  display: none;
+}
+
+.item-detail-side {
+    // border: 1px solid yellow;
+    width: 99px;
+}
+
+.item-detail-middle {
+    width: 224px;
+    text-align: center;
+    // border: 1px solid red;
+    text-overflow: ellipsis;
+}
+
+button.item-detail-side {
+    background-color: #ace3e0;
+    color: black;
+    padding: 3px 5px;
+    border-radius: 50px;
 }
