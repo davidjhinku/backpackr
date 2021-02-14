@@ -8,12 +8,12 @@ const Trip = require("../../models/Trip");
 const Comment = require("../../models/Comment");
 const User = require("../../models/User");
 const ItineraryItem = require("../../models/ItineraryItem");
+const FlightItineraryItem = require("../../models/FlightItineraryItem");
 
 const ValidateTripInput = require("../../validation/trip");
 const ValidateCommentInput = require("../../validation/comment");
 const validateItineraryItemInput = require("../../validation/itineraryItem");
 const validText = require("../../validation/valid-text");
-const itineraryItem = require("../../validation/itineraryItem");
 
 
 // Get the trips for a specific user.
@@ -243,6 +243,63 @@ router.delete("/itineraryItems/:id",
                 return res.status(401).json("Not the owner");
             }
         });
+    });
+
+//add a flight itinerary item
+router.post("/:trip_id/flightItineraryItem",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id).then(trip => {
+            // Check that the current user is part of this trip.
+            if (trip.users.includes(req.user.id)) {
+                const { errors, isValid } = validateItineraryItemInput(req.body);
+
+                if (!isValid) {
+                    return res.status(400).json(errors);
+                }
+
+                const newflightItineraryItem = new FlightItineraryItem({
+                    trip: trip.id,
+                    itemName: req.body.itemName,
+                    category: req.body.category,
+                    address: req.body.address,
+                    description: req.body.description,
+                });
+
+                newflightItineraryItem.save().then(FlightItineraryItem => {
+                    trip.flightItineraryItems.push(FlightItineraryItem.id);
+                    trip.save().then(() => res.json(FlightItineraryItem));
+                });
+            } else {
+                return res.status(401).json("Not the owner");
+            }
+        });
+    });
+
+// Delete a itineraryItem, and remove it from a trip.
+router.delete("/flightItineraryItems/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        ItineraryItem.findById(req.params.id)
+            .populate({ // Populate the trip to remove the itinerary item from it before deleteing it.
+                path: "trip",
+                model: "Trip",
+                select: ["flightItineraryItems", "users"]
+            })
+            .then(flightItineraryItem => {
+                // Check that the current user is part of the trip that is parent if this itinerary item.
+                if (flightItineraryItem.trip.users.includes(req.user.id)) {
+
+                    const trip = flightItineraryItem.trip;
+                    trip.flightItineraryItems.pull({ _id: flightItineraryItem.id })
+                    trip.save().then(() => {
+                        flightItineraryItem.remove().then(() => res.json(flightItineraryItem));
+                    });
+
+                } else {
+                    return res.status(401).json("Not the owner");
+                }
+            });
     });
 
 // Add a user to a trip.

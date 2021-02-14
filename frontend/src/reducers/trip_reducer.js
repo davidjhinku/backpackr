@@ -22,7 +22,6 @@ const TripsReducer = (state = defaultState, action) => {
                 newState.user[trip._id] = trip;
             });
             return newState;
-            return newState;
         case RECEIVE_A_TRIP:
             newState.trip = action.trip.data;
             return newState;

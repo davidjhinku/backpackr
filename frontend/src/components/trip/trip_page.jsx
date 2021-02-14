@@ -2,24 +2,18 @@ import React from 'react';
 import UsersListContainer from '../users_list/users_list_container';
 import CommentsContainer from '../comments/comments_container';
 import ItineraryContainer from '../itinerary_item/itinerary';
-import FoodItineraryItem from '../itinerary_item/food_itinerary_item';
 import FlightItineraryItem from '../itinerary_item/flight_itinerary_item';
-import LodgingItineraryItem from '../itinerary_item/lodging_itinerary_item';
-import OtherItineraryItem from '../itinerary_item/other_itinerary_item';
 
 class TripPage extends React.Component {
-
     componentDidMount() {
         this.props.fetchATrip(this.props.tripId);
     }
-
     render() {
-
         const tabArr = [
-            { title: "Flights", content: <FlightItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(this.props.itineraryItems)} deleteItem={this.props.deleteItem} /> },
-            { title: "Lodging", content: <LodgingItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(this.props.itineraryItems)} deleteItem={this.props.deleteItem} /> },
-            { title: "Food", content: <FoodItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(this.props.itineraryItems)} deleteItem={this.props.deleteItem} />}, 
-            { title: "Other", content: <OtherItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(this.props.itineraryItems)} deleteItem={this.props.deleteItem} /> }
+            { title: "Flights", content: <FlightItineraryItem tripId={this.props.tripId} flightItineraryItems={Object.values(this.props.flightItineraryItems)} deleteFlightItem={this.props.deleteFlightItem} /> },
+            { title: "Lodging", content: "hellow"},
+            { title: "Food", content: "food"}, 
+            { title: "Other", content: "other" }
         ]
 
         if (!this.props.trip) {

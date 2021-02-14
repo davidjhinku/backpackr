@@ -1,9 +1,4 @@
-// still need to:
-// 1) delete comment
-// 2) 
-
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 class CreateComment extends React.Component {
     constructor(props) {
@@ -25,7 +20,6 @@ class CreateComment extends React.Component {
             this.setState({ [field]: e.target.value });
         }
     }
-
 
     handleSubmit(e) {
         e.preventDefault();
@@ -78,7 +72,7 @@ class CreateComment extends React.Component {
                             {this.renderErrors()}
                         </div> */}
 
-                            <img className="create-comment-submit-btn" onClick={this.handleSubmit} src="https://i.ibb.co/th9QxJw/comment-submit.png" />
+                            <img className="create-comment-submit-btn" alt="submit-comment-btn" onClick={this.handleSubmit} src="https://i.ibb.co/th9QxJw/comment-submit.png" />
                     </div>
                 </form>
         )
