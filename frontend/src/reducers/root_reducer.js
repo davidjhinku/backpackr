@@ -4,6 +4,8 @@ import errors from "./errors_reducer";
 import trips from './trip_reducer';
 import items from './item_reducer';
 import flightItems from './flight_item_reducer';
+import foodItems from './food_item_reducer';
+import lodgingItems from './lodging_item_reducer';
 import comments from './comment_reducer';
 import users from './users_reducer'
 
@@ -14,7 +16,9 @@ const RootReducer = combineReducers({
   items, 
   comments,
   users,
-  flightItems
+  flightItems,
+  foodItems,
+  lodgingItems
 });
 
 export default RootReducer;

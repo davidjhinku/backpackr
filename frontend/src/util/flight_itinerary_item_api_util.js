@@ -8,13 +8,14 @@ export const fetchItineraryItem = (itemId) => {
 };
 
 export const createItineraryItem = (data) => {
-    return axios.post(`/api/trips/${data.tripId}/flightitineraryItem`, data);
+    return axios.post(`/api/trips/${data.tripId}/flightItineraryItem`, data);
 }
 
-export const updateItineraryItem = (data) => {
-    return axios.patch(`/api/flightitineraryitems/${data.id}`, data);
-} //unsure of data.id 
+// export const updateItineraryItem = (data) => {
+//     return axios.patch(`/api/flightitineraryitems/${data.id}`, data);
+// } 
 
 export const deleteItineraryItem = (itemId) => {
-    return axios.delete(`/api/trips/flightitineraryItems/${itemId}`)
+    debugger
+    return axios.delete(`/api/trips/flightItineraryItems/${itemId}`)
 }

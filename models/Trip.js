@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 // Register Schemas
 const ItineraryItemSchema = require("./ItineraryItem");
 const FlightItineraryItemSchema = require("./FlightItineraryItem");
+const LodgingItineraryItemSchema = require("./LodgingItineraryItem");
+const FoodItineraryItemSchema = require("./FoodItineraryItem");
 const UserSchema = require("./User");
 const CommentSchema = require("./Comment");
 
@@ -31,6 +33,14 @@ const TripSchema = new Schema({
     flightItineraryItems: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "FlightItineraryItem"
+    }],
+    lodgingItineraryItems: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "LodgingItineraryItem"
+    }],
+    foodItineraryItems: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "FoodItineraryItem"
     }],
     startDate:{
         type: Date,

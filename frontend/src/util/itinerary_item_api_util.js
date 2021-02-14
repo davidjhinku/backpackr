@@ -11,9 +11,9 @@ export const createItineraryItem = (data) => {
     return axios.post(`/api/trips/${data.tripId}/itineraryItem`, data);
 }
 
-export const updateItineraryItem = (data) => {
-    return axios.patch(`/api/itineraryitems/${data.id}`, data);
-} //unsure of data.id 
+// export const updateItineraryItem = (data) => {
+//     return axios.patch(`/api/itineraryitems/${data.id}`, data);
+// } //unsure of data.id 
 
 export const deleteItineraryItem = (itemId) => {
     return axios.delete(`/api/trips/itineraryItems/${itemId}`)
