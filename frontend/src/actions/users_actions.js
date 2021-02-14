@@ -1,5 +1,4 @@
 import * as UsersAPIUtil from '../util/users_api_util'
-import { removeTrip } from './trip_actions';
 
 export const ADD_USER = 'RECEIVE_USER';
 export const REMOVE_USER = 'REMOVE_USER';

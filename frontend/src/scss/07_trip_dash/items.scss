@@ -1,4 +1,6 @@
 //itinerary
+
+//itinerary-box
 .trip-items-container{
     background-color:#222831;
     margin-bottom:40px;
@@ -9,22 +11,92 @@
     margin-top:100px;
     display:flex;
     flex-direction:column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.trip-items-header{
+//header
+.trip-items-header h1{
     font-family:'Helvetica Neue', sans-serif;
     font-weight:700;
     color:white;
-    letter-spacing: 2.5px;
-    font-size: 72px;
-    word-wrap: wrap;
-    padding: 28px;
-    padding-bottom:0px;
-    height:10vh;
+    font-size: 38px;
+    text-align: center;
+    height:20px;
+}
+
+//tabs
+.tabs-container{
+    color: white;
+    position: absolute;
+    margin-left: 550px;
+    font-family: "Helvetica", sans-serif;
+    height: 300px;
+    z-index: 2;
+    letter-spacing: 3px;
+}
+
+.tabs-container li{
+    list-style-type:none;
+    margin-top:20px;
+}
+
+.tabs-container-text h1{
+    font-size:10px;
 }
 
 
+//items-list
+.items-container{
+    overflow: auto;
+    height: 280px;
+}
+
+.itinerary-item-list{
+    font-family:'Helvetica Neue', sans-serif;
+    font-weight:500;
+    color:white;
+    font-size: 17px;
+    word-wrap: wrap;
+    margin:16px;
+    height:30px;
+    padding:22px;
+
+    border-radius:40px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b3543;
+}
+
+.item-element{
+    height: 280px;
+}
+
+.item-element::-webkit-scrollbar {
+  display: none;
+}
+
+.item-detail-side {
+    width: 99px;
+}
+
+.item-detail-middle {
+    width: 224px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+button.item-detail-side {
+    background-color: #ace3e0;
+    color: black;
+    padding: 3px 5px;
+    border-radius: 50px;
+}
+
+//create-items form
 .create-item-container{
     height:100%;
     width:100%;
@@ -38,9 +110,6 @@
     align-items: center;
 
     overflow:auto;
-
-    
-    
 }
 
 .create-item-first-row{
@@ -110,52 +179,4 @@
 .create-item-submit-btn:hover{
 
     background-color: rgba(103, 101, 101, 0.757);
-}
-
-.itinerary-item-list{
-    font-family:'Helvetica Neue', sans-serif;
-    font-weight:500;
-    color:white;
-    font-size: 17px;
-    word-wrap: wrap;
-    margin:16px;
-    height:30px;
-    padding:22px;
-
-    border-radius:40px; 
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2b3543;
-}
-
-.item-element{
-    overflow: auto;
-    height: 280px;
-}
-
-.item-element::-webkit-scrollbar {
-  display: none;
-}
-
-.item-detail-side {
-    // border: 1px solid yellow;
-    width: 99px;
-}
-
-.item-detail-middle {
-    width: 224px;
-    text-align: center;
-    // border: 1px solid red;
-    text-overflow: ellipsis;
-}
-
-button.item-detail-side {
-    background-color: #ace3e0;
-    color: black;
-    padding: 3px 5px;
-    border-radius: 50px;
 }

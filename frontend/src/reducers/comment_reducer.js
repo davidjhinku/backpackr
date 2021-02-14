@@ -4,7 +4,7 @@ import {
     RECEIVE_NEW_COMMENT, 
     REMOVE_COMMENT
 } from '../actions/comment_actions'
-import { RECEIVE_A_TRIP, RECEIVE_NEW_TRIP } from '../actions/trip_actions';
+import { RECEIVE_A_TRIP } from '../actions/trip_actions';
 
 const defaultState = {
     comment:{},
@@ -26,7 +26,6 @@ const CommentsReducer = (state = defaultState, action) => {
         case RECEIVE_COMMENT:
             return action.comment.data;
         case RECEIVE_NEW_COMMENT:
-            const test = {};
             newState[action.comment._id] = action.comment;
             return newState;
         case REMOVE_COMMENT:

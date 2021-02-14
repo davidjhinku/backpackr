@@ -10,11 +10,12 @@ import UserTripsContainer from './user_trips/user_trips_container';
 import TripPageContainer from './trip/trip_page_container';
 import TripCreateContainer from './trip/create_trip_container';
 import TripEditContainer from './trip/edit_trip_container';
-// import ItineraryCreateContainer from './itinerary_item/create_itinerary_container';
-// import ItineraryItemEditContainer from './itinerary_item/edit_itinerary_item_container';
-// import ItineraryItemContainer from './itinerary_item/itinerary_item_container';
 
-const App = () => (
+
+const App = () => {
+
+
+  return(
   <div>
     <NavBarContainer />
     <Switch>
@@ -25,12 +26,10 @@ const App = () => (
       <ProtectedRoute exact path="/trips/create" component={TripCreateContainer} />
       <ProtectedRoute exact path="/trips/:tripId" component={TripPageContainer} />
       <ProtectedRoute path="/trips/:tripId/edit" component={TripEditContainer}/>
-      {/* <ProtectedRoute exact path="/itineraryitems/create" component={ItineraryCreateContainer} />
-      <ProtectedRoute exact path="/itineraryitems/:itemId" component={ItineraryItemContainer} />
-      <ProtectedRoute path="/trips/:itemId/edit" component={ItineraryItemEditContainer} /> */}
     </Switch>
     <Footer />
   </div>
-);
+  )
+};
 
 export default App;

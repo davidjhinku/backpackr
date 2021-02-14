@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { createItineraryItem, receiveErrors } from '../../actions/itinerary_item_actions'
-import {fetchATrip} from '../../actions/trip_actions'
+import { createItineraryItem, receiveErrors } from '../../../actions/itinerary_item_actions'
+import {fetchATrip} from '../../../actions/trip_actions'
 import CreateItineraryItem from './create_itinerary_item'
 
 const mSTP = (state, ownProps) => {
