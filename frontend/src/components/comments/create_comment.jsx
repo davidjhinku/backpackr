@@ -56,7 +56,7 @@ class CreateComment extends React.Component {
     render() {
 
         return (
-                <form>
+            <form onSubmit={this.handleSubmit}>
                     <div className='create-comment-subcontainer'>
 
                             <input 
