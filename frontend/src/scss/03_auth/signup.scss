@@ -47,6 +47,7 @@
 .signup-form-input-element:focus{
     outline:none;
     background-color:lightgrey;
+    color: $dark;
 }
 
 ::placeholder{
