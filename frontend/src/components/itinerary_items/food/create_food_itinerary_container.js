@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { createItineraryItem, receiveErrors } from '../../actions/flight_itinerary_item_actions'
-import {fetchATrip} from '../../actions/trip_actions'
-import CreateFlightItineraryItem from './create_flight_itinerary_item'
+import { createItineraryItem, receiveErrors } from '../../../actions/food_itinerary_item_actions'
+import {fetchATrip} from '../../../actions/trip_actions'
+import CreateFoodItineraryItem from './create_food_itinerary_item'
 
 const mSTP = (state, ownProps) => {
     return {
@@ -19,4 +19,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(CreateFlightItineraryItem);
+export default connect(mSTP, mDTP)(CreateFoodItineraryItem);

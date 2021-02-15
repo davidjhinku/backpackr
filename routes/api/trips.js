@@ -9,6 +9,8 @@ const Comment = require("../../models/Comment");
 const User = require("../../models/User");
 const ItineraryItem = require("../../models/ItineraryItem");
 const FlightItineraryItem = require("../../models/FlightItineraryItem");
+const LodgingItineraryItem = require("../../models/LodgingItineraryItem");
+const FoodItineraryItem = require("../../models/FoodItineraryItem");
 
 const ValidateTripInput = require("../../validation/trip");
 const ValidateCommentInput = require("../../validation/comment");
@@ -52,8 +54,16 @@ router.get("/:id",
                 select: ["author", "comment", "date"]
             })
             .populate({
-                path: "itineraryItems",
-                model: "ItineraryItem"
+                path: "flightItineraryItems",
+                model: "FlightItineraryItem"
+            })
+            .populate({
+                path: "lodgingItineraryItems",
+                model: "LodgingItineraryItem"
+            })
+            .populate({
+                path: "foodItineraryItems",
+                model: "FoodItineraryItem"
             })
             .then(trip => {
 
@@ -109,7 +119,10 @@ router.patch("/:id",
             destination: req.body.destination,
             tripName: req.body.tripName,
             comments: req.body.comments,
-            itineraryItems: req.body.itineraryItems
+            itineraryItems: req.body.itineraryItems,
+            flightItineraryItems: req.body.flightItineraryItems,
+            lodgingItineraryItems: req.body.lodgingItineraryItems,
+            foodItineraryItems: req.body.foodItineraryItems
         };
 
         Trip.findByIdAndUpdate(req.params.id, newTripData, { new: true, upsert: true })
@@ -276,24 +289,141 @@ router.post("/:trip_id/flightItineraryItem",
         });
     });
 
-// Delete a itineraryItem, and remove it from a trip.
+// Delete a flight itineraryItem, and remove it from a trip.
 router.delete("/flightItineraryItems/:id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
-        ItineraryItem.findById(req.params.id)
+        FlightItineraryItem.findById(req.params.id)
             .populate({ // Populate the trip to remove the itinerary item from it before deleteing it.
                 path: "trip",
                 model: "Trip",
                 select: ["flightItineraryItems", "users"]
             })
             .then(flightItineraryItem => {
+                debugger
                 // Check that the current user is part of the trip that is parent if this itinerary item.
                 if (flightItineraryItem.trip.users.includes(req.user.id)) {
 
                     const trip = flightItineraryItem.trip;
                     trip.flightItineraryItems.pull({ _id: flightItineraryItem.id })
                     trip.save().then(() => {
+                        debugger
                         flightItineraryItem.remove().then(() => res.json(flightItineraryItem));
+                    });
+
+                } else {
+                    debugger
+                    return res.status(401).json("Not the owner");
+                }
+            });
+    });
+
+//add a lodging itinerary item
+router.post("/:trip_id/lodgingItineraryItem",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id).then(trip => {
+            // Check that the current user is part of this trip.
+            if (trip.users.includes(req.user.id)) {
+                const { errors, isValid } = validateItineraryItemInput(req.body);
+
+                if (!isValid) {
+                    return res.status(400).json(errors);
+                }
+
+                const newlodgingItineraryItem = new LodgingItineraryItem({
+                    trip: trip.id,
+                    itemName: req.body.itemName,
+                    category: req.body.category,
+                    address: req.body.address,
+                    description: req.body.description,
+                });
+
+                newlodgingItineraryItem.save().then(LodgingItineraryItem => {
+                    trip.lodgingItineraryItems.push(LodgingItineraryItem.id);
+                    trip.save().then(() => res.json(LodgingItineraryItem));
+                });
+            } else {
+                return res.status(401).json("Not the owner");
+            }
+        });
+    });
+
+// Delete a lodging itineraryItem, and remove it from a trip.
+router.delete("/lodgingItineraryItems/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        LodgingItineraryItem.findById(req.params.id)
+            .populate({ // Populate the trip to remove the itinerary item from it before deleteing it.
+                path: "trip",
+                model: "Trip",
+                select: ["lodgingItineraryItems", "users"]
+            })
+            .then(lodgingItineraryItem => {
+                // Check that the current user is part of the trip that is parent if this itinerary item.
+                if (lodgingItineraryItem.trip.users.includes(req.user.id)) {
+
+                    const trip = lodgingItineraryItem.trip;
+                    trip.lodgingItineraryItems.pull({ _id: lodgingItineraryItem.id })
+                    trip.save().then(() => {
+                        lodgingItineraryItem.remove().then(() => res.json(lodgingItineraryItem));
+                    });
+
+                } else {
+                    return res.status(401).json("Not the owner");
+                }
+            });
+    });
+
+//add a food itinerary item
+router.post("/:trip_id/foodItineraryItem",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Trip.findById(req.params.trip_id).then(trip => {
+            // Check that the current user is part of this trip.
+            if (trip.users.includes(req.user.id)) {
+                const { errors, isValid } = validateItineraryItemInput(req.body);
+
+                if (!isValid) {
+                    return res.status(400).json(errors);
+                }
+
+                const newfoodItineraryItem = new FoodItineraryItem({
+                    trip: trip.id,
+                    itemName: req.body.itemName,
+                    category: req.body.category,
+                    address: req.body.address,
+                    description: req.body.description,
+                });
+
+                newfoodItineraryItem.save().then(FoodItineraryItem => {
+                    trip.foodItineraryItems.push(FoodItineraryItem.id);
+                    trip.save().then(() => res.json(FoodItineraryItem));
+                });
+            } else {
+                return res.status(401).json("Not the owner");
+            }
+        });
+    });
+
+// Delete a food itineraryItem, and remove it from a trip.
+router.delete("/foodItineraryItems/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        FoodItineraryItem.findById(req.params.id)
+            .populate({ // Populate the trip to remove the itinerary item from it before deleteing it.
+                path: "trip",
+                model: "Trip",
+                select: ["foodItineraryItems", "users"]
+            })
+            .then(foodItineraryItem => {
+                // Check that the current user is part of the trip that is parent if this itinerary item.
+                if (foodItineraryItem.trip.users.includes(req.user.id)) {
+
+                    const trip = foodItineraryItem.trip;
+                    trip.foodItineraryItems.pull({ _id: foodItineraryItem.id })
+                    trip.save().then(() => {
+                        foodItineraryItem.remove().then(() => res.json(foodItineraryItem));
                     });
 
                 } else {

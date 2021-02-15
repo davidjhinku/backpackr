@@ -1,17 +1,17 @@
 import {
-    RECEIVE_ALL_FLIGHT_ITINERARY_ITEMS,
-    RECEIVE_FLIGHT_ITINERARY_ITEM,
-    RECEIVE_NEW_FLIGHT_ITINERARY_ITEM,
+    RECEIVE_ALL_FOOD_ITINERARY_ITEMS,
+    RECEIVE_FOOD_ITINERARY_ITEM,
+    RECEIVE_NEW_FOOD_ITINERARY_ITEM,
     REMOVE_ITEM
-} from '../actions/flight_itinerary_item_actions'
+} from '../actions/food_itinerary_item_actions'
 import { RECEIVE_A_TRIP } from '../actions/trip_actions';
 
 const defaultState = {
-    flightItem: {},
+    foodItem: {},
     new: undefined
 }
 
-const FlightItemsReducer = (state = defaultState, action) => {
+const FoodItemsReducer = (state = defaultState, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
@@ -22,11 +22,11 @@ const FlightItemsReducer = (state = defaultState, action) => {
                 .forEach(ii => { brandNewState[ii._id] = ii });
             return brandNewState;
 
-        case RECEIVE_ALL_FLIGHT_ITINERARY_ITEMS:
-            return action.trip.data.flightItineraryItems
-        case RECEIVE_FLIGHT_ITINERARY_ITEM:
-            return action.trip.data.flightItineraryItems;
-        case RECEIVE_NEW_FLIGHT_ITINERARY_ITEM:
+        case RECEIVE_ALL_FOOD_ITINERARY_ITEMS:
+            return action.items
+        case RECEIVE_FOOD_ITINERARY_ITEM:
+            return action.item.data;
+        case RECEIVE_NEW_FOOD_ITINERARY_ITEM:
             newState[action.item.data._id] = action.item.data;
             return newState;
         case REMOVE_ITEM:
@@ -37,4 +37,4 @@ const FlightItemsReducer = (state = defaultState, action) => {
     }
 }
 
-export default FlightItemsReducer;
+export default FoodItemsReducer;

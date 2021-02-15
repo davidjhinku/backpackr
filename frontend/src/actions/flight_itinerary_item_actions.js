@@ -1,9 +1,9 @@
 import * as ItemAPIUtil from '../util/flight_itinerary_item_api_util'
 
-export const RECEIVE_ALL_FLIGHT_ITINERARY_ITEMS = 'RECEIVE_ALL_ITINERARY_ITEMS';
-export const RECEIVE_FLIGHT_ITINERARY_ITEM = 'RECEIVE_ITINERARY_ITEM';
-export const RECEIVE_NEW_FLIGHT_ITINERARY_ITEM = 'RECEIVE_NEW_ITINERARY_ITEM';
-export const RECEIVE_FLIGHT_ITINERARY_ITEM_ERRORS = 'RECEIVE_ITINERARY_ITEM_ERRORS';
+export const RECEIVE_ALL_FLIGHT_ITINERARY_ITEMS = 'RECEIVE_ALL_FLIGHT_ITINERARY_ITEMS';
+export const RECEIVE_FLIGHT_ITINERARY_ITEM = 'RECEIVE_FLIGHT_ITINERARY_ITEM';
+export const RECEIVE_NEW_FLIGHT_ITINERARY_ITEM = 'RECEIVE_NEW_FLIGHT_ITINERARY_ITEM';
+export const RECEIVE_FLIGHT_ITINERARY_ITEM_ERRORS = 'RECEIVE_FLIGHT_ITINERARY_ITEM_ERRORS';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 
 
@@ -55,6 +55,12 @@ export const createItineraryItem = data => dispatch => {
 };
 
 export const deleteFlightItem = itemId => dispatch => {
+    debugger
     return ItemAPIUtil.deleteItineraryItem(itemId)
-        .then(item => dispatch(removeItem(itemId)))
+        .then(item => {
+            debugger
+            return dispatch(removeItem(itemId))})
+        .catch(err => {
+            debugger
+            return dispatch(receiveErrors(err))})
 }

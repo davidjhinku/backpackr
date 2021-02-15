@@ -1,5 +1,4 @@
 import React from 'react'
-import CreateItineraryItemContainer from '../create_itinerary_container';
 
 const ItineraryItemDetails = ({item, deleteItem}) => {
     
@@ -11,7 +10,6 @@ const ItineraryItemDetails = ({item, deleteItem}) => {
                 <button className='item-detail-side' onClick={() => deleteItem(item._id)}>Delete Item</button>
             </li>
 
-            <CreateItineraryItemContainer />
         </div>
     )
 }
