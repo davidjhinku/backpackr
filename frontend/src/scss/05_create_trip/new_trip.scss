@@ -55,7 +55,11 @@
     width:380px;
     border-radius: 50px;
     text-indent: 20px;
-    color: #fff;
+    color: $dark;
+}
+
+.create-trip-input-element:focus {
+    color: white;
 }
 
 .create-trip-input-element:hover, .create-trip-input-element:focus{
@@ -74,7 +78,7 @@
     width:360px;
     border-radius: 50px;
     text-indent: 20px;
-    color: #fff;
+    color: $dark;
     justify-content: center;
 }
 
