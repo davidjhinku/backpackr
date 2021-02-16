@@ -6,11 +6,13 @@
     margin-top:100px;
     display: fixed;
     padding:16px;
+
 }
 
 .comments-subcontainer{
     height:68vh;
     overflow: auto;
+
 
     // overflow-anchor:none;
 }
@@ -23,6 +25,12 @@
 
     overflow-anchor:bottom;
     height:1px;
+}
+
+.comments-wrapper { 
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto;
 }
 
 .create-comment-container{
