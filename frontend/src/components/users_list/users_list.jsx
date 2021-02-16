@@ -14,13 +14,15 @@ class UsersList extends React.Component{
 
     addFriend(e){
         e.preventDefault()
-        let user = {
-            email: this.state.email,
-            tripId: this.props.tripId
+        if (this.state.email !== '') {
+            let user = {
+                email: this.state.email,
+                tripId: this.props.tripId
+            }
+    
+            this.props.addUserToTrip(user)
+                .then(this.setState({email: ''}))
         }
-
-        this.props.addUserToTrip(user)
-            .then(this.setState({email: ''}))
     }
 
     removeFriend(userId){
