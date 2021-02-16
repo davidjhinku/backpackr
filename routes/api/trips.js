@@ -300,19 +300,19 @@ router.delete("/flightItineraryItems/:id",
                 select: ["flightItineraryItems", "users"]
             })
             .then(flightItineraryItem => {
-                debugger
+                // debugger
                 // Check that the current user is part of the trip that is parent if this itinerary item.
                 if (flightItineraryItem.trip.users.includes(req.user.id)) {
 
                     const trip = flightItineraryItem.trip;
                     trip.flightItineraryItems.pull({ _id: flightItineraryItem.id })
                     trip.save().then(() => {
-                        debugger
+                        // debugger
                         flightItineraryItem.remove().then(() => res.json(flightItineraryItem));
                     });
 
                 } else {
-                    debugger
+                    // debugger
                     return res.status(401).json("Not the owner");
                 }
             });

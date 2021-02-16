@@ -44,7 +44,7 @@ export const fetchUserTrips = userId => dispatch => (
 export const fetchATrip = tripId => dispatch => (
     APIUtil.fetchTrip(tripId)
         .then(trip => {
-            debugger
+            // debugger
             return dispatch(receiveATrip(trip))})
         .catch(err => dispatch(receiveErrors(err)))
 )
