@@ -62,6 +62,8 @@ class UsersList extends React.Component{
 
 
     render(){
+        debugger
+        let users = Object.values(this.props.newusers)
 
         return(
             <div className="userslist-container">
@@ -71,7 +73,7 @@ class UsersList extends React.Component{
                     </header>
                     
                     <ul className='trip-users-list'>
-                        {this.tripUsers(this.props.users)}
+                        {this.tripUsers(users)}
                     </ul>
                 </div>
 

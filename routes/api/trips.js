@@ -437,8 +437,15 @@ router.post("/:trip_id/user",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         Trip.findById(req.params.trip_id)
+            .populate({
+                path: "users",
+                model: "User",
+                select: ["username", "_id"]
+            })
             .then(trip => {
-                if (trip.users.includes(req.user.id)) {
+                // let currentTripUsers = trip.users
+
+                if (trip.users.some(user => (req.user.id === user.id))) {
 
                     if (!validText(req.body.email)) {
                         const errors = {};
@@ -450,17 +457,14 @@ router.post("/:trip_id/user",
                         if (!user) {
                             return res.status(401).json("User doesn't exist") 
                         }
-    
+
                         // Add the user only if they aren't already part of the trip.
                         if (!trip.users.includes(user.id))
-                            trip.users.push(user.id);
-
-                        trip.save().then(() => {
-                            return res.json("Success")
+                            trip.users.push({ _id: user.id, username: user.username });
+                            trip.save().then(() => {
+                            return res.json(trip.users)
                         });
-
                     });
-
                 } else {
                     return res.status(401).json("You don't have permission to invite");
                 }
@@ -476,17 +480,22 @@ router.delete("/:trip_id/user/:user_id",
             // Check that the current user is the one being removed,
             // and that they are in this trip.
 
-            if (trip.users.includes(req.user.id)
-            && req.user.id === req.params.user_id) {
+            // if (trip.users.includes(req.user.id)
+            // && req.user.id === req.params.user_id) {
 
+            //     trip.users.pull({ _id: req.params.user_id })
+            //     trip.save().then(newTrip => res.json(newTrip));
+
+            //     // TODO: What if the trip is left empty? Without any users.
+
+            // } else {
+            //     return res.status(401).json("You can only remove yourself!");
+            //     // return res.status(401).json({errors: "You can only remove yourself!"});
+            // }
+
+            if (trip.users.includes(req.user.id)) {
                 trip.users.pull({ _id: req.params.user_id })
                 trip.save().then(newTrip => res.json(newTrip));
-
-                // TODO: What if the trip is left empty? Without any users.
-
-            } else {
-                return res.status(401).json("You can only remove yourself!");
-                // return res.status(401).json({errors: "You can only remove yourself!"});
             }
         });
     });
