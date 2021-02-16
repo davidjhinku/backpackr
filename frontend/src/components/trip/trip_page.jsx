@@ -18,10 +18,8 @@ class TripPage extends React.Component {
                 <div>Loading Trip...</div>
             )
         } else {
-            // debugger
 
             const trip = this.props.trip
-            // debugger
             const tabArr = [
                 { title: "Flights", content: <FlightItineraryItem tripId={this.props.tripId} flightItineraryItems={Object.values(trip.flightItineraryItems)} deleteFlightItem={this.props.deleteFlightItem} /> },
 
@@ -31,8 +29,6 @@ class TripPage extends React.Component {
 
                 { title: "Other", content: <ItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(trip.itineraryItems)} deleteItem={this.props.deleteItem} /> }
             ]
-
-            // debugger
             return (
                 <div className='trip-page-container'>
                     <div className='trip-sidebar-container'>
