@@ -476,6 +476,11 @@ router.delete("/:trip_id/user/:user_id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         Trip.findById(req.params.trip_id)
+        .populate({
+            path: "users",
+            model: "User",
+            select: ["username", "_id"]
+        })
         .then(trip => {
             // Check that the current user is the one being removed,
             // and that they are in this trip.
@@ -493,9 +498,9 @@ router.delete("/:trip_id/user/:user_id",
             //     // return res.status(401).json({errors: "You can only remove yourself!"});
             // }
 
-            if (trip.users.includes(req.user.id)) {
+            if (trip.users.some(user => (req.user.id === user.id))) {
                 trip.users.pull({ _id: req.params.user_id })
-                trip.save().then(newTrip => res.json(newTrip));
+                trip.save().then(newTrip => res.json(newTrip.users));
             }
         });
     });

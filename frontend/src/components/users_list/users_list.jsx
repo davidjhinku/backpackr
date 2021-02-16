@@ -62,9 +62,7 @@ class UsersList extends React.Component{
 
 
     render(){
-        debugger
         let users = Object.values(this.props.newusers)
-
         return(
             <div className="userslist-container">
                 <div className="userslist-users-container">
