@@ -54,6 +54,10 @@ router.get("/:id",
                 select: ["author", "comment", "date"]
             })
             .populate({
+                path: "itineraryItems",
+                model: "ItineraryItem"
+            })
+            .populate({
                 path: "flightItineraryItems",
                 model: "FlightItineraryItem"
             })

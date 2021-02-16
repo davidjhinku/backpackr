@@ -16,16 +16,16 @@ const FoodItemsReducer = (state = defaultState, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_A_TRIP:
-            
             const brandNewState = {};
-            Object.values(action.trip.data)[0].itineraryItems
+            Object.values(action.trip.data)[0].foodItineraryItems
                 .forEach(ii => { brandNewState[ii._id] = ii });
             return brandNewState;
 
         case RECEIVE_ALL_FOOD_ITINERARY_ITEMS:
             return action.items
         case RECEIVE_FOOD_ITINERARY_ITEM:
-            return action.item.data;
+            newState[action.item.data._id] = action.item.data;
+            return newState;
         case RECEIVE_NEW_FOOD_ITINERARY_ITEM:
             newState[action.item.data._id] = action.item.data;
             return newState;

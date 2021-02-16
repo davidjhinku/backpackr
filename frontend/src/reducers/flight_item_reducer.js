@@ -16,16 +16,16 @@ const FlightItemsReducer = (state = defaultState, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_A_TRIP:
-            
             const brandNewState = {};
-            Object.values(action.trip.data)[0].itineraryItems
+            Object.values(action.trip.data)[0].flightItineraryItems
                 .forEach(ii => { brandNewState[ii._id] = ii });
             return brandNewState;
 
         case RECEIVE_ALL_FLIGHT_ITINERARY_ITEMS:
-            return action.trip.data.flightItineraryItems
+            return action.items
         case RECEIVE_FLIGHT_ITINERARY_ITEM:
-            return action.trip.data.flightItineraryItems;
+            newState[action.item.data._id] = action.item.data;
+            return newState;
         case RECEIVE_NEW_FLIGHT_ITINERARY_ITEM:
             newState[action.item.data._id] = action.item.data;
             return newState;

@@ -18,14 +18,15 @@ const LodgingItemsReducer = (state = defaultState, action) => {
         case RECEIVE_A_TRIP:
             
             const brandNewState = {};
-            Object.values(action.trip.data)[0].itineraryItems
+            Object.values(action.trip.data)[0].lodgingItineraryItems
                 .forEach(ii => { brandNewState[ii._id] = ii });
             return brandNewState;
 
         case RECEIVE_ALL_LODGING_ITINERARY_ITEMS:
             return action.items
         case RECEIVE_LODGING_ITINERARY_ITEM:
-            return action.item.data;
+            newState[action.item.data._id] = action.item.data;
+            return newState;
         case RECEIVE_NEW_LODGING_ITINERARY_ITEM:
             newState[action.item.data._id] = action.item.data;
             return newState;
