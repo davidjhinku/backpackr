@@ -18,16 +18,14 @@ class TripPage extends React.Component {
                 <div>Loading Trip...</div>
             )
         } else {
-
-            const trip = this.props.trip
             const tabArr = [
-                { title: "Flights", content: <FlightItineraryItem tripId={this.props.tripId} flightItineraryItems={Object.values(trip.flightItineraryItems)} deleteFlightItem={this.props.deleteFlightItem} /> },
+                { title: "Flights", content: <FlightItineraryItem tripId={this.props.tripId} flightItineraryItems={Object.values(this.props.flightItineraryItems)} deleteFlightItem={this.props.deleteFlightItem} /> },
 
-                { title: "Lodging", content: <LodgingItineraryItem tripId={this.props.tripId} lodgingItineraryItems={Object.values(trip.lodgingItineraryItems)} deleteLodgingItem={this.props.deleteLodgingItem} /> },
+                { title: "Lodging", content: <LodgingItineraryItem tripId={this.props.tripId} lodgingItineraryItems={Object.values(this.props.lodgingItineraryItems)} deleteLodgingItem={this.props.deleteLodgingItem} /> },
 
-                { title: "Food", content: <FoodItineraryItem tripId={this.props.tripId} foodItineraryItems={Object.values(trip.foodItineraryItems)} deleteFoodItem={this.props.deleteFoodItem} /> },
+                { title: "Food", content: <FoodItineraryItem tripId={this.props.tripId} foodItineraryItems={Object.values(this.props.foodItineraryItems)} deleteFoodItem={this.props.deleteFoodItem} /> },
 
-                { title: "Other", content: <ItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(trip.itineraryItems)} deleteItem={this.props.deleteItem} /> }
+                { title: "Other", content: <ItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(this.props.itineraryItems)} deleteItem={this.props.deleteItem} /> }
             ]
             return (
                 <div className='trip-page-container'>

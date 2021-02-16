@@ -9,16 +9,15 @@ import TripPage from './trip_page'
 const mSTP = (state, ownProps) => {
     const tripId = ownProps.match.params.tripId
     const trip = state.trips.trip
-    // debugger
     return {
         tripId: tripId,
         trip: Object.values(trip)[0],
         users: state.users,
         comments: state.comments,
-        itineraryItems: state.trips.trip.itineraryItems,
-        flightItineraryItems: state.trips.trip.flightItineraryItems,
-        lodgingItineraryItems: state.trips.trip.lodgingItineraryItems,
-        foodItineraryItems: state.trips.trip.foodItineraryItems
+        itineraryItems: state.items,
+        flightItineraryItems: state.flightItems,
+        lodgingItineraryItems: state.lodgingItems,
+        foodItineraryItems: state.foodItems
     }
 }
 
