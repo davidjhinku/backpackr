@@ -6,6 +6,7 @@ const TripErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_TRIP_ERRORS:
+            debugger
             return action.errors;
         case RECEIVE_A_TRIP:
             return _nullErrors;

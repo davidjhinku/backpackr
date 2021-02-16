@@ -88,12 +88,13 @@ router.get("/:id",
 router.post("/",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
+        // debugger
         const { errors, isValid } = ValidateTripInput(req.body);
-
+        // debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
-
+        // debugger
         const newTrip = new Trip({
             users: [req.user],
             destination: req.body.destination,
