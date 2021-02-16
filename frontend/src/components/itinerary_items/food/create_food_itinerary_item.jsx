@@ -75,7 +75,7 @@ class CreateFlightItineraryItem extends React.Component {
                                     type="text"
                                     value={this.state.itemName}
                                     onChange={this.handleChange('itemName')}
-                                    placeholder='Itinerary Item Name'
+                                    placeholder='Itinerary Item Name*'
                                 />
                                 <br />
                             </div>
@@ -85,7 +85,7 @@ class CreateFlightItineraryItem extends React.Component {
                                     type="text"
                                     value={this.state.category}
                                     onChange={this.handleChange('category')}
-                                    placeholder='Category'
+                                    placeholder='Category*'
                                 />
                                 <br />
                             </div>
@@ -96,7 +96,7 @@ class CreateFlightItineraryItem extends React.Component {
                                 type="text"
                                 value={this.state.address}
                                 onChange={this.handleChange('address')}
-                                placeholder='Address'
+                                placeholder='Address*'
                             />
                             <br/>
                         </div>
@@ -104,7 +104,7 @@ class CreateFlightItineraryItem extends React.Component {
                             type="text"
                             value={this.state.description}
                             onChange={this.handleChange('description')}
-                            placeholder='Description'
+                            placeholder='Description*'
                         />
                         <br/>
                         <div>
@@ -116,7 +116,7 @@ class CreateFlightItineraryItem extends React.Component {
                         </div> */}
 
                         <button className="create-item-submit-btn" onClick={this.handleSubmit}>Create Itinerary Item</button>
-
+                        <div className="asterisk"> *Required Fields</div>
                     </div>
                 </form>
             </div>
