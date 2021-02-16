@@ -4,6 +4,7 @@ import CommentDetails from './comment_details';
 
 const mSTP = (state, ownProps) => {
     return {
+        currentUser: state.session.user
     }
 }
 
