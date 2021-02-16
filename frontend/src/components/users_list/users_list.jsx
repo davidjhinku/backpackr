@@ -62,7 +62,7 @@ class UsersList extends React.Component{
 
 
     render(){
-        debugger
+        // debugger
         let users = Object.values(this.props.newusers)
 
         return(
