@@ -18,11 +18,13 @@ class Itinerary extends React.Component {
         const header = this.props.tabs.map((el, idx) => {
             if (idx === this.state.currentTab) {
                 return <li onClick={this.selectedTab} className={idx} key={idx}>
-                    <h6 className="tabs-container-text">{el.title}</h6>
+                    <div className="current-tab-subcontainer"><h6 className="tabs-container-text">{el.title}</h6></div>
+                    
                     </li>
             } else {
                 return <li onClick={this.selectedTab} className={idx} key={idx}>
-                    <h6 className="tabs-container-text">{el.title}</h6>
+                    <div className="tab-subcontainer"><h6 className="tabs-container-text">{el.title}</h6></div>
+                    
                     </li>
             }
         });
