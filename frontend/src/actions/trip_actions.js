@@ -61,7 +61,9 @@ export const createTrip = data => dispatch => {
 export const updateTrip = data => dispatch => {
     return APIUtil.updateTrip(data)
         .then(trip => dispatch(receiveATrip(trip)))
-        .catch(err => dispatch(receiveErrors(err.response.data)))
+        .catch(err => {
+            debugger
+            return dispatch(receiveErrors(err.response.data))})
 }
 
 export const deleteTrip = tripId => dispatch => {

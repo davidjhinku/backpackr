@@ -53,17 +53,17 @@ class EditTripForm extends React.Component {
         this.props.clearErrors([])
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {Object.keys(this.state.errors).map((error, idx) => (
-    //                 <li className='edit-trip-errors-element' key={`err-${idx}`}>
-    //                     {this.state.errors[error]}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     )
-    // }
+    renderErrors() {
+        return (
+            <ul>
+                {Object.keys(this.state.errors).map((error, idx) => (
+                    <li className='edit-trip-errors-element' key={`err-${idx}`}>
+                        {this.state.errors[error]}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
 
     render() {
         
