@@ -4,9 +4,9 @@ import {fetchATrip, updateTrip, receiveErrors} from '../../actions/trip_actions'
 import EditTripForm from './edit_trip_form'
 
 class EditTrip extends React.Component {
-    componentDidMount(){
-        this.props.fetchATrip(this.props.match.params.tripId)
-    }
+    // componentDidMount(){
+    //     this.props.fetchATrip(this.props.match.params.tripId)
+    // }
 
     render() {
         const props = this.props
@@ -29,7 +29,8 @@ class EditTrip extends React.Component {
 
 const mSTP = (state, ownProps) => {
     return {
-        trip: state.trips.trip[ownProps.match.params.tripId],
+        // trip: state.trips.trip[ownProps.match.params.tripId],
+        trip: state.trips.user[ownProps.match.params.tripId],
         errors: state.errors.trip,
         formType: 'Update your Trip!'
     }

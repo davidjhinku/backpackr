@@ -16,6 +16,5 @@ export const createItineraryItem = (data) => {
 // } 
 
 export const deleteItineraryItem = (itemId) => {
-    debugger
     return axios.delete(`/api/trips/flightItineraryItems/${itemId}`)
 }
