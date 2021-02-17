@@ -27,6 +27,7 @@ class TripPage extends React.Component {
 
                 { title: "Other", content: <ItineraryItem tripId={this.props.tripId} itineraryItems={Object.values(this.props.itineraryItems)} deleteItem={this.props.deleteItem} /> }
             ]
+
             return (
                 <div className='trip-page-container'>
                     <div className='trip-sidebar-container'>

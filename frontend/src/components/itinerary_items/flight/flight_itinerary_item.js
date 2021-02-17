@@ -5,7 +5,6 @@ import CreateFlightItineraryItemContainer from './create_flight_itinerary_contai
 class FlightItineraryItem extends React.Component {
     render() {
         const itemsList = this.props.flightItineraryItems.map((item, idx) => {
-            // debugger
             return <FlightItineraryItemDetails key={`item-${idx}`} item={item} deleteFlightItem={this.props.deleteFlightItem} />
         })
 

@@ -29,7 +29,6 @@ class EditTrip extends React.Component {
 
 const mSTP = (state, ownProps) => {
     return {
-        // trip: state.trips.trip[ownProps.match.params.tripId],
         trip: state.trips.user[ownProps.match.params.tripId],
         errors: state.errors.trip,
         formType: 'Update your Trip!'

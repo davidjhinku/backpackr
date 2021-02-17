@@ -41,7 +41,8 @@ export const fetchComments = () => dispatch => (
 )
 export const fetchComment = commentId => dispatch => (
     CommentAPIUtil.fetchComment(commentId)
-        .then(comment => dispatch(receiveComment(comment)))
+        .then(comment => {
+            return dispatch(receiveComment(comment))})
         .catch(err => dispatch(receiveErrors(err)))
 )
 
@@ -60,7 +61,6 @@ export const updateComment = data => dispatch => {
 }
 
 export const deleteComment = commentId => dispatch => {
-    // debugger
     return CommentAPIUtil.deleteComment(commentId)
         .then(commentId => dispatch(removeComment(commentId)))
 }
