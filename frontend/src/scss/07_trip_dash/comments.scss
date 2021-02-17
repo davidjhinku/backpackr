@@ -67,11 +67,16 @@
 
 //message bubble shape
 
+.comment-list {
+    display: flex;
+    margin-bottom: 10px;
+}
+
 .message-bubble-1{
     background: #ace3e0;
     border-radius: 30px;
     padding:10px;
-    margin-left:259px;
+    margin-left:289px;
 
     width: 270px;
 
@@ -89,7 +94,7 @@
     content: "";
     position: absolute;
     top:100%;
-    left:72%;
+    left:68%;
     border-top: 22px solid #ace3e0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -116,7 +121,7 @@
     content: "";
     position: absolute;
     top:100%;
-    left:14%;
+    left:16%;
     border-top: 22px solid white;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
