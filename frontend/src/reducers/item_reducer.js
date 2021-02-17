@@ -16,6 +16,7 @@ const ItemsReducer = (state = defaultState, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_A_TRIP:
+            debugger
             const brandNewState = {};
             Object.values(action.trip.data)[0].itineraryItems
                 .forEach(ii => { brandNewState[ii._id] = ii });

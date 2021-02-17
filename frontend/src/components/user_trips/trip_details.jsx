@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 class TripDetails extends React.Component {
     render() {
         const trip = this.props.trip
-
+        debugger
         return (
             <li className="trip-card">
                 <div>
