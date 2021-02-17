@@ -24,7 +24,6 @@ class UserTrips extends React.Component {
             </div>
           </div>)
       } else {
-        debugger
         return (
           <div className='users-trip-page'>
             <div className="user-trips-nav-border"></div>

@@ -42,7 +42,6 @@ class CreateTripForm extends React.Component {
 
         this.props.createTrip(trip)
         .then(returnedTrip => {
-            debugger
             if (returnedTrip.type === "RECEIVE_TRIP_ERRORS") return;
             this.props.history.push(`/trips/${returnedTrip.trip.data._id}`);
         });

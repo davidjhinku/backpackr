@@ -14,7 +14,6 @@ class EditTrip extends React.Component {
         if (!props.trip) {
             return null;
         } else {
-            debugger
             return(
                 <EditTripForm trip={props.trip}
                     formType={props.formType}
@@ -29,7 +28,6 @@ class EditTrip extends React.Component {
 
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
         // trip: state.trips.trip[ownProps.match.params.tripId],
         trip: state.trips.user[ownProps.match.params.tripId],

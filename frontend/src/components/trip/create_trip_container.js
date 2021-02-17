@@ -3,7 +3,6 @@ import {createTrip, receiveErrors} from '../../actions/trip_actions'
 import CreateTripForm from './create_trip_form'
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
         errors: state.errors.trip
     }
