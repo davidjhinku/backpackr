@@ -88,13 +88,10 @@ router.get("/:id",
 router.post("/",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
-        // debugger
         const { errors, isValid } = ValidateTripInput(req.body);
-        // debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
-        // debugger
         const newTrip = new Trip({
             users: [req.user],
             destination: req.body.destination,
@@ -115,25 +112,13 @@ router.patch("/:id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         const { errors, isValid } = ValidateTripInput(req.body);
-        debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
 
-        const newTripData = {
-            destination: req.body.destination,
-            tripName: req.body.tripName,
-            comments: req.body.comments,
-            itineraryItems: req.body.itineraryItems,
-            flightItineraryItems: req.body.flightItineraryItems,
-            lodgingItineraryItems: req.body.lodgingItineraryItems,
-            foodItineraryItems: req.body.foodItineraryItems
-        };
-        debugger
-        Trip.findByIdAndUpdate(req.body.id, newTripData, { new: true, upsert: true })
+        Trip.findByIdAndUpdate(req.body._id, req.body, { new: true, upsert: true })
             .then(trip => res.json({ [trip._id]: trip }))
             .catch(err => {
-                debugger
                 return res.status(404).json({ notripfound: "There was a problem updating the route." })
             });
     }
@@ -306,19 +291,17 @@ router.delete("/flightItineraryItems/:id",
                 select: ["flightItineraryItems", "users"]
             })
             .then(flightItineraryItem => {
-                // debugger
                 // Check that the current user is part of the trip that is parent if this itinerary item.
                 if (flightItineraryItem.trip.users.includes(req.user.id)) {
 
                     const trip = flightItineraryItem.trip;
                     trip.flightItineraryItems.pull({ _id: flightItineraryItem.id })
                     trip.save().then(() => {
-                        // debugger
                         flightItineraryItem.remove().then(() => res.json(flightItineraryItem));
                     });
 
                 } else {
-                    // debugger
+
                     return res.status(401).json("Not the owner");
                 }
             });

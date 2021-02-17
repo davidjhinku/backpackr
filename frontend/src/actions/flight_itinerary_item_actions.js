@@ -55,12 +55,9 @@ export const createItineraryItem = data => dispatch => {
 };
 
 export const deleteFlightItem = itemId => dispatch => {
-    // debugger
     return ItemAPIUtil.deleteItineraryItem(itemId)
         .then(item => {
-            // debugger
             return dispatch(removeItem(itemId))})
         .catch(err => {
-            // debugger
             return dispatch(receiveErrors(err))})
 }
