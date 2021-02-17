@@ -21,12 +21,6 @@
   display: none;
 }
 
-.comments-subcontainer-anchor{
-
-    overflow-anchor:bottom;
-    height:1px;
-}
-
 .comments-wrapper { 
     display: flex;
     flex-direction: column-reverse;
@@ -92,13 +86,13 @@
 }
 
 .message-bubble-1:before {
-  content: "";
-  position: absolute;
-  top:100%;
-  left:72%;
-  border-top: 22px solid #ace3e0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+    content: "";
+    position: absolute;
+    top:100%;
+    left:72%;
+    border-top: 22px solid #ace3e0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
 }
 
 .message-bubble-2{
@@ -119,13 +113,13 @@
 }
 
 .message-bubble-2:before {
-  content: "";
-  position: absolute;
-  top:100%;
-  left:14%;
-  border-top: 22px solid white;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+    content: "";
+    position: absolute;
+    top:100%;
+    left:14%;
+    border-top: 22px solid white;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
 }
 
 //comment message text
