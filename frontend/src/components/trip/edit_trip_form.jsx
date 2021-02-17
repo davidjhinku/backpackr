@@ -26,8 +26,8 @@ class EditTripForm extends React.Component {
 
         this.props.updateTrip(this.state)
             .then(returnedTrip => {
-                // this.props.history.push(`/trips/${this.props.match.params.tripId}`);
-                this.props.history.push(`/profile`);
+                this.props.history.push(`/trips/${this.props.match.params.tripId}`);
+                // this.props.history.push(`/profile`);
             });
     }
 
