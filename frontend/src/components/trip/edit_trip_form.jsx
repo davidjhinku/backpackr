@@ -23,8 +23,9 @@ class EditTripForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
         this.props.updateTrip(this.state)
+            .then(returnedTrip => {
+                return this.props.fetchATrip(this.props.trip._id)})
             .then(returnedTrip => {
                 this.props.history.push(`/trips/${this.props.match.params.tripId}`);
                 // this.props.history.push(`/profile`);
@@ -48,62 +49,54 @@ class EditTripForm extends React.Component {
     // }
 
     render() {
+
+
         return (
             <div className='edit-trip-container'>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='edit-trip-subcontainer'>
-                        <div className="edit-trip-form">
-                            <div>
 
-                                <div className='create-trip-header'>
-                                    <h3>Update your Trip!</h3>
-                                </div>
-                                <input className='edit-trip-input-element'
-                                    type="text"
-                                    value={this.state.tripName}
-                                    onChange={this.handleChange('tripName')}
-                                    placeholder='Trip Name'
-                                />
-                                <br />
-                            </div>
-
-                            <div>
-                                <input className='edit-trip-input-element'
-                                    type="text"
-                                    value={this.state.destination}
-                                    onChange={this.handleChange('destination')}
-                                    placeholder='Destination'
-                                />
-                                <br />
-                            </div>
-
-                            <div>
-                                <input className='edit-trip-date-element'
-                                    type="date"
-                                    value={this.state.startDate}
-                                    // value='2020-10-05'
-                                    onChange={this.handleChange('startDate')}
-                                />
-                            </div>
-                            <input className='edit-trip-date-element'
-                                type="date"
-                                value={this.state.endDate}
-                                onChange={this.handleChange('endDate')}
-                            />
-                            <div>
-
-                            </div>
-
-                            {/* <div className="edit-trip-errors">
-                                {this.renderErrors()}
-                            </div> */}
-
-                            <div className="edit-trip-submit-btn">
-                                <input className="edit-trip-submit-text" type="submit" value="Update Trip" />
-                            </div>
-                        </div>
+                <div className="edit-trip-form-container">
+                    <div className='edit-trip-header'>
+                        <h3>Edit your Trip!</h3>
                     </div>
-                </form>
+                    {/* <div className="edit-trip-errors">
+                        {this.renderErrors()}
+                    </div> */}
+
+                    <form onSubmit={this.handleSubmit} className="edit-trip-form">
+                        <div>
+                            <input className='edit-trip-input-element'
+                                type="text"
+                                value={this.state.tripName}
+                                onChange={this.handleChange('tripName')}
+                                placeholder='Trip Name'
+                            />
+                        </div>
+
+                        <div>
+                            <input className='edit-trip-input-element'
+                                type="text"
+                                value={this.state.destination}
+                                onChange={this.handleChange('destination')}
+                                placeholder='Destination'
+                            />
+                        </div>
+
+                        <input className='edit-trip-date-element'
+                            type="date"
+                            value={this.state.startDate}
+                            onChange={this.handleChange('startDate')}
+                        />
+                        <input className='edit-trip-date-element'
+                            type="date"
+                            value={this.state.endDate}
+                            onChange={this.handleChange('endDate')}
+                        />
+
+                        {/* <div className="edit-trip-submit-btn"> */}
+                        <input className="edit-trip-submit-text" type="submit" value="Edit Trip" />
+                        {/* </div> */}
+                    </form>
+                </div>
             </div>
         )
     }

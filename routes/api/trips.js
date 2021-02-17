@@ -117,7 +117,35 @@ router.patch("/:id",
         }
 
         Trip.findByIdAndUpdate(req.body._id, req.body, { new: true, upsert: true })
+            // .then(Trip.findById(req.params.id)
+            //     .populate({
+            //         path: "users",
+            //         model: "User",
+            //         select: ["username", "_id"]
+            //     })
+            //     .populate({
+            //         path: "comments",
+            //         model: "Comment",
+            //         select: ["author", "comment", "date"]
+            //     })
+            //     .populate({
+            //         path: "itineraryItems",
+            //         model: "ItineraryItem"
+            //     })
+            //     .populate({
+            //         path: "flightItineraryItems",
+            //         model: "FlightItineraryItem"
+            //     })
+            //     .populate({
+            //         path: "lodgingItineraryItems",
+            //         model: "LodgingItineraryItem"
+            //     })
+            //     .populate({
+            //         path: "foodItineraryItems",
+            //         model: "FoodItineraryItem"
+            //     }))
             .then(trip => res.json({ [trip._id]: trip }))
+            // .then(trip => res.json({}))
             .catch(err => {
                 return res.status(404).json({ notripfound: "There was a problem updating the route." })
             });

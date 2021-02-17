@@ -12,7 +12,6 @@ class TripPage extends React.Component {
         this.props.fetchATrip(this.props.tripId);
     }
     render() {
-
         if (!this.props.trip) {
             return (
                 <div>Loading Trip...</div>
