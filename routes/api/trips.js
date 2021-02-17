@@ -115,7 +115,7 @@ router.patch("/:id",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
         const { errors, isValid } = ValidateTripInput(req.body);
-
+        debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
@@ -129,10 +129,11 @@ router.patch("/:id",
             lodgingItineraryItems: req.body.lodgingItineraryItems,
             foodItineraryItems: req.body.foodItineraryItems
         };
-
-        Trip.findByIdAndUpdate(req.params.id, newTripData, { new: true, upsert: true })
-            .then(trip => res.json({ [trip.id]: trip }))
+        debugger
+        Trip.findByIdAndUpdate(req.body.id, newTripData, { new: true, upsert: true })
+            .then(trip => res.json({ [trip._id]: trip }))
             .catch(err => {
+                debugger
                 return res.status(404).json({ notripfound: "There was a problem updating the route." })
             });
     }

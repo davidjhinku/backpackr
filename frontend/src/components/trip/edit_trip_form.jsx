@@ -5,21 +5,22 @@ class EditTripForm extends React.Component {
     constructor(props) {
         super(props)
         const trip = this.props.trip
-        this.state = {
-            destination: trip.destination,
-            tripName: trip.tripName,
-            startDate: trip.startDate.slice(0,10),
-            endDate: trip.endDate.slice(0,10),
-            users: trip.users,
-            comments: trip.comments,
-            itineraryItems: trip.itineraryItems,
-            errors: {}
-        }
+        // this.state = {
+        //     destination: trip.destination,
+        //     tripName: trip.tripName,
+        //     startDate: trip.startDate.slice(0,10),
+        //     endDate: trip.endDate.slice(0,10),
+        //     users: trip.users,
+        //     comments: trip.comments,
+        //     itineraryItems: trip.itineraryItems,
+        //     errors: {}
+        // }
+        this.state = this.props.trip
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ errors: nextProps.errors })
+        // this.setState({ errors: nextProps.errors })
     }
 
     handleChange(field) {
@@ -32,18 +33,18 @@ class EditTripForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let trip = {
-            id: this.props.trip._id,
-            destination: this.state.destination,
-            tripName: this.state.tripName,
-            startDate: this.state.startDate,
-            endDate: this.state.endDate,
-            users: this.state.users,
-            comments: this.state.comments,
-            itinerary_item: this.state.itineraryItems,
-        };
+        // let trip = {
+        //     id: this.props.trip._id,
+        //     destination: this.state.destination,
+        //     tripName: this.state.tripName,
+        //     startDate: this.state.startDate,
+        //     endDate: this.state.endDate,
+        //     users: this.state.users,
+        //     comments: this.state.comments,
+        //     itinerary_item: this.state.itineraryItems,
+        // };
 
-        this.props.updateTrip(trip)
+        this.props.updateTrip(this.state)
             .then(returnedTrip => {
                 this.props.history.push(`/trips/${this.props.match.params.tripId}`);
             });
@@ -53,20 +54,20 @@ class EditTripForm extends React.Component {
         this.props.clearErrors([])
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
-                    <li className='edit-trip-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, idx) => (
+    //                 <li className='edit-trip-errors-element' key={`err-${idx}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
     render() {
-        
+        debugger
         return (
             <div className='edit-trip-container'>
                 <form onSubmit={this.handleSubmit}>
