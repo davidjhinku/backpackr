@@ -23,8 +23,9 @@ class EditTripForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
         this.props.updateTrip(this.state)
+            .then(returnedTrip => {
+                return this.props.fetchATrip(this.props.trip._id)})
             .then(returnedTrip => {
                 this.props.history.push(`/trips/${this.props.match.params.tripId}`);
                 // this.props.history.push(`/profile`);

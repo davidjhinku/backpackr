@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 class TripDetails extends React.Component {
     render() {
         const trip = this.props.trip
-
         return (
             <li className="trip-card">
                 <div>
