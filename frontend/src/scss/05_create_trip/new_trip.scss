@@ -73,6 +73,14 @@
     color: $dark;
 }
 
+.create-trip-input-element::placeholder {
+    color: $dark;
+}
+
+.create-trip-input-element:focus::placeholder {
+    color: white;
+}
+
 .create-trip-input-element:focus {
     color: white;
 }
