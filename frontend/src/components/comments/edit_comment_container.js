@@ -17,9 +17,9 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        fetchComment: commentId => dispatch(fetchComment(commentId)),
+        // fetchComment: commentId => dispatch(fetchComment(commentId)),
         updateComment: data => dispatch(updateComment(data)),
-        clearErrors: errors => dispatch(receiveErrors(errors))
+        // clearErrors: errors => dispatch(receiveErrors(errors))
     }
 }
 

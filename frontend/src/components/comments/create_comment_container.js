@@ -18,7 +18,7 @@ const mDTP = dispatch => {
     return {
         
         createComment: data => dispatch(createComment(data)),
-        clearErrors: errors => dispatch(receiveErrors(errors))
+        // clearErrors: errors => dispatch(receiveErrors(errors))
     }
 }
 

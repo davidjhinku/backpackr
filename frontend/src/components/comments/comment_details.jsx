@@ -8,7 +8,7 @@ class CommentDetails extends React.Component{
         }
     }
     componentDidMount(){
-        this.props.fetchComment(this.props.comment.id)
+        // this.props.fetchComment(this.props.comment.id)
         this.setState({mounted: true})
     }
 

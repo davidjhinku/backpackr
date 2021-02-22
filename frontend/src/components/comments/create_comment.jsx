@@ -36,9 +36,9 @@ class CreateComment extends React.Component {
             }));
     }
 
-    componentWillUnmount() {
-        this.props.clearErrors([])
-    }
+    // componentWillUnmount() {
+    //     this.props.clearErrors([])
+    // }
 
     // renderErrors(){
     //     return (

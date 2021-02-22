@@ -8,19 +8,19 @@ class EditComment extends React.Component {
             author: "",
             comment: "",
             date: "",
-            errors: {}
+            // errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ errors: nextProps.errors })
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ errors: nextProps.errors })
+    // }
 
     handleChange(field) {
         return e => {
             this.setState({ [field]: e.target.value });
-            this.props.clearErrors([]);
+            // this.props.clearErrors([]);
         }
     }
 
@@ -40,21 +40,21 @@ class EditComment extends React.Component {
             });
     }
 
-    componentWillUnmount() {
-        this.props.clearErrors([])
-    }
+    // componentWillUnmount() {
+    //     this.props.clearErrors([])
+    // }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, idx) => (
-                    <li className='create-item-errors-element' key={`err-${idx}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, idx) => (
+    //                 <li className='create-item-errors-element' key={`err-${idx}`}>
+    //                     {this.state.errors[error]}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
     render() {
 
@@ -72,9 +72,9 @@ class EditComment extends React.Component {
                             <br />
                         </div>
 
-                        <div className="create-item-errors">
+                        {/* <div className="create-item-errors">
                             {this.renderErrors()}
-                        </div>
+                        </div> */}
 
                         <div className="edit-comment-submit-btn">
                             <input className="edit-comment-submit-text" type="submit" value="Update Comment" />
