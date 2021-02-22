@@ -43,9 +43,9 @@
     letter-spacing: 3px;
 }
 
-.tabs-container li{
+.tabs-container > li{
     list-style-type:none;
-    
+    cursor: pointer; 
     padding: 5px;
     margin-top:20px;
 }
