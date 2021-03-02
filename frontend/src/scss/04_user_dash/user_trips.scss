@@ -145,6 +145,24 @@
         box-shadow: 0 0 3px #222831;
     }
 
+    .edit-trip-past {
+        margin-right: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #fff;
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #999999;
+        padding: 0px 10px;
+        border-radius: 10px;
+        /* text-align: center; */
+        vertical-align: middle;
+        height: 60px;
+        width: 125px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .delete-trip {
         font-size: 14px;
         /* margin: 10px; */
@@ -167,7 +185,7 @@
 .new-trip-btn {
     font-size:24px;
     font-weight:700;
-    color: #8bade2;
+    color: #6b9be7;
     background-color: #fff;
     margin-top: 20px;
     padding: 20px;

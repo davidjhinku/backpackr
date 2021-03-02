@@ -48,9 +48,22 @@ class EditTripForm extends React.Component {
     //     )
     // }
 
+    currDate = () => {
+        const today = new Date()
+        let dd = today.getDate()
+        let mm = today.getMonth() + 1
+        const yyyy = today.getFullYear()
+
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        return `${yyyy}-${mm}-${dd}`
+    }
+
     render() {
-
-
         return (
             <div className='edit-trip-container'>
 
@@ -85,11 +98,13 @@ class EditTripForm extends React.Component {
                             type="date"
                             value={this.state.startDate}
                             onChange={this.handleChange('startDate')}
+                            min={this.currDate()}
                         />
                         <input className='edit-trip-date-element'
                             type="date"
                             value={this.state.endDate}
                             onChange={this.handleChange('endDate')}
+                            min={this.state.startDate.slice(0, 10)}
                         />
 
                         {/* <div className="edit-trip-submit-btn"> */}
