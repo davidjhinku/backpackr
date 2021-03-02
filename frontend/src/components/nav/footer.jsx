@@ -33,7 +33,7 @@ const getItems = () => {
         // Map each link for this person/item
         const links = item.links.map((link, idx2) =>
                 <li key={idx2}>
-                    <a href={link.url}>{link.name}</a>
+                    <a href={link.url} target="_blank">{link.name}</a>
                 </li>
             );
 
