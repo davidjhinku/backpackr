@@ -4,6 +4,13 @@ import {Link} from 'react-router-dom'
 class TripDetails extends React.Component {
     render() {
         const trip = this.props.trip
+        let edit; //To hide the edit button if the trip is in the past
+        if (new Date(trip.startDate.slice(0, 10)) < new Date()) {
+            edit = <div className="edit-trip-past">Bon Voyage</div>
+        } else {
+            edit = <Link className="edit-trip" to={`trips/${trip._id}/edit`} trip={trip}>Edit This Trip</Link>
+        }
+        
         return (
             <li className="trip-card">
                 <div>
@@ -18,7 +25,7 @@ class TripDetails extends React.Component {
                 </div>
 
                 <div className='user-trip-links'>
-                    <Link className="edit-trip" to={`trips/${trip._id}/edit`} trip={trip}>Edit This Trip</Link>
+                    {edit}
                     <button className="delete-trip" onClick={() => this.props.deleteTrip(trip._id)}>Delete This Trip</button>
                 </div>
             </li>

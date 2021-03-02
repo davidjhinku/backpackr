@@ -64,7 +64,6 @@ class EditTripForm extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className='edit-trip-container'>
 

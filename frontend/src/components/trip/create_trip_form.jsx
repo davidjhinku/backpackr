@@ -79,7 +79,6 @@ class CreateTripForm extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className='create-trip-container'>
 
