@@ -3,9 +3,6 @@ import TripDetails from './trip_details'
 import {Link} from 'react-router-dom'
 
 class UserTrips extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     
     componentWillMount() {
         console.log(this.props.currentUser.id)

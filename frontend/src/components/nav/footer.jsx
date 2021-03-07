@@ -1,10 +1,10 @@
 import React from 'react';
 
-import david from "./footer_items/david";
-import audrey from "./footer_items/audrey";
-import henry from "./footer_items/henry";
-import jose from "./footer_items/jose";
-import backpackr from "./footer_items/backpackr";
+import { david }from "./footer_items/david";
+import { audrey } from "./footer_items/audrey";
+import { henry } from "./footer_items/henry";
+import { jose } from "./footer_items/jose";
+import { backpackr } from "./footer_items/backpackr";
 
 const Footer = (props) => {
     return (
@@ -33,7 +33,7 @@ const getItems = () => {
         // Map each link for this person/item
         const links = item.links.map((link, idx2) =>
                 <li key={idx2}>
-                    <a href={link.url} target="_blank">{link.name}</a>
+                <a href={link.url} target="_blank" rel="noreferrer" >{link.name}</a>
                 </li>
             );
 

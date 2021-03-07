@@ -6,6 +6,8 @@ import FlightItineraryItem from '../itinerary_items/flight/flight_itinerary_item
 import LodgingItineraryItem from '../itinerary_items/lodging/lodging_itinerary_item';
 import ItineraryItem from '../itinerary_items/other/itinerary_item';
 import FoodItineraryItem from '../itinerary_items/food/food_itinerary_item';
+// import Map from '../map/map'
+import Map from '../map/map';
 
 class TripPage extends React.Component {
     componentDidMount() {
@@ -28,28 +30,34 @@ class TripPage extends React.Component {
             ]
 
             return (
-                <div className='trip-page-container'>
-                    <div className='trip-sidebar-container'>
-                        <div className="trip-sidebar-container-elements">
-                        {/* <UsersListContainer users={this.props.trip.users} tripId={this.props.tripId} /> */}
-                        <UsersListContainer users={this.props.trip.users} newusers={this.props.users} tripId={this.props.tripId} />
+                <div className="trip-page-container">
+                    <div className='trip-page-subcontainer'>
+                        <div className='trip-sidebar-container'>
+                            <div className="trip-sidebar-container-elements">
+                            {/* <UsersListContainer users={this.props.trip.users} tripId={this.props.tripId} /> */}
+                            <UsersListContainer users={this.props.trip.users} newusers={this.props.users} tripId={this.props.tripId} />
+                            </div>
+                        </div>
+                        <div className='trip-chat-container'>
+                            <CommentsContainer tripId={this.props.trip._id} comments={Object.values(this.props.comments)} />
+                        </div>
+                        <div className="trip-items-container">
+                            <header className="trip-items-header">
+                                <h1>Next stop, {this.props.trip.destination}!</h1>
+                                <br />
+                            </header>
+
+                            <div className='trip-items-subcontainer'>
+                                <ItineraryContainer tripId={this.props.tripId} tabs={tabArr}/>
+                            </div>
+                        </div>
+
+                        <div className="filler-queen">
                         </div>
                     </div>
-                    <div className='trip-chat-container'>
-                        <CommentsContainer tripId={this.props.trip._id} comments={Object.values(this.props.comments)} />
-                    </div>
-                    <div className="trip-items-container">
-                        <header className="trip-items-header">
-                            <h1>Next stop, {this.props.trip.destination}!</h1>
-                            <br />
-                        </header>
-
-                        <div className='trip-items-subcontainer'>
-                            <ItineraryContainer tripId={this.props.tripId} tabs={tabArr}/>
-                        </div>
-                    </div>
-
-                    <div className="filler-queen">
+                
+                    <div className='map-container'>
+                        <Map />
                     </div>
                 </div>
             )

@@ -1,4 +1,4 @@
-export default {
+export const backpackr ={
     name: "Backpackr",
     links: [
         { name: "Source Code", url: "https://github.com/davidjhinku/backpackr" },
