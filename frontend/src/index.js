@@ -6,10 +6,10 @@ import Root from './components/root';
 import configureStore from './store/store';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-
 import "./scss/application.scss";
 
 document.addEventListener('DOMContentLoaded', () => {
+
   let store;
   // Check if there is a session token already stored.
   if (localStorage.jwtToken) {

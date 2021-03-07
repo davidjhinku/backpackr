@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import {
-    createComment,
-    receiveErrors
+    createComment
 }
     from '../../actions/comment_actions';
 import CreateComment from './create_comment';
@@ -16,9 +15,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        
-        createComment: data => dispatch(createComment(data)),
-        // clearErrors: errors => dispatch(receiveErrors(errors))
+        createComment: data => dispatch(createComment(data))
     }
 }
 

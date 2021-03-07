@@ -1,4 +1,4 @@
-export default {
+export const henry = {
     name: "Henry Huang",
     links: [
         { name: "Personal Page", url: "https://henryzihaohuang.github.io/" },

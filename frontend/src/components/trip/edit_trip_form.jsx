@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom'
 class EditTripForm extends React.Component {
     constructor(props) {
         super(props)
-        const trip = this.props.trip
         this.state = this.props.trip
         this.handleSubmit = this.handleSubmit.bind(this)
     }
