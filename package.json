@@ -4,7 +4,7 @@
   "description": "A travel planner built with the MERN stack",
   "main": "app.js",
   "scripts": {
-    "start": " node app.js",
+    "start": "export NODE_ENV=development && node app.js",
     "server": "nodemon app.js",
     "server:debug": "nodemon --inspect app.js",
     "frontend-install": "npm install --prefix frontend",

@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import AutoComplete from './autocomplete';
 import Marker from './marker';
+const MAPS_API_KEY = 'AIzaSyA4kTGJyLh0WQLKHods5TGVPmVB_GaVoSs';
 
 class Map extends React.Component {
     constructor(props){
@@ -134,7 +135,7 @@ class Map extends React.Component {
                 {searchbar}
                 <GoogleMapReact
                     bootstrapURLKeys={{
-                        key: 'AIzaSyA4kTGJyLh0WQLKHods5TGVPmVB_GaVoSs',
+                        key: MAPS_API_KEY,
                         libraries: ['places', 'geometry'],
                     }}
                     onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
